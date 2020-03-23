@@ -1,2 +1,2 @@
-# amazing-system
+# Amazing System
 This is an amazing system.
