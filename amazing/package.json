@@ -1,0 +1,43 @@
+{
+  "name": "amazing",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "bootstrap": "^4.4.1",
+    "node-sass": "^4.13.1",
+    "prettier": "^2.0.1",
+    "react": "^16.13.0",
+    "react-bootstrap": "^1.0.0-beta.17",
+    "react-dom": "^16.13.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "install:clean": "rm -rf node_modules/ && rm -rf yarn.lock && yarn install && yarn start",
+    "compile-sass": "node-sass src/assets/sass/amazing.scss src/assets/css/amazing.css",
+    "minify-sass": "node-sass src/assets/sass/amazing.scss src/assets/css/amazing.min.css --output-style compressed",
+    "map-sass": "node-sass src/assets/sass/amazings.scss src/assets/css/amazing.css --source-map true"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
