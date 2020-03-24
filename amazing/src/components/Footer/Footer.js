@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from "react-bootstrap";
+import { Container } from 'react-bootstrap';
 
 const Footer = () => {
 	return (
@@ -22,9 +22,11 @@ const Footer = () => {
 					</ul>
 				</nav>
 				<p className="copyright pull-right">
-					&copy; {new Date().getFullYear()}{' '}
-					<a href="http://www.creative-tim.com?ref=lbr-footer">Creative Tim</a>, made with love for a better
-					web
+					&copy; {1900 + new Date().getYear()}{' '}
+					<a href="https://www.creative-tim.com?ref=lbdpr-footer" target="_blank" rel="noopener noreferrer">
+						Creative Tim
+					</a>
+					, made with <i className="fa fa-heart heart" /> for a better web
 				</p>
 			</Container>
 		</footer>

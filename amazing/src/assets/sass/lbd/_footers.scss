@@ -1,6 +1,7 @@
 .footer{    
     background-color: $white-color;
     line-height: $line-height;
+    display: flex;
     
     nav > ul{
         list-style: none;

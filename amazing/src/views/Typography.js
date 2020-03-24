@@ -54,13 +54,16 @@ const Typography = () => {
 									</div>
 									<div className="typo-line">
 										<p className="category">Quote</p>
-										<blockquote>
+										<blockquote className="blockquote">
 											<p>
+												{' '}
 												Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
 												nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-												volutpat. Ut wisi enim ad minim veniam.
+												volutpat. Ut wisi enim ad minim veniam.{' '}
 											</p>
-											<small>Steve Jobs, CEO Apple</small>
+											<footer className="blockquote-footer">
+												<small>Steve Jobs, CEO Apple</small>
+											</footer>
 										</blockquote>
 									</div>
 

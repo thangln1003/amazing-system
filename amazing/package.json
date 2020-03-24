@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "yarn run compile-sass && react-scripts start",
-    "build": "yarn run compile-sass && react-scripts build",
+    "build": "yarn run minify-sass && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "install:clean": "rm -rf node_modules/ && rm -rf yarn.lock && yarn install && yarn start",
