@@ -15,6 +15,9 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0"
   },
+  "resolutions": {
+		"acorn": "^7.1.1"
+	},
   "scripts": {
     "start": "yarn run compile-sass && react-scripts start",
     "build": "yarn run minify-sass && react-scripts build",
