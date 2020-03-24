@@ -10,6 +10,7 @@
     border: $none;
     font-size: $font-size-navbar;
     border-radius: 0;
+    padding: 0;
   
     .navbar-minimize {
       float: left;
@@ -22,21 +23,25 @@
       padding: $navbar-padding-brand;
       font-size: $font-size-large-navbar;
       text-transform: capitalize;
+      height: 50px;
+      line-height: 20px;
     }
     .navbar-nav {
-      > li > a {
+      > .nav-item > a,
+      > a {
         padding: $navbar-padding-a;
         margin: $navbar-margin-a;
         position: relative;
       }
-      > li > a.btn {
+      > a.btn {
         margin: $navbar-margin-a-btn;
         padding: $padding-base-vertical $padding-base-horizontal;
       }
-      > li > a.btn-round {
+      > a.btn-round {
         margin: $navbar-margin-a-btn-round;
       }
-      > li > a [class^="fa"] {
+      > .nav-item > a [class^="fa"],
+      > a [class^="fa"] {
         font-size: $font-size-medium;
         position: relative;
         line-height: 16px;
@@ -62,6 +67,12 @@
         line-height: 18px;
         top: 2px;
         left: 7px;
+      }
+
+      .nav-item {
+        &.dropdown {
+          display: flex;
+        }
       }
     }
     .btn {
@@ -96,7 +107,7 @@
     z-index: 1031;
   }
   
-  .navbar-nav > li > .dropdown-menu {
+  .navbar-nav > .nav-item > .dropdown-menu {
     border-radius: $border-radius-extreme;
     margin-top: -5px;
   }
@@ -115,14 +126,17 @@
     }
   
     .navbar-nav {
-      > li > a:not(.btn) {
+      > .nav-item > a:not(.btn),
+      > a:not(.btn) {
         color: $white-color;
         border-color: $white-color;
         @include opacity(0.8);
       }
-      > .active > a:not(.btn),
-      > .active > a:hover:not(.btn),
-      > .active > a:focus:not(.btn),
+      > a.active,
+      > a.active:not(.btn):hover,
+      > a.active:not(.btn):focus,
+      > .nav-item > a:not(.btn):hover,
+      > .nav-item > a:not(.btn):focus,
       > li > a:hover:not(.btn),
       > li > a:focus:not(.btn) {
         background-color: transparent;
@@ -184,15 +198,18 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   
     .navbar-nav {
-      > li > a:not(.btn) {
+      > .nav-item > a:not(.btn),
+      > a:not(.btn) {
         color: $dark-gray;
       }
   
-      > .active > a,
-      > .active > a:not(.btn):hover,
-      > .active > a:not(.btn):focus,
-      > li > a:not(.btn):hover,
-      > li > a:not(.btn):focus {
+      > a.active,
+      > a.active:not(.btn):hover,
+      > a.active:not(.btn):focus,
+      > .nav-item > a:not(.btn):hover,
+      > .nav-item > a:not(.btn):focus,
+      > a:not(.btn):hover,
+      > a:not(.btn):focus {
         background-color: transparent;
         border-radius: 3px;
         color: $info-color;
