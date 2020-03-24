@@ -73,7 +73,7 @@ h6, .h6 {
   text-transform: uppercase; }
 
 p {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.5; }
 
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
@@ -1320,13 +1320,16 @@ body > .navbar-collapse[data-color="purple"]:after {
 
 .navbar {
   border: 0;
-  font-size: 16px;
-  border-radius: 0; }
+  font-size: 14px;
+  border-radius: 0;
+  padding: 0; }
   .navbar .navbar-brand {
     font-weight: 400;
     margin: 5px 0px;
     padding: 15px 15px;
-    font-size: 20px; }
+    font-size: 20px;
+    height: 50px;
+    line-height: 20px; }
   .navbar .navbar-nav > a, .navbar .navbar-nav > .nav-item > a {
     padding: 10px 15px;
     margin: 10px 3px;
@@ -1412,13 +1415,14 @@ body > .navbar-collapse[data-color="purple"]:after {
 .navbar-default {
   background-color: rgba(255, 255, 255, 0.96);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
-  .navbar-default .navbar-nav > .nav-item > a:not(.btn) {
+  .navbar-default .navbar-nav > .nav-item > a:not(.btn),
+  .navbar-default .navbar-nav > a:not(.btn) {
     color: #9A9A9A; }
-  .navbar-default .navbar-nav > .active > a,
-  .navbar-default .navbar-nav > .active > a:not(.btn):hover,
-  .navbar-default .navbar-nav > .active > a:not(.btn):focus,
-  .navbar-default .navbar-nav > .nav-item > a:not(.btn):hover,
-  .navbar-default .navbar-nav > .nav-item > a:not(.btn):focus {
+  .navbar-default .navbar-nav > a.nav-link.active,
+  .navbar-default .navbar-nav > a.nav-link.active:not(.btn):hover,
+  .navbar-default .navbar-nav > a.nav-link.active:not(.btn):focus,
+  .navbar-default .navbar-nav > a:not(.btn):hover,
+  .navbar-default .navbar-nav > a:not(.btn):focus {
     background-color: transparent;
     border-radius: 3px;
     color: #1DC7EA;
@@ -1469,7 +1473,7 @@ body > .navbar-collapse[data-color="purple"]:after {
     padding: 0;
     background-color: transparent;
     height: 22px;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.5;
     color: #E3E3E3; }
   .navbar-transparent .navbar-form .form-control,
@@ -1571,6 +1575,7 @@ body > .navbar-collapse[data-color="purple"]:after {
   display: block;
   z-index: 9000;
   position: absolute;
+  font-size: 14px;
   opacity: 0;
   filter: alpha(opacity=0);
   -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.125);
@@ -1716,7 +1721,7 @@ body > .navbar-collapse[data-color="purple"]:after {
     margin-bottom: 0px; }
     .card .category i,
     .card label i {
-      font-size: 16px; }
+      font-size: 14px; }
   .card label {
     font-size: 12px;
     margin-bottom: 5px;

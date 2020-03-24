@@ -6,6 +6,7 @@
     display: block;
     z-index: 9000;
     position: absolute;
+    font-size: 14px;
     
     @include opacity(0); 
     @include box-shadow($dropdown-shadow);

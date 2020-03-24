@@ -10,12 +10,15 @@
     border: $none;
     font-size: $font-size-navbar;
     border-radius: 0;
+    padding: 0;
     
     .navbar-brand {
         font-weight: $font-weight-normal;
         margin: $navbar-margin-brand;
         padding: $navbar-padding-brand;
         font-size: $font-size-large-navbar;
+        height: 50px;
+        line-height: 20px;
     }
     .navbar-nav{
         > a, > .nav-item > a {
@@ -124,15 +127,16 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   
     .navbar-nav{
-        > .nav-item > a:not(.btn){
+        > .nav-item > a:not(.btn),
+        > a:not(.btn){
             color: $dark-gray;
         }
         
-        > .active > a, 
-        > .active > a:not(.btn):hover, 
-        > .active > a:not(.btn):focus, 
-        > .nav-item > a:not(.btn):hover, 
-        > .nav-item > a:not(.btn):focus {
+        > a.nav-link.active, 
+        > a.nav-link.active:not(.btn):hover, 
+        > a.nav-link.active:not(.btn):focus, 
+        > a:not(.btn):hover, 
+        > a:not(.btn):focus {
             background-color: transparent;
             border-radius: 3px;
             color: $info-color;
