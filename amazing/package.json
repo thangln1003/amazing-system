@@ -16,8 +16,8 @@
     "react-scripts": "3.4.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "yarn run compile-sass && react-scripts start",
+    "build": "yarn run compile-sass && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "install:clean": "rm -rf node_modules/ && rm -rf yarn.lock && yarn install && yarn start",
