@@ -15,6 +15,7 @@ const NavbarLinks = () => {
     <>
       <Nav className="justify-content-start">
         <Nav.Link href="dashboard">Dashboard</Nav.Link>
+        <Nav.Link href="carrental">Car Rental Contact Mgnt</Nav.Link>
         <Nav.Link href="typography">Typography</Nav.Link>
         <NavDropdown alignRight title="Dropdown" id="basic-nav-dropdown1">
           <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

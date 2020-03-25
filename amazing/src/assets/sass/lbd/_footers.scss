@@ -2,6 +2,8 @@
     background-color: $white-color;
     line-height: $line-height;
     display: flex;
+    position: absolute;
+    width: 100%;
     
     nav > ul{
         list-style: none;

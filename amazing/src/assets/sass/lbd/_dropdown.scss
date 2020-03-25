@@ -149,7 +149,7 @@
   }
 
   + .dropdown-menu {
-    > a {
+    > a:has(i) {
       padding-left: 0px;
       line-height: 28px;
     }
