@@ -7,7 +7,6 @@ const CarRentalContactPage = () => {
   });
 
   return (
-    <div className="main-content">
       <Container fluid>
         <Breadcrumb>
           <Breadcrumb.Item href="#">Breadcrumb 1</Breadcrumb.Item>
@@ -67,8 +66,16 @@ const CarRentalContactPage = () => {
             </Card>
           </Col>
         </Row>
+        <Row>
+          <Col md={12}>
+            <Card>
+              <Card.Body>
+                <div>Another Div</div>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
       </Container>
-    </div>
   );
 };
 

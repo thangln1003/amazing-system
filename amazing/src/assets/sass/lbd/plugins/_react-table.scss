@@ -1,0 +1,55 @@
+.ReactTable {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: transparent;
+}
+
+.ReactTable {
+  &-info {
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+
+    &--header {
+      display: flex;
+      flex-direction: row;
+      font-size: $font-size-base;
+      font-weight: $font-weight-bold;
+      align-items: center;
+
+      select {
+        width: 60px;
+        margin: 0 4px;
+      }
+    }
+  }
+
+  > .table {
+    margin-bottom: 8px;
+
+    > thead > tr > th, 
+    > tbody > tr > th, 
+    > tfoot > tr > th, 
+    > thead > tr > td, 
+    > tbody > tr > td, 
+    > tfoot > tr > td {
+      padding: 8px;
+    }
+  }
+
+  .pagination {
+    justify-content: flex-end;
+    margin-bottom: 8px;
+    > input {
+      border-radius: 0;
+      text-align: center;
+      width: 70px;
+      margin-left: -2px;
+    }
+  }
+}

@@ -7,17 +7,20 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.4.1",
+    "namor": "^2.0.2",
     "node-sass": "^4.13.1",
     "prettier": "^2.0.1",
     "react": "^16.13.0",
     "react-bootstrap": "^1.0.0-beta.17",
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "react-select": "^3.1.0",
+    "react-table": "^7.0.0"
   },
   "resolutions": {
-		"acorn": "^7.1.1"
-	},
+    "acorn": "^7.1.1"
+  },
   "scripts": {
     "start": "yarn run compile-sass && react-scripts start",
     "build": "yarn run minify-sass && react-scripts build",

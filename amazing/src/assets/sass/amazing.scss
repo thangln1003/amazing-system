@@ -1,22 +1,26 @@
-@import "lbd/variables";
-@import "lbd/mixins";
+@import 'lbd/variables';
+@import 'lbd/mixins';
+
+// Plugins css
+@import 'lbd/plugins/react-select';
+@import 'lbd/plugins/react-table';
 
 // Core CSS
-@import "lbd/typography";
-@import "lbd/misc";
-@import "lbd/sidebar-and-main-panel";
-@import "lbd/buttons";
-@import "lbd/inputs";
-@import "lbd/forms";
-@import "lbd/alerts";
-@import "lbd/tables";
+@import 'lbd/typography';
+@import 'lbd/misc';
+@import 'lbd/sidebar-and-main-panel';
+@import 'lbd/buttons';
+@import 'lbd/inputs';
+@import 'lbd/forms';
+@import 'lbd/alerts';
+@import 'lbd/tables';
 
-@import "lbd/checkbox-radio-switch";
-@import "lbd/navbars";
-@import "lbd/footers";
+@import 'lbd/checkbox-radio-switch';
+@import 'lbd/navbars';
+@import 'lbd/footers';
 
 // Fancy Stuff
-@import "lbd/dropdown";
-@import "lbd/cards";
-@import "lbd/chartist";
-@import "lbd/responsive";
+@import 'lbd/dropdown';
+@import 'lbd/cards';
+@import 'lbd/chartist';
+@import 'lbd/responsive';

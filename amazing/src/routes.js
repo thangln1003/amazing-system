@@ -1,5 +1,6 @@
 import Dashboard from './views/Dashboard';
 import Typography from './views/Typography';
+import ReactTablePage from 'views/Pages/ReactTablePage';
 import CarRentalContactPage from './views/Pages/CarRentalContactPage';
 
 const routes = [
@@ -15,6 +16,13 @@ const routes = [
 		name: 'Typography',
 		icon: 'pe-7s-news-paper',
 		component: Typography,
+		layout: '/admin',
+	},
+	{
+		path: '/react-table',
+		name: 'React Table',
+		icon: 'pe-7s-news-paper',
+		component: ReactTablePage,
 		layout: '/admin',
 	},
 	{
