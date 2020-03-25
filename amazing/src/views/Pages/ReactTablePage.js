@@ -1,6 +1,7 @@
 import React, { userMemo } from 'react';
 import ReactTable from '../../components/Table/ReactTable';
 import makeData from '../../components/Table/makeData';
+import { Card } from 'react-bootstrap';
 
 const ReactTablePage = () => {
   const columns = React.useMemo(
@@ -45,7 +46,13 @@ const ReactTablePage = () => {
 
   const data = React.useMemo(() => makeData(30000), []);
 
-  return <ReactTable columns={columns} data={data} />;
+  return (
+    <Card>
+      <Card.Body>
+        <ReactTable columns={columns} data={data} />
+      </Card.Body>
+    </Card>
+  );
 };
 
 export default ReactTablePage;

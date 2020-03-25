@@ -29,27 +29,55 @@
     }
   }
 
-  > .table {
-    margin-bottom: 8px;
+  .table-responsive {
+    margin-bottom: 0;
+  }
 
-    > thead > tr > th, 
-    > tbody > tr > th, 
-    > tfoot > tr > th, 
-    > thead > tr > td, 
-    > tbody > tr > td, 
+  > .table-responsive > .table,
+  > .table {
+    margin-bottom: 8px !important;
+
+    > thead > tr > th,
+    > tbody > tr > th,
+    > tfoot > tr > th,
+    > thead > tr > td,
+    > tbody > tr > td,
     > tfoot > tr > td {
       padding: 8px;
     }
   }
 
   .pagination {
-    justify-content: flex-end;
-    margin-bottom: 8px;
+    justify-content: center;
+    margin: 8px 0;
+
     > input {
       border-radius: 0;
       text-align: center;
       width: 70px;
       margin-left: -2px;
+    }
+  }
+
+  @media (min-width: $screen-xs-max) {
+    .pagination {
+      justify-content: flex-end;
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+  }
+
+  @media (min-width: $screen-md-min) {
+    .pagination {
+      justify-content: flex-end;
+      margin-bottom: 8px;
+    }
+  }
+
+  @media (min-width: $screen-md-max) {
+    .pagination {
+      justify-content: flex-end;
+      margin-bottom: 8px;
     }
   }
 }

@@ -38,7 +38,7 @@ const ReactTable = ({ columns, data }) => {
   return (
     <div className="ReactTable">
       <Row>
-        <Col md={4}>
+        <Col md={5}>
           <div className="ReactTable-info--header">
             Show{' '}
             <select
@@ -57,7 +57,7 @@ const ReactTable = ({ columns, data }) => {
             entries <em>(in {totalCount} entries)</em>
           </div>
         </Col>
-        <Col md={{ span: 4, offset: 4 }}>
+        <Col md={{ span: 4, offset: 3 }}>
           <Pagination>
             <Pagination.First onClick={() => gotoPage(0)} disabled={pageIndex === 0} />
             <Pagination.Prev onClick={() => previousPage()} disabled={!canPreviousPage} />
@@ -75,7 +75,7 @@ const ReactTable = ({ columns, data }) => {
           </Pagination>
         </Col>
       </Row>
-      <Table striped bordered hover size="sm" {...getTableProps()}>
+      <Table striped bordered hover responsive size="sm" {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
@@ -99,13 +99,13 @@ const ReactTable = ({ columns, data }) => {
         </tbody>
       </Table>
       <Row>
-        <Col md={4}>
+        <Col md={5}>
           <div className="ReactTable-info">
             Showing {pageSize * pageIndex + 1} to{' '}
             {pageIndex === pageCount - 1 ? totalCount : pageSize * (pageIndex + 1)} of {totalCount} entries
           </div>
         </Col>
-        <Col md={{ span: 4, offset: 4 }}>
+        <Col md={{ span: 4, offset: 3 }}>
           <Pagination>
             <Pagination.First onClick={() => gotoPage(0)} disabled={pageIndex === 0} />
             <Pagination.Prev onClick={() => previousPage()} disabled={!canPreviousPage} />
