@@ -302,14 +302,22 @@ This file was modified entirely by Creative Tim for React-Select v2.0.0
   .ReactTable > .table > tfoot > tr > td {
     padding: 8px; }
 
+.ReactTable .react-table-column-flex-grow-1 {
+  flex-grow: 1 !important;
+  width: unset !important;
+  flex-basis: 5px !important;
+  max-width: none !important; }
+
 .ReactTable .pagination {
   justify-content: center;
   margin: 8px 0; }
-  .ReactTable .pagination > input {
+  .ReactTable .pagination > .page-item > input {
     border-radius: 0;
     text-align: center;
     width: 70px;
     margin-left: -2px; }
+  .ReactTable .pagination .page-link {
+    font-size: 16px; }
 
 @media (min-width: 767px) {
   .ReactTable .pagination {
@@ -348,6 +356,9 @@ button.close {
   -webkit-font-smoothing: antialiased;
   font-family: "Roboto","Helvetica Neue",Arial,sans-serif;
   font-weight: 400; }
+
+body {
+  font-size: 14px; }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   font-weight: 300;
@@ -976,6 +987,10 @@ legend {
 
 .sidebar-mini .visible-on-sidebar-mini {
   display: inline-block !important; }
+
+@media (min-width: 767px) {
+  .main-panel .main-content {
+    padding-top: 0; } }
 
 @media (min-width: 992px) {
   .sidebar-mini .sidebar,
@@ -1629,6 +1644,16 @@ form label.radio, form label.checkbox {
     opacity: 1;
     filter: alpha(opacity=100); }
 
+.breadcrumb {
+  padding: 8px 15px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border-radius: 4px; }
+
+@media (min-width: 767px) {
+  .breadcrumb {
+    margin-bottom: 0; } }
+
 /*      Checkbox and radio         */
 .checkbox,
 .radio {
@@ -1979,6 +2004,8 @@ form label.radio, form label.checkbox {
     text-transform: capitalize;
     height: 50px;
     line-height: 20px; }
+  .navbar .navbar-toggler {
+    margin-right: 15px; }
   .navbar .navbar-nav > .nav-item > a,
   .navbar .navbar-nav > a {
     padding: 10px 15px;

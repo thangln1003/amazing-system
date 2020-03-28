@@ -1,9 +1,15 @@
 import React from 'react';
 import { Table, Pagination, Row, Col } from 'react-bootstrap';
 import { useTable, useGroupBy, useFilters, useSortBy, useExpanded, usePagination } from 'react-table';
-import Select from 'react-select';
 
-const ReactTable = ({ columns, data }) => {
+const ReactTable = ({ columns, data, initialState }) => {
+  const defaultColumn = React.useMemo(
+    () => ({
+      width: Math.round(window.innerWidth * 0.1),
+    }),
+    []
+  );
+
   // Use the state and functions returned from useTable to build your UI
   const {
     getTableProps,
@@ -27,8 +33,12 @@ const ReactTable = ({ columns, data }) => {
     {
       columns,
       data,
-      initialState: { pageIndex: 0, pageSize: 10 },
+      defaultColumn,
+      initialState: { pageIndex: 0, pageSize: 10, ...initialState },
+      disableSortRemove: true,
     },
+    // useBlockLayout,
+    useSortBy,
     usePagination
   );
 
@@ -61,15 +71,17 @@ const ReactTable = ({ columns, data }) => {
           <Pagination>
             <Pagination.First onClick={() => gotoPage(0)} disabled={pageIndex === 0} />
             <Pagination.Prev onClick={() => previousPage()} disabled={!canPreviousPage} />
-            <input
-              className="form-control form-control-sm"
-              type="number"
-              value={pageIndex + 1 || 1}
-              onChange={(e) => {
-                const page = e.target.value ? Number(e.target.value) - 1 : 0;
-                gotoPage(page);
-              }}
-            />
+            <li className="page-item">
+              <input
+                className="form-control form-control-sm"
+                type="number"
+                value={pageIndex + 1 || 1}
+                onChange={(e) => {
+                  const page = e.target.value ? Number(e.target.value) - 1 : 0;
+                  gotoPage(page);
+                }}
+              />
+            </li>
             <Pagination.Next onClick={() => nextPage()} disabled={!canNextPage} />
             <Pagination.Last onClick={() => gotoPage(pageCount - 1)} disabled={pageIndex === pageCount - 1} />
           </Pagination>
@@ -78,9 +90,28 @@ const ReactTable = ({ columns, data }) => {
       <Table striped bordered hover responsive size="sm" {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
+            <tr {...headerGroup.getHeaderGroupProps({ className: 'react-table-row' })}>
               {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                <th
+                  {...column.getHeaderProps({
+                    className: `react-table-column-flex-grow-${column.flexGrow ?? 1}`,
+                    ...column.getSortByToggleProps(),
+                  })}
+                >
+                  {column.render('Header')}
+                  {/* Add a sort direction indicator */}
+                  <span
+                    className={
+                      column.disableSortBy
+                        ? ''
+                        : column.isSorted
+                        ? column.isSortedDesc
+                          ? 'fa fa-sort-desc'
+                          : 'fa fa-sort-asc'
+                        : 'fa fa-sort'
+                    }
+                  ></span>
+                </th>
               ))}
             </tr>
           ))}
@@ -89,9 +120,17 @@ const ReactTable = ({ columns, data }) => {
           {page.map((row, i) => {
             prepareRow(row);
             return (
-              <tr {...row.getRowProps()}>
+              <tr {...row.getRowProps({ className: 'react-table-row' })}>
                 {row.cells.map((cell) => {
-                  return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
+                  return (
+                    <td
+                      {...cell.getCellProps({
+                        className: `react-table-column-flex-grow-${cell.column.flexGrow ?? 1}`,
+                      })}
+                    >
+                      {cell.render('Cell')}
+                    </td>
+                  );
                 })}
               </tr>
             );
@@ -109,15 +148,17 @@ const ReactTable = ({ columns, data }) => {
           <Pagination>
             <Pagination.First onClick={() => gotoPage(0)} disabled={pageIndex === 0} />
             <Pagination.Prev onClick={() => previousPage()} disabled={!canPreviousPage} />
-            <input
-              className="form-control form-control-sm"
-              type="number"
-              value={pageIndex + 1 || 1}
-              onChange={(e) => {
-                const page = e.target.value ? Number(e.target.value) - 1 : 0;
-                gotoPage(page);
-              }}
-            />
+            <li className="page-item">
+              <input
+                className="form-control form-control-sm"
+                type="number"
+                value={pageIndex + 1 || 1}
+                onChange={(e) => {
+                  const page = e.target.value ? Number(e.target.value) - 1 : 0;
+                  gotoPage(page);
+                }}
+              />
+            </li>
             <Pagination.Next onClick={() => nextPage()} disabled={!canNextPage} />
             <Pagination.Last onClick={() => gotoPage(pageCount - 1)} disabled={pageIndex === pageCount - 1} />
           </Pagination>

@@ -7,49 +7,49 @@ const ReactTablePage = () => {
   const columns = React.useMemo(
     () => [
       {
-        Header: 'Name',
-        columns: [
-          {
-            Header: 'First Name',
-            accessor: 'firstName',
-          },
-          {
-            Header: 'Last Name',
-            accessor: 'lastName',
-          },
-        ],
+        Header: 'First Name',
+        accessor: 'firstName',
+        flexGrow: 4
       },
       {
-        Header: 'Info',
-        columns: [
-          {
-            Header: 'Age',
-            accessor: 'age',
-          },
-          {
-            Header: 'Visits',
-            accessor: 'visits',
-          },
-          {
-            Header: 'Status',
-            accessor: 'status',
-          },
-          {
-            Header: 'Profile Progress',
-            accessor: 'progress',
-          },
-        ],
+        Header: 'Last Name',
+        accessor: 'lastName',
+        flexGrow: 4
+      },
+      {
+        Header: 'Age',
+        accessor: 'age'
+      },
+      {
+        Header: 'Visits',
+        accessor: 'visits'
+      },
+      {
+        Header: 'Status',
+        accessor: 'status',
+        flexGrow: 2
+      },
+      {
+        Header: 'Profile Progress',
+        accessor: 'progress',
+        disableSortBy: true,
+        flexGrow: 2
+      },
+      {
+        Header: 'Actionss',
+        disableSortBy: true,
       },
     ],
     []
   );
 
   const data = React.useMemo(() => makeData(30000), []);
+  const initialState = { sortBy: [{ id: 'firstName' }] };
 
   return (
     <Card>
       <Card.Body>
-        <ReactTable columns={columns} data={data} />
+        <ReactTable columns={columns} data={data} initialState={initialState} />
       </Card.Body>
     </Card>
   );

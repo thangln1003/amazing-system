@@ -45,13 +45,27 @@
     > tfoot > tr > td {
       padding: 8px;
     }
+
+    .react-table-row {
+      display: flex;
+    }
+
+    @for $i from 1 through 12 {
+      .react-table-column-flex-grow-#{$i} {
+        flex-grow: $i !important;
+        width: unset !important;
+        flex-basis: 5px !important;
+        max-width: none !important;
+        min-width: 100px;
+      }
+    }
   }
 
   .pagination {
     justify-content: center;
     margin: 8px 0;
 
-    > input {
+    > .page-item > input {
       border-radius: 0;
       text-align: center;
       width: 70px;

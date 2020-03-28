@@ -427,7 +427,15 @@
       display: inline-block !important;
     }
   }
-  
+
+  @media (min-width: $screen-xs-max) {
+    .main-panel {
+      .main-content {
+        padding-top: 0;
+      }
+    }
+  }
+
   @media (min-width: $screen-md) {
     .sidebar-mini {
       .sidebar,
@@ -501,7 +509,6 @@
       }
     }
   }
-  // .navbar-fixed-top{
-  //     left: 260px;
-  // }
+
+  
   
