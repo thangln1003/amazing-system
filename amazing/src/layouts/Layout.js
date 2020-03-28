@@ -3,8 +3,9 @@ import { Route, Switch } from 'react-router-dom';
 
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
+import Breadcrumbs from '../components/Breadcrumbs';
 
-import routes from '../routes.js';
+import { routes, breadcrumbRoutes } from '../routes.js';
 
 const Layout = () => {
   const mainPanelRef = React.useRef();
@@ -32,6 +33,7 @@ const Layout = () => {
       <div id="main-panel" className="main-panel" ref={mainPanelRef}>
         <Header />
         <div className="main-content">
+          <Breadcrumbs mappedRoutes={breadcrumbRoutes} />
           <Switch>{getRoutes(routes)}</Switch>
         </div>
         <Footer />

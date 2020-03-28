@@ -4,11 +4,6 @@ import { Breadcrumb, Card, Container, Row, Col } from 'react-bootstrap';
 const Typography = () => {
   return (
     <Container fluid>
-      <Breadcrumb>
-        <Breadcrumb.Item href="#">Breadcrumb 1</Breadcrumb.Item>
-        <Breadcrumb.Item href="#">Breadcrumb 2</Breadcrumb.Item>
-        <Breadcrumb.Item active>Current Page</Breadcrumb.Item>
-      </Breadcrumb>
       <Row>
         <Col md={12}>
           <Card>

@@ -57,6 +57,10 @@
       width: 70px;
       margin-left: -2px;
     }
+
+    .page-link {
+      font-size: $font-size-medium;
+    }
   }
 
   @media (min-width: $screen-xs-max) {

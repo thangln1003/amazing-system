@@ -1,4 +1,4 @@
-import React, { userMemo } from 'react';
+import React from 'react';
 import ReactTable from '../../components/Table/ReactTable';
 import makeData from '../../components/Table/makeData';
 import { Card } from 'react-bootstrap';
