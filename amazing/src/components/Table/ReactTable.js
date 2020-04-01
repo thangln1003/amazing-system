@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table, Pagination, Row, Col } from 'react-bootstrap';
-import { useTable, useGroupBy, useFilters, useSortBy, useExpanded, usePagination } from 'react-table';
+import { useBlockLayout, useTable, useGroupBy, useFilters, useSortBy, useExpanded, usePagination } from 'react-table';
 
 const ReactTable = ({ columns, data, initialState }) => {
   const defaultColumn = React.useMemo(

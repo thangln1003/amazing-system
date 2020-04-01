@@ -1,10 +1,56 @@
 import React, { useState } from 'react';
-import { Container, Breadcrumb, Row, Col, Card, Form, FormControl } from 'react-bootstrap';
+import { Container, Row, Col, Card, Form, FormControl } from 'react-bootstrap';
+import Datetime from 'react-datetime';
+import ReactTable from '../../components/Table/ReactTable';
+
+import makeData from '../../components/Table/makeData';
 
 const CarRentalContactPage = () => {
   const [form, setForm] = useState({
     emailError: null,
   });
+
+  const columns = React.useMemo(
+    () => [
+      {
+        Header: 'First Name',
+        accessor: 'firstName',
+        flexGrow: 4,
+      },
+      {
+        Header: 'Last Name',
+        accessor: 'lastName',
+        flexGrow: 4,
+      },
+      {
+        Header: 'Age',
+        accessor: 'age',
+      },
+      {
+        Header: 'Visits',
+        accessor: 'visits',
+      },
+      {
+        Header: 'Status',
+        accessor: 'status',
+        flexGrow: 2,
+      },
+      {
+        Header: 'Profile Progress',
+        accessor: 'progress',
+        disableSortBy: true,
+        flexGrow: 2,
+      },
+      {
+        Header: 'Actionss',
+        disableSortBy: true,
+      },
+    ],
+    []
+  );
+
+  const data = React.useMemo(() => makeData(30000), []);
+  const initialState = { sortBy: [{ id: 'firstName' }] };
 
   return (
     <Container fluid>
@@ -17,14 +63,8 @@ const CarRentalContactPage = () => {
                   <Form.Label column lg={1}>
                     Contact NO. <span className="star">*</span>
                   </Form.Label>
-                  <Col md={2}>
-                    <FormControl
-                      autoComplete="off"
-                      size="sm"
-                      type="text"
-                      name="email"
-                      onChange={(event) => this.handleEmailChange(event)}
-                    />
+                  <Col md={1}>
+                    <FormControl autoComplete="off" size="sm" type="text" name="email" />
                     {form.emailError}
                   </Col>
                 </Form.Group>
@@ -32,13 +72,8 @@ const CarRentalContactPage = () => {
                   <Form.Label column lg={1}>
                     Contact Title <span className="star">*</span>
                   </Form.Label>
-                  <Col md={2}>
-                    <FormControl
-                      size="sm"
-                      type="text"
-                      name="email"
-                      onChange={(event) => this.handleEmailChange(event)}
-                    />
+                  <Col md={1}>
+                    <FormControl autoComplete="off" size="sm" type="text" name="email" />
                     {form.emailError}
                   </Col>
                 </Form.Group>
@@ -46,14 +81,21 @@ const CarRentalContactPage = () => {
                   <Form.Label column lg={1}>
                     Basis Date <span className="star">*</span>
                   </Form.Label>
-                  <Col md={2}>
-                    <FormControl
-                      size="sm"
-                      type="text"
-                      name="email"
-                      onChange={(event) => this.handleEmailChange(event)}
+                  <Col md={1}>
+                    <Datetime
+                      dateFormat="DD/MM/YYYY"
+                      timeFormat={false}
+                      inputProps={{ placeholder: 'From Date' }}
+                      defaultValue={new Date()}
                     />
-                    {form.emailError}
+                  </Col>
+                  <Col md={1}>
+                    <Datetime
+                      dateFormat="DD/MM/YYYY"
+                      timeFormat={false}
+                      inputProps={{ placeholder: 'To Date' }}
+                      defaultValue={new Date()}
+                    />
                   </Col>
                 </Form.Group>
               </Form>
@@ -65,7 +107,10 @@ const CarRentalContactPage = () => {
         <Col md={12}>
           <Card>
             <Card.Body>
-              <div>Another Div</div>
+              <Card.Title>
+                <legend>Card Rental Contact Information</legend>
+              </Card.Title>
+              <ReactTable columns={columns} data={data} initialState={initialState} />
             </Card.Body>
           </Card>
         </Col>
