@@ -7,37 +7,43 @@ const ReactTablePage = () => {
   const columns = React.useMemo(
     () => [
       {
+        Header: '#',
+        accessor: 'no',
+        width: 30,
+      },
+      {
         Header: 'First Name',
         accessor: 'firstName',
-        flexGrow: 4
       },
       {
         Header: 'Last Name',
         accessor: 'lastName',
-        flexGrow: 4
       },
       {
         Header: 'Age',
-        accessor: 'age'
+        accessor: 'age',
+        width: 50,
+        align: 'right',
       },
       {
         Header: 'Visits',
-        accessor: 'visits'
+        accessor: 'visits',
+        width: 50,
+        align: 'right',
       },
       {
         Header: 'Status',
         accessor: 'status',
-        flexGrow: 2
       },
       {
         Header: 'Profile Progress',
         accessor: 'progress',
         disableSortBy: true,
-        flexGrow: 2
       },
       {
-        Header: 'Actionss',
+        Header: 'Actions',
         disableSortBy: true,
+        width: 60
       },
     ],
     []

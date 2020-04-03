@@ -37,6 +37,19 @@
   > .table {
     margin-bottom: 8px !important;
 
+    > thead > tr > th {
+      -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+      -khtml-user-select: none; /* Konqueror HTML */
+      -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+      user-select: none;
+
+      > span {
+        font-size: $font-size-base;
+      }
+    }
+
     > thead > tr > th,
     > tbody > tr > th,
     > tfoot > tr > th,
@@ -50,15 +63,30 @@
       display: flex;
     }
 
-    @for $i from 1 through 12 {
-      .react-table-column-flex-grow-#{$i} {
-        flex-grow: $i !important;
-        width: unset !important;
-        flex-basis: 5px !important;
-        max-width: none !important;
-        min-width: 100px;
+    .resizer {
+      right: -4px;
+      width: 6px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      touch-action: none;
+
+      &:hover,
+      &.isResizing {
+        background: $medium-gray;
       }
     }
+
+    // @for $i from 1 through 12 {
+    //   .react-table-column-flex-grow-#{$i} {
+    //     flex-grow: $i !important;
+    //     width: unset !important;
+    //     flex-basis: 5px !important;
+    //     max-width: none !important;
+    //     min-width: 100px;
+    //   }
+    // }
   }
 
   .pagination {

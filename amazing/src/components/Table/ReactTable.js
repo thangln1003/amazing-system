@@ -1,11 +1,37 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Table, Pagination, Row, Col } from 'react-bootstrap';
-import { useBlockLayout, useTable, useGroupBy, useFilters, useSortBy, useExpanded, usePagination } from 'react-table';
+import {
+  useTable,
+  useResizeColumns,
+  useFlexLayout,
+  useRowSelect,
+  useFilters,
+  useSortBy,
+  usePagination,
+} from 'react-table';
+
+const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref) => {
+  const defaultRef = useRef();
+  const resolvedRef = ref || defaultRef;
+
+  useEffect(() => {
+    resolvedRef.current.indeterminate = indeterminate;
+  }, [resolvedRef, indeterminate]);
+
+  return (
+    <>
+      <input type="checkbox" ref={resolvedRef} {...rest} />
+    </>
+  );
+});
 
 const ReactTable = ({ columns, data, initialState }) => {
   const defaultColumn = React.useMemo(
     () => ({
-      width: Math.round(window.innerWidth * 0.1),
+      // When using the useFlexLayout:
+      minWidth: 30, // minWidth is only used as a limit for resizing
+      width: 150, // width is used for both the flex-basis and flex-grow
+      maxWidth: 200, // maxWidth is only used as a limit for resizing
     }),
     []
   );
@@ -28,7 +54,8 @@ const ReactTable = ({ columns, data, initialState }) => {
     nextPage,
     previousPage,
     setPageSize,
-    state: { pageIndex, pageSize },
+    selectedFlatRows,
+    state: { pageIndex, pageSize, selectedRowIds },
   } = useTable(
     {
       columns,
@@ -37,9 +64,44 @@ const ReactTable = ({ columns, data, initialState }) => {
       initialState: { pageIndex: 0, pageSize: 10, ...initialState },
       disableSortRemove: true,
     },
-    // useBlockLayout,
+    useResizeColumns,
+    useFlexLayout,
     useSortBy,
-    usePagination
+    usePagination,
+    useRowSelect,
+    (hooks) => {
+      hooks.visibleColumns.push((columns) => [
+        // Let's make a column for selection
+        {
+          id: 'selection',
+          disableSortBy: true,
+          disableResizing: true,
+          minWidth: 35,
+          width: 35,
+          maxWidth: 35,
+          // The header can use the table's getToggleAllRowsSelectedProps method
+          // to render a checkbox
+          Header: ({ getToggleAllRowsSelectedProps }) => (
+            <div>
+              <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
+            </div>
+          ),
+          // The cell can use the individual row's getToggleRowSelectedProps method
+          // to the render a checkbox
+          Cell: ({ row }) => (
+            <div>
+              <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
+            </div>
+          ),
+        },
+        ...columns,
+      ]);
+      hooks.useInstanceBeforeDimensions.push(({ headerGroups }) => {
+        // fix the parent group of the selection button to not be resizable
+        const selectionGroupHeader = headerGroups[0].headers[0];
+        selectionGroupHeader.canResize = false;
+      });
+    }
   );
 
   const pageSizeOptions = [10, 20, 30, 40, 50];
@@ -95,7 +157,6 @@ const ReactTable = ({ columns, data, initialState }) => {
                 <th
                   {...column.getHeaderProps({
                     className: `react-table-column-flex-grow-${column.flexGrow ?? 1}`,
-                    ...column.getSortByToggleProps(),
                   })}
                 >
                   {column.render('Header')}
@@ -110,7 +171,11 @@ const ReactTable = ({ columns, data, initialState }) => {
                           : 'fa fa-sort-asc'
                         : 'fa fa-sort'
                     }
+                    {...column.getSortByToggleProps()}
                   ></span>
+                  {column.canResize && (
+                    <div {...column.getResizerProps()} className={`resizer ${column.isResizing ? 'isResizing' : ''}`} />
+                  )}
                 </th>
               ))}
             </tr>
@@ -123,12 +188,8 @@ const ReactTable = ({ columns, data, initialState }) => {
               <tr {...row.getRowProps({ className: 'react-table-row' })}>
                 {row.cells.map((cell) => {
                   return (
-                    <td
-                      {...cell.getCellProps({
-                        className: `react-table-column-flex-grow-${cell.column.flexGrow ?? 1}`,
-                      })}
-                    >
-                      {cell.render('Cell')}
+                    <td {...cell.getCellProps()}>
+                      {cell.column.id === 'no' ? `${i + 1 + pageSize * pageIndex}` : cell.render('Cell')}
                     </td>
                   );
                 })}

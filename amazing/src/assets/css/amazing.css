@@ -583,6 +583,22 @@ This file was modified entirely by Creative Tim for React-Select v2.0.0
 .ReactTable > .table {
   margin-bottom: 8px !important; }
   .ReactTable > .table-responsive > .table > thead > tr > th,
+  .ReactTable > .table > thead > tr > th {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none; }
+    .ReactTable > .table-responsive > .table > thead > tr > th > span,
+    .ReactTable > .table > thead > tr > th > span {
+      font-size: 14px; }
+  .ReactTable > .table-responsive > .table > thead > tr > th,
   .ReactTable > .table-responsive > .table > tbody > tr > th,
   .ReactTable > .table-responsive > .table > tfoot > tr > th,
   .ReactTable > .table-responsive > .table > thead > tr > td,
@@ -598,90 +614,19 @@ This file was modified entirely by Creative Tim for React-Select v2.0.0
   .ReactTable > .table-responsive > .table .react-table-row,
   .ReactTable > .table .react-table-row {
     display: flex; }
-  .ReactTable > .table-responsive > .table .react-table-column-flex-grow-1,
-  .ReactTable > .table .react-table-column-flex-grow-1 {
-    flex-grow: 1 !important;
-    width: unset !important;
-    flex-basis: 5px !important;
-    max-width: none !important;
-    min-width: 100px; }
-  .ReactTable > .table-responsive > .table .react-table-column-flex-grow-2,
-  .ReactTable > .table .react-table-column-flex-grow-2 {
-    flex-grow: 2 !important;
-    width: unset !important;
-    flex-basis: 5px !important;
-    max-width: none !important;
-    min-width: 100px; }
-  .ReactTable > .table-responsive > .table .react-table-column-flex-grow-3,
-  .ReactTable > .table .react-table-column-flex-grow-3 {
-    flex-grow: 3 !important;
-    width: unset !important;
-    flex-basis: 5px !important;
-    max-width: none !important;
-    min-width: 100px; }
-  .ReactTable > .table-responsive > .table .react-table-column-flex-grow-4,
-  .ReactTable > .table .react-table-column-flex-grow-4 {
-    flex-grow: 4 !important;
-    width: unset !important;
-    flex-basis: 5px !important;
-    max-width: none !important;
-    min-width: 100px; }
-  .ReactTable > .table-responsive > .table .react-table-column-flex-grow-5,
-  .ReactTable > .table .react-table-column-flex-grow-5 {
-    flex-grow: 5 !important;
-    width: unset !important;
-    flex-basis: 5px !important;
-    max-width: none !important;
-    min-width: 100px; }
-  .ReactTable > .table-responsive > .table .react-table-column-flex-grow-6,
-  .ReactTable > .table .react-table-column-flex-grow-6 {
-    flex-grow: 6 !important;
-    width: unset !important;
-    flex-basis: 5px !important;
-    max-width: none !important;
-    min-width: 100px; }
-  .ReactTable > .table-responsive > .table .react-table-column-flex-grow-7,
-  .ReactTable > .table .react-table-column-flex-grow-7 {
-    flex-grow: 7 !important;
-    width: unset !important;
-    flex-basis: 5px !important;
-    max-width: none !important;
-    min-width: 100px; }
-  .ReactTable > .table-responsive > .table .react-table-column-flex-grow-8,
-  .ReactTable > .table .react-table-column-flex-grow-8 {
-    flex-grow: 8 !important;
-    width: unset !important;
-    flex-basis: 5px !important;
-    max-width: none !important;
-    min-width: 100px; }
-  .ReactTable > .table-responsive > .table .react-table-column-flex-grow-9,
-  .ReactTable > .table .react-table-column-flex-grow-9 {
-    flex-grow: 9 !important;
-    width: unset !important;
-    flex-basis: 5px !important;
-    max-width: none !important;
-    min-width: 100px; }
-  .ReactTable > .table-responsive > .table .react-table-column-flex-grow-10,
-  .ReactTable > .table .react-table-column-flex-grow-10 {
-    flex-grow: 10 !important;
-    width: unset !important;
-    flex-basis: 5px !important;
-    max-width: none !important;
-    min-width: 100px; }
-  .ReactTable > .table-responsive > .table .react-table-column-flex-grow-11,
-  .ReactTable > .table .react-table-column-flex-grow-11 {
-    flex-grow: 11 !important;
-    width: unset !important;
-    flex-basis: 5px !important;
-    max-width: none !important;
-    min-width: 100px; }
-  .ReactTable > .table-responsive > .table .react-table-column-flex-grow-12,
-  .ReactTable > .table .react-table-column-flex-grow-12 {
-    flex-grow: 12 !important;
-    width: unset !important;
-    flex-basis: 5px !important;
-    max-width: none !important;
-    min-width: 100px; }
+  .ReactTable > .table-responsive > .table .resizer,
+  .ReactTable > .table .resizer {
+    right: -4px;
+    width: 6px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    touch-action: none; }
+    .ReactTable > .table-responsive > .table .resizer:hover, .ReactTable > .table-responsive > .table .resizer.isResizing,
+    .ReactTable > .table .resizer:hover,
+    .ReactTable > .table .resizer.isResizing {
+      background: #dddddd; }
 
 .ReactTable .pagination {
   justify-content: center;
@@ -690,6 +635,7 @@ This file was modified entirely by Creative Tim for React-Select v2.0.0
     border-radius: 0;
     text-align: center;
     width: 70px;
+    height: 38px;
     margin-left: -2px; }
   .ReactTable .pagination .page-link {
     font-size: 16px; }
@@ -1735,6 +1681,9 @@ legend {
   .btn-group > .btn:not(:first-child):not(.dropdown-toggle) {
     border-left: none; }
 
+.form-group {
+  margin-bottom: 0px; }
+
 .form-control::-moz-placeholder {
   color: #c3c3c3;
   opacity: 1;
@@ -1760,8 +1709,8 @@ legend {
   border: 1px solid #e3e3e3;
   border-radius: 4px;
   color: #565656;
-  font-size: 14px;
-  padding: 8px 12px;
+  font-size: 12px;
+  padding: 5px 6px;
   height: 30px;
   -webkit-box-shadow: none;
   box-shadow: none; }
@@ -3772,8 +3721,6 @@ form label.radio, form label.checkbox {
     padding: 0 6px; }
   .card form [class*="col-"]:first-child {
     padding-left: 15px; }
-  .card form [class*="col-"]:last-child {
-    padding-right: 15px; }
   .table-full-width {
     margin-left: -15px;
     margin-right: -15px; }
