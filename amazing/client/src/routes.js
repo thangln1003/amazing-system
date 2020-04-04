@@ -1,6 +1,10 @@
 import Dashboard from './views/Dashboard';
 import Typography from './views/Typography';
-import ReactTablePage from 'views/Pages/ReactTablePage';
+// Components
+import ReactTablePage from 'views/Components/ReactTablePage';
+import IconsPage from 'views/Components/IconsPage';
+
+// Pages
 import CarRentalContactPage from './views/Pages/CarRentalContactPage';
 
 const breadcrumbRoutes = {
@@ -30,6 +34,13 @@ const routes = [
     name: 'React Table',
     icon: 'pe-7s-news-paper',
     component: ReactTablePage,
+    layout: '/admin',
+  },
+  {
+    path: '/icons',
+    name: 'React Table',
+    icon: 'pe-7s-news-paper',
+    component: IconsPage,
     layout: '/admin',
   },
   {

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, FormControl } from 'react-bootstrap';
 import Datetime from 'react-datetime';
 import ReactTable from '../../components/Table/ReactTable';
+import Button from '../../components/CustomButton/CustomButton';
 
 import makeData from '../../components/Table/makeData';
 
@@ -90,6 +91,11 @@ const CarRentalContactPage = () => {
                       inputProps={{ placeholder: 'To Date' }}
                       defaultValue={new Date()}
                     />
+                  </Col>
+                  <Col>
+                    <Button>
+                        
+                    </Button>
                   </Col>
                 </Form.Group>
               </Form>

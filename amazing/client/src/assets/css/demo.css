@@ -42,7 +42,7 @@
 .all-icons h5{
     margin-top: 60px;
 }
-.all-icons > div > .row:first-child h5{
+.all-icons > .row > div[class^="col-"]:first-child h5{
     margin-top: 15px;
 }
 
