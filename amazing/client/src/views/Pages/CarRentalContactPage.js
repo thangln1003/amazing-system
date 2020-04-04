@@ -38,13 +38,7 @@ const CarRentalContactPage = () => {
         Header: 'Profile Progress',
         accessor: 'progress',
         disableSortBy: true,
-      },
-      {
-        Header: 'Actions',
-        accessor: 'actions',
-        disableSortBy: true,
-        width: 40,
-      },
+      }
     ],
     []
   );

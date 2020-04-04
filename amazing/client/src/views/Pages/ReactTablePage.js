@@ -39,12 +39,7 @@ const ReactTablePage = () => {
         Header: 'Profile Progress',
         accessor: 'progress',
         disableSortBy: true,
-      },
-      {
-        Header: 'Actions',
-        disableSortBy: true,
-        width: 60
-      },
+      }
     ],
     []
   );

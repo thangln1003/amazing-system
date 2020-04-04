@@ -97,6 +97,25 @@ const ReactTable = ({ columns, data, initialState }) => {
           ),
         },
         ...columns,
+        {
+          id: 'action',
+          disableSortBy: true,
+          disableResizing: true,
+          minWidth: 80,
+          width: 80,
+          maxWidth: 80,
+          Header: 'Actions',
+          Cell: ({ row }) => (
+            <div className="right-actions">
+              <Button simple icon variant="info" size="sm" onClick={() => alert(row.id)}>
+                <i className="fa fa-edit"> </i>
+              </Button>{' '}
+              <Button simple icon variant="danger" size="sm" onClick={() => alert(row.id)}>
+                <i className="fa fa-close"> </i>
+              </Button>{' '}
+            </div>
+          ),
+        },
       ]);
       hooks.useInstanceBeforeDimensions.push(({ headerGroups }) => {
         // fix the parent group of the selection button to not be resizable
@@ -198,20 +217,7 @@ const ReactTable = ({ columns, data, initialState }) => {
                 {row.cells.map((cell) => {
                   return (
                     <td {...cell.getCellProps()}>
-                      {cell.column.id === 'no' ? (
-                        `${i + 1 + pageSize * pageIndex}`
-                      ) : cell.column.id === 'actions' ? (
-                        <div>
-                          <Button simple icon variant="info" size="sm">
-                            <i className="fa fa-edit"> </i>
-                          </Button>{' '}
-                          <Button simple icon variant="danger" size="sm">
-                            <i className="fa fa-close"> </i>
-                          </Button>{' '}
-                        </div>
-                      ) : (
-                        cell.render('Cell')
-                      )}
+                      {cell.column.id === 'no' ? `${i + 1 + pageSize * pageIndex}` : cell.render('Cell')}
                     </td>
                   );
                 })}

@@ -127,6 +127,10 @@
     th:last-child {
       border-right-width: 0;
     }
+
+    td:has(.right-actions) {
+      padding: 2px !important;
+    }
   }
 
   .pagination {

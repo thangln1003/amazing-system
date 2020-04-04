@@ -1,54 +1,26 @@
 {
   "name": "amazing",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "bootstrap": "^4.4.1",
-    "classnames": "^2.2.6",
-    "moment": "^2.24.0",
-    "namor": "^2.0.2",
-    "node-sass": "^4.13.1",
-    "prettier": "^2.0.1",
-    "prop-types": "^15.7.2",
-    "react": "^16.13.0",
-    "react-bootstrap": "^1.0.0-beta.17",
-    "react-datetime": "^2.16.3",
-    "react-dom": "^16.13.0",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.0",
-    "react-select": "^3.1.0",
-    "react-table": "^7.0.0",
-    "styled-components": "^5.0.1"
-  },
-  "resolutions": {
-    "acorn": "^7.1.1"
-  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "yarn run compile-sass && react-scripts start",
-    "build": "yarn run minify-sass && react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "install:clean": "rm -rf node_modules/ && rm -rf yarn.lock && yarn install && yarn start",
-    "compile-sass": "node-sass src/assets/sass/amazing.scss src/assets/css/amazing.css",
-    "minify-sass": "node-sass src/assets/sass/amazing.scss src/assets/css/amazing.min.css --output-style compressed",
-    "map-sass": "node-sass src/assets/sass/amazings.scss src/assets/css/amazing.css --source-map true"
+    "start": "node server",
+    "server": "nodemon server",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "author": "Brian Ly",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.1",
+    "express": "^4.17.1",
+    "express-validator": "^6.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.7",
+    "request": "^2.88.2"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.2"
   }
 }
