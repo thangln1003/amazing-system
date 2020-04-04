@@ -27,6 +27,9 @@ const CustomButton = (props) => {
     dribbble,
     reddit,
     stumbleupon,
+    csv,
+    excel,
+    pdf,
     ...rest
   } = props;
 
@@ -51,9 +54,35 @@ const CustomButton = (props) => {
     'btn-social btn-dribbble': dribbble,
     'btn-social btn-reddit': reddit,
     'btn-social btn-stumbleupon': stumbleupon,
+    'btn-export btn-csv': csv,
+    'btn-export btn-excel': excel,
+    'btn-export btn-pdf': pdf,
   });
 
   return <Button className={btnClasses} {...rest} />;
+};
+
+CustomButton.propTypes = {
+  fill: PropTypes.bool,
+  simple: PropTypes.bool,
+  pullRight: PropTypes.bool,
+  block: PropTypes.bool,
+  wd: PropTypes.bool,
+  round: PropTypes.bool,
+  icon: PropTypes.bool,
+  neutral: PropTypes.bool,
+  twitter: PropTypes.bool,
+  facebook: PropTypes.bool,
+  google: PropTypes.bool,
+  linkedin: PropTypes.bool,
+  pinterest: PropTypes.bool,
+  youtube: PropTypes.bool,
+  tumblr: PropTypes.bool,
+  github: PropTypes.bool,
+  behance: PropTypes.bool,
+  dribbble: PropTypes.bool,
+  reddit: PropTypes.bool,
+  stumbleupon: PropTypes.bool,
 };
 
 export default CustomButton;

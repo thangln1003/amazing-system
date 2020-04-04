@@ -15,35 +15,35 @@ const CarRentalContactPage = () => {
       {
         Header: 'First Name',
         accessor: 'firstName',
-        flexGrow: 4,
       },
       {
         Header: 'Last Name',
         accessor: 'lastName',
-        flexGrow: 4,
       },
       {
         Header: 'Age',
         accessor: 'age',
+        width: 50,
       },
       {
         Header: 'Visits',
         accessor: 'visits',
+        width: 50,
       },
       {
         Header: 'Status',
         accessor: 'status',
-        flexGrow: 2,
       },
       {
         Header: 'Profile Progress',
         accessor: 'progress',
         disableSortBy: true,
-        flexGrow: 2,
       },
       {
-        Header: 'Actionss',
+        Header: 'Actions',
+        accessor: 'actions',
         disableSortBy: true,
+        width: 70,
       },
     ],
     []

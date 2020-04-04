@@ -598,6 +598,10 @@ This file was modified entirely by Creative Tim for React-Select v2.0.0
     .ReactTable > .table-responsive > .table > thead > tr > th > span,
     .ReactTable > .table > thead > tr > th > span {
       font-size: 14px; }
+      .ReactTable > .table-responsive > .table > thead > tr > th > span.fa-sort-asc, .ReactTable > .table-responsive > .table > thead > tr > th > span.fa-sort-desc,
+      .ReactTable > .table > thead > tr > th > span.fa-sort-asc,
+      .ReactTable > .table > thead > tr > th > span.fa-sort-desc {
+        color: #23ccef; }
   .ReactTable > .table-responsive > .table > thead > tr > th,
   .ReactTable > .table-responsive > .table > tbody > tr > th,
   .ReactTable > .table-responsive > .table > tfoot > tr > th,

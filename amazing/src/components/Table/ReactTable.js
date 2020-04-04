@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Table, Pagination, Row, Col } from 'react-bootstrap';
+import { Table, Pagination, Row, Col, Dropdown, DropdownButton } from 'react-bootstrap';
 import {
   useTable,
   useResizeColumns,
@@ -9,6 +9,8 @@ import {
   useSortBy,
   usePagination,
 } from 'react-table';
+
+import Button from '../CustomButton/CustomButton';
 
 const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref) => {
   const defaultRef = useRef();
@@ -130,23 +132,30 @@ const ReactTable = ({ columns, data, initialState }) => {
           </div>
         </Col>
         <Col md={{ span: 4, offset: 3 }}>
-          <Pagination>
-            <Pagination.First onClick={() => gotoPage(0)} disabled={pageIndex === 0} />
-            <Pagination.Prev onClick={() => previousPage()} disabled={!canPreviousPage} />
-            <li className="page-item">
-              <input
-                className="form-control form-control-sm"
-                type="number"
-                value={pageIndex + 1 || 1}
-                onChange={(e) => {
-                  const page = e.target.value ? Number(e.target.value) - 1 : 0;
-                  gotoPage(page);
-                }}
-              />
-            </li>
-            <Pagination.Next onClick={() => nextPage()} disabled={!canNextPage} />
-            <Pagination.Last onClick={() => gotoPage(pageCount - 1)} disabled={pageIndex === pageCount - 1} />
-          </Pagination>
+          <div className="ReactTable-actions">
+            <DropdownButton alignRight id="dropdown-actions" title="Actions" size="sm">
+              <Dropdown.Item eventKey="1">Export to Excel</Dropdown.Item>
+              <Dropdown.Item eventKey="2">Export to PDF</Dropdown.Item>
+              <Dropdown.Item eventKey="3">Export to CSV</Dropdown.Item>
+            </DropdownButton>
+            <Pagination>
+              <Pagination.First onClick={() => gotoPage(0)} disabled={pageIndex === 0} />
+              <Pagination.Prev onClick={() => previousPage()} disabled={!canPreviousPage} />
+              <li className="page-item">
+                <input
+                  className="form-control form-control-sm"
+                  type="number"
+                  value={pageIndex + 1 || 1}
+                  onChange={(e) => {
+                    const page = e.target.value ? Number(e.target.value) - 1 : 0;
+                    gotoPage(page);
+                  }}
+                />
+              </li>
+              <Pagination.Next onClick={() => nextPage()} disabled={!canNextPage} />
+              <Pagination.Last onClick={() => gotoPage(pageCount - 1)} disabled={pageIndex === pageCount - 1} />
+            </Pagination>
+          </div>
         </Col>
       </Row>
       <Table striped bordered hover responsive size="sm" {...getTableProps()}>
@@ -189,7 +198,23 @@ const ReactTable = ({ columns, data, initialState }) => {
                 {row.cells.map((cell) => {
                   return (
                     <td {...cell.getCellProps()}>
-                      {cell.column.id === 'no' ? `${i + 1 + pageSize * pageIndex}` : cell.render('Cell')}
+                      {cell.column.id === 'no' ? (
+                        `${i + 1 + pageSize * pageIndex}`
+                      ) : cell.column.id === 'actions' ? (
+                        <div>
+                          <Button simple excel icon variant="success" size="sm">
+                            <i className="fa fa-file-excel-o"> </i>
+                          </Button>{' '}
+                          <Button simple pdf icon variant="danger" size="sm">
+                            <i className="fa fa-file-pdf-o"> </i>
+                          </Button>{' '}
+                          <Button simple csv icon variant="warning" size="sm">
+                            <i className="fa fa-file-text-o"> </i>
+                          </Button>
+                        </div>
+                      ) : (
+                        cell.render('Cell')
+                      )}
                     </td>
                   );
                 })}

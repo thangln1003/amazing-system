@@ -29,8 +29,40 @@
     }
   }
 
+  &-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    .dropdown {
+      margin-bottom: 8px;
+    }
+
+    .dropdown-menu {
+      &::after {
+        left: 12px;
+        right: auto;
+      }
+
+      &::before {
+        left: 12px;
+        right: auto;
+      }
+    }
+
+    .show {
+      .dropdown-menu {
+        background-color: $white-bg;
+      }
+    }
+  }
+
   .table-responsive {
     margin-bottom: 0;
+
+    .table-bordered {
+      border: 1px solid #dee2e6;
+    }
   }
 
   > .table-responsive > .table,
@@ -47,6 +79,11 @@
 
       > span {
         font-size: $font-size-base;
+
+        &.fa-sort-asc,
+        &.fa-sort-desc {
+          color: $color-azure;
+        }
       }
     }
 
@@ -77,16 +114,19 @@
         background: $medium-gray;
       }
     }
+  }
 
-    // @for $i from 1 through 12 {
-    //   .react-table-column-flex-grow-#{$i} {
-    //     flex-grow: $i !important;
-    //     width: unset !important;
-    //     flex-basis: 5px !important;
-    //     max-width: none !important;
-    //     min-width: 100px;
-    //   }
-    // }
+  .table-bordered {
+    td,
+    th {
+      border-left-width: 0;
+      border-bottom-width: 0;
+    }
+
+    td:last-child,
+    th:last-child {
+      border-right-width: 0;
+    }
   }
 
   .pagination {
@@ -107,6 +147,27 @@
   }
 
   @media (min-width: $screen-xs-max) {
+    &-actions {
+      justify-content: flex-end;
+      align-items: center;
+
+      .dropdown {
+        margin-right: 8px;
+      }
+
+      .dropdown-menu {
+        &::after {
+          left: auto;
+          right: 12px;
+        }
+
+        &::before {
+          left: auto;
+          right: 12px;
+        }
+      }
+    }
+
     .pagination {
       justify-content: flex-end;
       margin-top: 0;

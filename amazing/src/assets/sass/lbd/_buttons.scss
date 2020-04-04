@@ -15,7 +15,7 @@
   }
   &:active,
   &.active,
-  .open > &.dropdown-toggle {
+  .show > &.dropdown-toggle {
     @include box-shadow(none);
     outline: 0 !important;
   }
@@ -58,7 +58,7 @@
 
   &:active,
   &.active,
-  .open > &.dropdown-toggle {
+  .show > &.dropdown-toggle {
     background-color: $white-color;
     color: $default-color;
   }
