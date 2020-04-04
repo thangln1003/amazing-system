@@ -2846,13 +2846,6 @@ form label.radio, form label.checkbox {
     background-color: transparent !important;
     opacity: 0.5; }
 
-.dropdown-with-icons.dropdown-toggle:after {
-  display: none; }
-
-.dropdown-with-icons + .dropdown-menu > a:has(i) {
-  padding-left: 0px;
-  line-height: 28px; }
-
 .dropdown-menu {
   min-width: 180px; }
   .dropdown-menu i {
@@ -2865,6 +2858,13 @@ form label.radio, form label.checkbox {
     .dropdown-menu i[class^='fa'] {
       font-size: 14px;
       width: 38px; }
+
+.dropdown-with-icons.dropdown-toggle:after {
+  display: none; }
+
+.dropdown-with-icons + .dropdown-menu > a:has(i) {
+  padding-left: 0px;
+  line-height: 28px; }
 
 .btn-group.select {
   overflow: hidden; }

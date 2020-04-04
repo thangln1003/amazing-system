@@ -71,24 +71,24 @@ const NavbarLinks = () => {
           id="basic-nav-dropdown3"
           bsPrefix="dropdown-with-icons dropdown"
         >
-          <NavDropdown.Item disabled href="#action/3.1">
+          <NavDropdown.Item disabled href="#action/3.1" bsPrefix="dropdown-item has-icon">
             <i className="pe-7s-mail" />
             Message
           </NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">
+          <NavDropdown.Item href="#action/3.2" bsPrefix="dropdown-item has-icon">
             <i className="pe-7s-help1" />
             Help Center
           </NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">
+          <NavDropdown.Item href="#action/3.3" bsPrefix="dropdown-item has-icon">
             <i className="pe-7s-tools" />
             Settings
           </NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="#action/3.4">
+          <NavDropdown.Item href="#action/3.4" bsPrefix="dropdown-item has-icon">
             <i className="pe-7s-lock" />
             Lock Screen
           </NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.5">
+          <NavDropdown.Item href="#action/3.5" bsPrefix="dropdown-item has-icon">
             <div className="text-danger">
               <i className="pe-7s-close-circle" /> Log out
             </div>
