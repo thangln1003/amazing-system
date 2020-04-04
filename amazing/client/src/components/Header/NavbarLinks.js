@@ -16,11 +16,10 @@ const NavbarLinks = () => {
       <Nav className="justify-content-start">
         <Nav.Link href="dashboard">Dashboard</Nav.Link>
         <Nav.Link href="carrental">Car Rental Contact Mgnt</Nav.Link>
-        <Nav.Link href="typography">Typography</Nav.Link>
         <NavDropdown alignRight title="Components" id="basic-nav-dropdown1">
           <NavDropdown.Item href="react-table">React Table</NavDropdown.Item>
           <NavDropdown.Item href="icons">Icons</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+          <NavDropdown.Item href="typography">Typography</NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
         </NavDropdown>
@@ -88,7 +87,7 @@ const NavbarLinks = () => {
             <i className="pe-7s-lock" />
             Lock Screen
           </NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.5" bsPrefix="dropdown-item has-icon">
+          <NavDropdown.Item href="/auth/login" bsPrefix="dropdown-item has-icon">
             <div className="text-danger">
               <i className="pe-7s-close-circle" /> Log out
             </div>

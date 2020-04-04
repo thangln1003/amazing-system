@@ -39,13 +39,18 @@ const CarRentalContactPage = () => {
         Header: 'Profile Progress',
         accessor: 'progress',
         disableSortBy: true,
-      }
+      },
     ],
     []
   );
 
-  const data = React.useMemo(() => makeData(30000), []);
   const initialState = { sortBy: [{ id: 'firstName' }] };
+  const [data, setData] = React.useState([]);
+
+  const fetchDataHandler = React.useCallback(() => {
+    const data = makeData(30000);
+    setData(data);
+  });
 
   return (
     <Container fluid>
@@ -93,8 +98,8 @@ const CarRentalContactPage = () => {
                     />
                   </Col>
                   <Col>
-                    <Button>
-                        
+                    <Button fill size="sm" onClick={fetchDataHandler}>
+                      <i className="fa fa-search"></i>
                     </Button>
                   </Col>
                 </Form.Group>

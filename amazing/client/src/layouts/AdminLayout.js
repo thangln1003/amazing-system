@@ -7,7 +7,7 @@ import Breadcrumbs from '../components/Breadcrumbs';
 
 import { routes, breadcrumbRoutes } from '../routes.js';
 
-const Layout = () => {
+const AdminLayout = () => {
   const mainPanelRef = React.useRef();
 
   const handleNotificationClick = () => {};
@@ -42,4 +42,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default AdminLayout;

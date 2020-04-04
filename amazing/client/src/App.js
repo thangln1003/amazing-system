@@ -1,17 +1,19 @@
 import React from 'react';
 
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-import Layout from './layouts/Layout';
+import AuthLayout from './layouts/AuthLayout';
+import AdminLayout from './layouts/AdminLayout';
 
 function App() {
-	return (
-		<BrowserRouter>
-			<Switch>
-				<Route path="/admin" render={props => <Layout {...props} />} />
-				<Redirect from="/" to="/admin/dashboard" />
-			</Switch>
-		</BrowserRouter>
-	);
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
+        <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
+        <Redirect from="/" to="/admin/dashboard" />
+      </Switch>
+    </BrowserRouter>
+  );
 }
 
 export default App;

@@ -128,6 +128,10 @@ const ReactTable = ({ columns, data, initialState }) => {
   const pageSizeOptions = [10, 20, 30, 40, 50];
   const totalCount = data.length;
 
+  // useEffect(() => {
+  //   fetchData({ pageIndex, pageSize });
+  // }, [fetchData, pageIndex, pageSize]);
+
   return (
     <div className="ReactTable">
       <Row>
@@ -191,7 +195,7 @@ const ReactTable = ({ columns, data, initialState }) => {
                   {/* Add a sort direction indicator */}
                   <span
                     className={
-                      column.disableSortBy
+                      column.disableSortBy || pageCount === 0
                         ? ''
                         : column.isSorted
                         ? column.isSortedDesc
@@ -210,20 +214,26 @@ const ReactTable = ({ columns, data, initialState }) => {
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {page.map((row, i) => {
-            prepareRow(row);
-            return (
-              <tr {...row.getRowProps({ className: 'react-table-row' })}>
-                {row.cells.map((cell) => {
-                  return (
-                    <td {...cell.getCellProps()}>
-                      {cell.column.id === 'no' ? `${i + 1 + pageSize * pageIndex}` : cell.render('Cell')}
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
+          {pageCount > 0 ? (
+            page.map((row, i) => {
+              prepareRow(row);
+              return (
+                <tr {...row.getRowProps({ className: 'react-table-row' })}>
+                  {row.cells.map((cell) => {
+                    return (
+                      <td {...cell.getCellProps()}>
+                        {cell.column.id === 'no' ? `${i + 1 + pageSize * pageIndex}` : cell.render('Cell')}
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            })
+          ) : (
+            <tr role="row" className="react-table-row">
+              <td role="cell">Empty</td>
+            </tr>
+          )}
         </tbody>
       </Table>
       <Row>
