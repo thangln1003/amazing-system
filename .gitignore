@@ -4,6 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
+/amazing/node_modules
+/amazing/client/node_modules
 
 # testing
 /coverage
