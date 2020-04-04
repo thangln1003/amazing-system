@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "classnames": "^2.2.6",
     "moment": "^2.24.0",
@@ -17,10 +18,15 @@
     "react-bootstrap": "^1.0.0-beta.17",
     "react-datetime": "^2.16.3",
     "react-dom": "^16.13.0",
+    "react-moment": "^0.9.7",
+    "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "react-select": "^3.1.0",
     "react-table": "^7.0.0",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^5.0.1"
   },
   "resolutions": {
