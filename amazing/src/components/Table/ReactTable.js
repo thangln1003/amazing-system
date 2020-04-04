@@ -202,15 +202,12 @@ const ReactTable = ({ columns, data, initialState }) => {
                         `${i + 1 + pageSize * pageIndex}`
                       ) : cell.column.id === 'actions' ? (
                         <div>
-                          <Button simple excel icon variant="success" size="sm">
-                            <i className="fa fa-file-excel-o"> </i>
+                          <Button simple icon variant="info" size="sm">
+                            <i className="fa fa-edit"> </i>
                           </Button>{' '}
-                          <Button simple pdf icon variant="danger" size="sm">
-                            <i className="fa fa-file-pdf-o"> </i>
+                          <Button simple icon variant="danger" size="sm">
+                            <i className="fa fa-close"> </i>
                           </Button>{' '}
-                          <Button simple csv icon variant="warning" size="sm">
-                            <i className="fa fa-file-text-o"> </i>
-                          </Button>
                         </div>
                       ) : (
                         cell.render('Cell')

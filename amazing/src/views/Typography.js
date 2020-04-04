@@ -1,5 +1,5 @@
 import React from 'react';
-import { Breadcrumb, Card, Container, Row, Col } from 'react-bootstrap';
+import { Card, Container, Row, Col } from 'react-bootstrap';
 
 const Typography = () => {
   return (

@@ -146,6 +146,10 @@
     }
   }
 
+  .btn-sm.btn-simple {
+    padding: 4px;
+  }
+
   @media (min-width: $screen-xs-max) {
     &-actions {
       justify-content: flex-end;

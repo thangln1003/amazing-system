@@ -43,7 +43,7 @@ const CarRentalContactPage = () => {
         Header: 'Actions',
         accessor: 'actions',
         disableSortBy: true,
-        width: 70,
+        width: 40,
       },
     ],
     []
