@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, FormControl } from 'react-bootstrap';
 import Datetime from 'react-datetime';
 import ReactTable from '../../components/Table/ReactTable';
+
 import makeData from '../../components/Table/makeData';
 
 const CarRentalContactPage = () => {
