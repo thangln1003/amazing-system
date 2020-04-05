@@ -2809,6 +2809,7 @@ form label.radio, form label.checkbox {
   padding: 0;
   border-radius: 10px;
   z-index: 9000;
+  font-size: 14px;
   -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.125);
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.125); }
   .dropdown-menu > a {
