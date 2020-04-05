@@ -3,6 +3,7 @@
   padding: 0;
   border-radius: $border-radius-extreme;
   z-index: 9000;
+  font-size: $font-size-base;
   @include box-shadow($dropdown-shadow);
 
   > a {
