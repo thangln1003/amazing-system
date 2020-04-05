@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, FormControl } from 'react-bootstrap';
 import Datetime from 'react-datetime';
 import ReactTable from '../../components/Table/ReactTable';
-import Button from '../../components/CustomButton/CustomButton';
 
 import makeData from '../../components/Table/makeData';
 
@@ -39,18 +38,13 @@ const CarRentalContactPage = () => {
         Header: 'Profile Progress',
         accessor: 'progress',
         disableSortBy: true,
-      },
+      }
     ],
     []
   );
 
+  const data = React.useMemo(() => makeData(30000), []);
   const initialState = { sortBy: [{ id: 'firstName' }] };
-  const [data, setData] = React.useState([]);
-
-  const fetchDataHandler = React.useCallback(() => {
-    const data = makeData(30000);
-    setData(data);
-  });
 
   return (
     <Container fluid>
@@ -58,49 +52,44 @@ const CarRentalContactPage = () => {
         <Col md={12}>
           <Card>
             <Card.Body>
-              <Form>
+              <Form id="frmSearching">
                 <Form.Group as={Row}>
-                  <Form.Label column lg={1} md={2}>
-                    Contact NO. <span className="star">*</span>
-                  </Form.Label>
-                  <Col lg={1} md={4}>
-                    <FormControl autoComplete="off" size="sm" type="text" name="email" />
-                    {form.emailError}
-                  </Col>
+                  <Form.Label column lg={1}>Contact NO. <span className="star">*</span></Form.Label>
+                    <Col md={1}><FormControl autoComplete="off" size="sm" type="text" name="email" />{form.emailError}</Col>
+                    <Form.Label column lg={1}>Contact NO. <span className="star">*</span></Form.Label>
+                    <Col md={1}><FormControl autoComplete="off" size="sm" type="text" name="email" />{form.emailError}</Col>
+                    <Form.Label column lg={1}>Contact NO. <span className="star">*</span></Form.Label>
+                    <Col md={1}><FormControl autoComplete="off" size="sm" type="text" name="email" />{form.emailError}</Col>
                 </Form.Group>
                 <Form.Group as={Row}>
-                  <Form.Label column lg={1} md={2}>
+                  <Form.Label column lg={1}>
                     Contact Title <span className="star">*</span>
                   </Form.Label>
-                  <Col lg={1} md={4}>
+                  <Col md={1}>
                     <FormControl autoComplete="off" size="sm" type="text" name="email" />
                     {form.emailError}
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
-                  <Form.Label column lg={1} md={2}>
+                  <Form.Label column lg={1}>
                     Basis Date <span className="star">*</span>
                   </Form.Label>
-                  <Col lg={1} md={2}>
+                  <Col md={1}>
                     <Datetime
-                      dateFormat="DD/MM/YYYY"
+                      dateFormat="YYYY/MM/DD"
                       timeFormat={false}
                       inputProps={{ placeholder: 'From Date' }}
                       defaultValue={new Date()}
                     />
                   </Col>
-                  <Col lg={1} md={2}>
+                  <span>~</span>
+                  <Col md={1}>
                     <Datetime
-                      dateFormat="DD/MM/YYYY"
+                      dateFormat="YYYY/MM/DD"
                       timeFormat={false}
                       inputProps={{ placeholder: 'To Date' }}
                       defaultValue={new Date()}
                     />
-                  </Col>
-                  <Col>
-                    <Button fill size="sm" onClick={fetchDataHandler}>
-                      <i className="fa fa-search"></i>
-                    </Button>
                   </Col>
                 </Form.Group>
               </Form>

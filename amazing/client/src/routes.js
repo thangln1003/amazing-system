@@ -1,12 +1,9 @@
-import DashboardPage from './views/Pages/DashboardPage';
-// Components
-import ReactTablePage from 'views/Components/ReactTablePage';
-import IconsPage from 'views/Components/IconsPage';
-import Typography from './views/Components/Typography';
+import Dashboard                  from './views/Dashboard';
+import Typography                 from './views/Typography';
+import ReactTablePage             from 'views/Pages/ReactTablePage';
+import CarRentalContactPage       from './views/Pages/CarRentalContactPage';
+import StdUI01                    from './views/MO/StdUI01';
 
-// Pages
-import LoginPage from './views/Pages/LoginPage';
-import CarRentalContactPage from './views/Pages/CarRentalContactPage';
 
 const breadcrumbRoutes = {
   '/': 'Home',
@@ -17,17 +14,10 @@ const breadcrumbRoutes = {
 
 const routes = [
   {
-    path: "/login",
-    layout: "/auth",
-    name: "Login Page",
-    mini: "LP",
-    component: LoginPage
-  },
-  {
     path: '/dashboard',
     name: 'Dashboard',
     icon: 'pe-7s-graph',
-    component: DashboardPage,
+    component: Dashboard,
     layout: '/admin',
   },
   {
@@ -45,18 +35,19 @@ const routes = [
     layout: '/admin',
   },
   {
-    path: '/icons',
-    name: 'React Table',
-    icon: 'pe-7s-news-paper',
-    component: IconsPage,
-    layout: '/admin',
-  },
-  {
     path: '/carrental',
     name: 'Card Rental Mgnt',
     icon: 'pe-7s-news-paper',
     component: CarRentalContactPage,
     layout: '/admin',
+  },
+  {
+    layout: '/admin',
+    icon: 'pe-7s-news-paper',
+    name: 'Standard UI 01',
+    path: '/StdUI01',
+    component: StdUI01,
+    
   },
 ];
 
