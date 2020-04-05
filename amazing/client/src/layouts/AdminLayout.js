@@ -36,7 +36,7 @@ const AdminLayout = () => {
           <Breadcrumbs mappedRoutes={breadcrumbRoutes} />
           <Switch>{getRoutes(routes)}</Switch>
         </div>
-        <Footer />
+        <Footer fluid />
       </div>
     </div>
   );

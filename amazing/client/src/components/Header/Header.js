@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <Navbar className="navbar-default" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#home">Amazing</Navbar.Brand>
+        <Navbar.Brand href="/dashboard">Amazing</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-between" id="basic-navbar-nav">
           <NavbarLinks />

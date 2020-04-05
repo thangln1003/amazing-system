@@ -1417,6 +1417,7 @@ legend {
   border-width: 1px;
   background-color: transparent;
   font-weight: 400;
+  font-size: 14px;
   opacity: 0.8;
   filter: alpha(opacity=80);
   padding: 8px 16px;
@@ -2052,11 +2053,12 @@ form label.radio, form label.checkbox {
   position: relative;
   cursor: pointer;
   padding-left: 24px;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  line-height: 20px; }
 
 .checkbox label::before,
 .checkbox label::after {
-  font-family: 'FontAwesome';
+  font-family: "FontAwesome";
   content: "\f096";
   display: inline-block;
   position: absolute;
@@ -2064,11 +2066,11 @@ form label.radio, form label.checkbox {
   height: 20px;
   left: 0;
   cursor: pointer;
-  line-height: 19px;
+  line-height: 20px;
   font-size: 20px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  top: 1px;
+  top: 0px;
   color: #dddddd;
   transition: color 0.2s linear;
   padding: 1px; }
@@ -2077,16 +2079,17 @@ form label.radio, form label.checkbox {
   content: "";
   text-align: center;
   opacity: 1;
-  left: 1px;
+  left: 0;
   color: #dddddd; }
 
 .checkbox input[type="checkbox"],
 .radio input[type="radio"] {
+  position: absolute;
   opacity: 0;
   margin-left: 0; }
 
 .checkbox input[type="checkbox"]:checked + label::after {
-  font-family: 'FontAwesome';
+  font-family: "FontAwesome";
   content: "\f046"; }
 
 .checkbox input[type="checkbox"]:checked + label::after {
@@ -2151,7 +2154,7 @@ form label.radio, form label.checkbox {
 
 .radio label::before,
 .radio label::after {
-  font-family: 'FontAwesome';
+  font-family: "FontAwesome";
   content: "\f10c";
   font-size: 20px;
   height: 20px;
@@ -2160,7 +2163,7 @@ form label.radio, form label.checkbox {
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
   position: absolute;
-  line-height: 19px;
+  line-height: 20px;
   left: 0;
   top: 0;
   color: #dddddd;
@@ -2168,10 +2171,11 @@ form label.radio, form label.checkbox {
   transition: color 0.2s linear; }
 
 .radio input[type="radio"]:checked + label::after {
-  font-family: 'FontAwesome';
+  font-family: "FontAwesome";
   content: "\f192";
   color: #dddddd; }
 
+.radio input[type="radio"]:checked:not(:disabled):hover + label::after,
 .radio input[type="radio"]:checked + label::after {
   color: #23ccef; }
 
@@ -2185,41 +2189,44 @@ form label.radio, form label.checkbox {
 .radio.radio-inline {
   margin-top: 0; }
 
-/**
-  * bootstrap-switch - Turn checkboxes and radio buttons into toggle switches.
-  *
-  * @version v3.3.4
-  * @homepage https://bttstrp.github.io/bootstrap-switch
-  * @author Mattia Larentis <mattia@larentis.eu> (http://larentis.eu)
-  * @license Apache-2.0
-  */
+/* ============================================================
+ * bootstrapSwitch v1.3 by Larentis Mattia @spiritualGuru
+ * http://www.larentis.eu/switch/
+ * ============================================================
+ * Licensed under the Apache License, Version 2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * ============================================================ */
 .bootstrap-switch {
   display: inline-block;
   direction: ltr;
   cursor: pointer;
-  border-radius: 4px;
-  border: 1px solid;
-  border-color: #ccc;
+  border-radius: 30px;
+  border: 0;
   position: relative;
   text-align: left;
   overflow: hidden;
+  margin-bottom: 5px;
   line-height: 8px;
+  width: 61px !important;
+  height: 26px;
+  outline: none;
   z-index: 0;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   vertical-align: middle;
-  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; }
 
 .bootstrap-switch .bootstrap-switch-container {
-  display: inline-block;
+  display: inline-flex;
   top: 0;
+  height: 26px;
   border-radius: 4px;
   -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0); }
+  transform: translate3d(0, 0, 0);
+  width: 100px !important; }
 
 .bootstrap-switch .bootstrap-switch-handle-on,
 .bootstrap-switch .bootstrap-switch-handle-off,
@@ -2228,76 +2235,88 @@ form label.radio, form label.checkbox {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   cursor: pointer;
-  display: table-cell;
-  vertical-align: middle;
+  display: inline-block !important;
+  height: 100%;
+  color: #fff;
   padding: 6px 12px;
-  font-size: 14px;
-  line-height: 20px; }
+  font-size: 11px;
+  text-indent: -5px;
+  line-height: 15px;
+  -webkit-transition: 0.25s ease-out;
+  transition: 0.25s ease-out; }
 
 .bootstrap-switch .bootstrap-switch-handle-on,
 .bootstrap-switch .bootstrap-switch-handle-off {
   text-align: center;
-  z-index: 1; }
+  z-index: 1;
+  float: left;
+  width: 50% !important;
+  background-color: #444; }
 
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary,
 .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {
   color: #fff;
-  background: #337ab7; }
+  background: #447df7; }
 
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-info,
 .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-info {
   color: #fff;
-  background: #5bc0de; }
+  background: #447df7; }
 
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-success,
 .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-success {
   color: #fff;
-  background: #5cb85c; }
+  background: #87cb16; }
 
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-warning,
 .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-warning {
-  background: #f0ad4e;
+  background: #ffa534;
   color: #fff; }
 
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-danger,
 .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-danger {
   color: #fff;
-  background: #d9534f; }
+  background: #fb404b; }
 
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-default,
 .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default {
-  color: #000;
-  background: #eeeeee; }
+  color: #fff;
+  background: #dddddd; }
 
 .bootstrap-switch .bootstrap-switch-label {
   text-align: center;
-  margin-top: -1px;
-  margin-bottom: -1px;
   z-index: 100;
-  color: #333;
-  background: #fff; }
-
-.bootstrap-switch span::before {
-  content: "\200b"; }
+  color: #333333;
+  background: #ffffff;
+  width: 22px !important;
+  height: 22px;
+  margin: 2px -11px;
+  border-radius: 12px;
+  position: relative;
+  float: left;
+  padding: 0;
+  background-color: #ffffff;
+  box-shadow: 0 1px 1px #ffffff inset, 0 1px 1px rgba(0, 0, 0, 0.25); }
 
 .bootstrap-switch .bootstrap-switch-handle-on {
   border-bottom-left-radius: 3px;
   border-top-left-radius: 3px; }
 
 .bootstrap-switch .bootstrap-switch-handle-off {
-  border-bottom-right-radius: 3px;
-  border-top-right-radius: 3px; }
+  text-indent: 6px; }
 
-.bootstrap-switch input[type='radio'],
-.bootstrap-switch input[type='checkbox'] {
+.bootstrap-switch input[type="radio"],
+.bootstrap-switch input[type="checkbox"] {
   position: absolute !important;
   top: 0;
   left: 0;
-  margin: 0;
-  z-index: -1;
   opacity: 0;
   filter: alpha(opacity=0);
-  visibility: hidden; }
+  z-index: -1; }
+
+.bootstrap-switch input[type="radio"].form-control,
+.bootstrap-switch input[type="checkbox"].form-control {
+  height: auto; }
 
 .bootstrap-switch.bootstrap-switch-mini .bootstrap-switch-handle-on,
 .bootstrap-switch.bootstrap-switch-mini .bootstrap-switch-handle-off,
@@ -2318,7 +2337,7 @@ form label.radio, form label.checkbox {
 .bootstrap-switch.bootstrap-switch-large .bootstrap-switch-label {
   padding: 6px 16px;
   font-size: 18px;
-  line-height: 1.3333333; }
+  line-height: 1.33; }
 
 .bootstrap-switch.bootstrap-switch-disabled,
 .bootstrap-switch.bootstrap-switch-readonly,
@@ -2340,7 +2359,6 @@ form label.radio, form label.checkbox {
 
 .bootstrap-switch.bootstrap-switch-animate .bootstrap-switch-container {
   -webkit-transition: margin-left 0.5s;
-  -o-transition: margin-left 0.5s;
   transition: margin-left 0.5s; }
 
 .bootstrap-switch.bootstrap-switch-inverse .bootstrap-switch-handle-on {
@@ -2355,21 +2373,47 @@ form label.radio, form label.checkbox {
   border-bottom-left-radius: 3px;
   border-top-left-radius: 3px; }
 
-.bootstrap-switch.bootstrap-switch-focused {
-  border-color: #66afe9;
-  outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); }
+.bootstrap-switch.bootstrap-switch-on .bootstrap-switch-container {
+  margin-left: -2px !important; }
 
-.bootstrap-switch.bootstrap-switch-on .bootstrap-switch-label,
-.bootstrap-switch.bootstrap-switch-inverse.bootstrap-switch-off .bootstrap-switch-label {
-  border-bottom-right-radius: 3px;
-  border-top-right-radius: 3px; }
+.bootstrap-switch.bootstrap-switch-off .bootstrap-switch-container {
+  margin-left: -37px !important; }
 
-.bootstrap-switch.bootstrap-switch-off .bootstrap-switch-label,
-.bootstrap-switch.bootstrap-switch-inverse.bootstrap-switch-on .bootstrap-switch-label {
-  border-bottom-left-radius: 3px;
-  border-top-left-radius: 3px; }
+.bootstrap-switch.bootstrap-switch-on:hover .bootstrap-switch-label {
+  width: 26px !important;
+  margin: 2px -15px; }
+
+.bootstrap-switch.bootstrap-switch-off:hover .bootstrap-switch-label {
+  width: 26px !important;
+  margin: 2px -15px -13px -11px; }
+
+.bootstrap-switch.bootstrap-switch-on .bootstrap-switch-handle-off {
+  background-color: #444; }
+
+.bootstrap-switch.bootstrap-switch-off .bootstrap-switch-handle-on {
+  background-color: #dddddd; }
+
+.bootstrap-switch.bootstrap-switch-on .bootstrap-switch-danger ~ .bootstrap-switch-default {
+  background-color: #fb404b; }
+
+.bootstrap-switch.bootstrap-switch-on .bootstrap-switch-warning ~ .bootstrap-switch-default {
+  background-color: #ffa534; }
+
+.bootstrap-switch.bootstrap-switch-on .bootstrap-switch-success ~ .bootstrap-switch-default {
+  background-color: #87cb16; }
+
+.bootstrap-switch.bootstrap-switch-on .bootstrap-switch-primary ~ .bootstrap-switch-default {
+  background-color: #447df7; }
+
+.bootstrap-switch.bootstrap-switch-on .bootstrap-switch-info ~ .bootstrap-switch-default {
+  background-color: #447df7; }
+
+.bootstrap-switch.bootstrap-switch-off .bootstrap-switch-danger,
+.bootstrap-switch.bootstrap-switch-off .bootstrap-switch-primary,
+.bootstrap-switch.bootstrap-switch-off .bootstrap-switch-info,
+.bootstrap-switch.bootstrap-switch-off .bootstrap-switch-warning,
+.bootstrap-switch.bootstrap-switch-off .bootstrap-switch-success {
+  background-color: #dddddd; }
 
 .nav > li > a:hover,
 .nav > li > a:focus {
@@ -3937,8 +3981,29 @@ form label.radio, form label.checkbox {
     transform: translate3d(0, -60px, 0); }
   .login-page .card .header {
     padding-bottom: 30px; }
+  .login-page .card .form-group {
+    margin-bottom: 15px; }
+    .login-page .card .form-group > label {
+      font-size: 12px;
+      margin-bottom: 5px;
+      text-transform: uppercase; }
   .login-page .card .btn-wd {
     min-width: 180px; }
+  .login-page .card .card-footer {
+    padding: 0 15px 10px;
+    background-color: transparent;
+    line-height: 30px;
+    border-top: none; }
+
+.login-page .form-control {
+  background-color: #ffffff;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  color: #565656;
+  padding: 8px 12px;
+  height: 40px;
+  box-shadow: none;
+  font-size: 14px; }
 
 .lock-page .user-profile {
   text-align: center;

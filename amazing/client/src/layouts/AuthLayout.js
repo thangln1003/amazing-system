@@ -8,6 +8,7 @@ import Footer from '../components/Footer/Footer';
 import { routes } from '../routes';
 
 import bgImage from 'assets/img/full-screen-image-3.jpg';
+import { Container } from 'react-bootstrap';
 
 const AuthLayout = (props) => {
   const { location } = props;
@@ -48,7 +49,7 @@ const AuthLayout = (props) => {
     <div className="wrapper wrapper-full-page">
       <div className={'full-page' + getPageClass()} data-color="black" data-image={bgImage}>
         <AuthHeader />
-        <div className="main-content">
+        <div className="content">
           <Switch>{getRoutes(routes)}</Switch>
         </div>
         <Footer transparent />

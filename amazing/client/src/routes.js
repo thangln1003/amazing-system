@@ -1,9 +1,10 @@
-// Component
+// Components
 import Typography from './views/Components/Typography';
 import IconsPage from './views/Components/IconsPage';
 import ReactTablePage from 'views/Components/ReactTablePage';
 
 // Pages
+import LoginPage from './views/Pages/LoginPage';
 import DashboardPage from './views/Pages/DashboardPage';
 import CarRentalContactPage from './views/Pages/CarRentalContactPage';
 import StdUI01 from './views/MO/StdUI01';
@@ -16,6 +17,13 @@ const breadcrumbRoutes = {
 };
 
 const routes = [
+  {
+    path: '/login',
+    name: 'Login',
+    icon: 'pe-7s-graph',
+    component: LoginPage,
+    layout: '/auth',
+  },
   {
     path: '/dashboard',
     name: 'Dashboard',

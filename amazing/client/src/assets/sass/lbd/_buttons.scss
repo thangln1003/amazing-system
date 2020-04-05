@@ -2,6 +2,7 @@
   border-width: $border-thin;
   background-color: $transparent-bg;
   font-weight: $font-weight-normal;
+  font-size: $font-size-base;
 
   @include opacity(0.8);
   padding: $padding-base-vertical $padding-base-horizontal;

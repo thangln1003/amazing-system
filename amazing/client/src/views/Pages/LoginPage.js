@@ -10,10 +10,11 @@ const LoginPage = () => {
         <Col md={{ span: 4, offset: 4 }} sm={{ span: 6, offset: 3 }}>
           <form>
             <Card>
+              <Card.Header className="text-center">Login</Card.Header>
               <Card.Body>
                 <Form.Group>
                   <Form.Label>Email address</Form.Label>
-                  <FormControl placeholder="Enter email" type="email" />
+                  <FormControl placeholder="Enter email" type="email" size="md" />
                 </Form.Group>
                 <Form.Group>
                   <Form.Label>Password</Form.Label>
@@ -22,10 +23,12 @@ const LoginPage = () => {
                 <Form.Group>
                   <Checkbox number="1" label="Remember me" />
                 </Form.Group>
-                <Button variant="info" fill wd size="sm">
+              </Card.Body>
+              <Card.Footer className="text-center">
+                <Button variant="info" fill wd>
                   Login
                 </Button>
-              </Card.Body>
+              </Card.Footer>
             </Card>
           </form>
         </Col>

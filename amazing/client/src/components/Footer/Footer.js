@@ -2,9 +2,11 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 
 const Footer = (props) => {
+  const { transparent, fluid } = props;
+
   return (
-    <footer className={'footer' + (props.transparent !== undefined ? ' footer-transparent' : '')}>
-      <Container fluid>
+    <footer className={'footer' + (transparent !== undefined ? ' footer-transparent' : '')}>
+      <Container fluid={fluid !== undefined ? true : false}>
         <nav className="pull-left">
           <ul>
             <li>
