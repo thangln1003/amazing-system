@@ -3979,8 +3979,14 @@ form label.radio, form label.checkbox {
     -o-transform: translate3d(0, -60px, 0);
     -ms-transform: translate3d(0, -60px, 0);
     transform: translate3d(0, -60px, 0); }
-  .login-page .card .header {
-    padding-bottom: 30px; }
+  .login-page .card .card-header {
+    padding: 15px 15px 0px;
+    background-color: transparent;
+    color: #333333;
+    font-weight: 300;
+    font-size: 22px;
+    padding-bottom: 30px;
+    border-bottom: none; }
   .login-page .card .form-group {
     margin-bottom: 15px; }
     .login-page .card .form-group > label {

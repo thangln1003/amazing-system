@@ -83,7 +83,7 @@ const NavbarLinks = () => {
             Settings
           </NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="#action/3.4" bsPrefix="dropdown-item has-icon">
+          <NavDropdown.Item href="/auth/lock-screen" bsPrefix="dropdown-item has-icon">
             <i className="pe-7s-lock" />
             Lock Screen
           </NavDropdown.Item>
