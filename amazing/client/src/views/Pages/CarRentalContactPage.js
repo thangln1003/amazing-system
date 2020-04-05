@@ -60,28 +60,28 @@ const CarRentalContactPage = () => {
             <Card.Body>
               <Form>
                 <Form.Group as={Row}>
-                  <Form.Label column lg={1}>
+                  <Form.Label column lg={1} md={2}>
                     Contact NO. <span className="star">*</span>
                   </Form.Label>
-                  <Col md={1}>
+                  <Col lg={1} md={4}>
                     <FormControl autoComplete="off" size="sm" type="text" name="email" />
                     {form.emailError}
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
-                  <Form.Label column lg={1}>
+                  <Form.Label column lg={1} md={2}>
                     Contact Title <span className="star">*</span>
                   </Form.Label>
-                  <Col md={1}>
+                  <Col lg={1} md={4}>
                     <FormControl autoComplete="off" size="sm" type="text" name="email" />
                     {form.emailError}
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
-                  <Form.Label column lg={1}>
+                  <Form.Label column lg={1} md={2}>
                     Basis Date <span className="star">*</span>
                   </Form.Label>
-                  <Col md={1}>
+                  <Col lg={1} md={2}>
                     <Datetime
                       dateFormat="DD/MM/YYYY"
                       timeFormat={false}
@@ -89,7 +89,7 @@ const CarRentalContactPage = () => {
                       defaultValue={new Date()}
                     />
                   </Col>
-                  <Col md={1}>
+                  <Col lg={1} md={2}>
                     <Datetime
                       dateFormat="DD/MM/YYYY"
                       timeFormat={false}
