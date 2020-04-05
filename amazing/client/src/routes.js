@@ -1,9 +1,12 @@
-import Dashboard                  from './views/Dashboard';
-import Typography                 from './views/Typography';
-import ReactTablePage             from 'views/Pages/ReactTablePage';
-import CarRentalContactPage       from './views/Pages/CarRentalContactPage';
-import StdUI01                    from './views/MO/StdUI01';
+// Component
+import Typography from './views/Components/Typography';
+import IconsPage from './views/Components/IconsPage';
+import ReactTablePage from 'views/Components/ReactTablePage';
 
+// Pages
+import DashboardPage from './views/Pages/DashboardPage';
+import CarRentalContactPage from './views/Pages/CarRentalContactPage';
+import StdUI01 from './views/MO/StdUI01';
 
 const breadcrumbRoutes = {
   '/': 'Home',
@@ -17,7 +20,7 @@ const routes = [
     path: '/dashboard',
     name: 'Dashboard',
     icon: 'pe-7s-graph',
-    component: Dashboard,
+    component: DashboardPage,
     layout: '/admin',
   },
   {
@@ -35,6 +38,13 @@ const routes = [
     layout: '/admin',
   },
   {
+    path: '/icons',
+    name: 'Icons',
+    icon: 'pe-7s-news-paper',
+    component: IconsPage,
+    layout: '/admin',
+  },
+  {
     path: '/carrental',
     name: 'Card Rental Mgnt',
     icon: 'pe-7s-news-paper',
@@ -47,7 +57,6 @@ const routes = [
     name: 'Standard UI 01',
     path: '/StdUI01',
     component: StdUI01,
-    
   },
 ];
 
