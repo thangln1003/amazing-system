@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
-import StatsCard from '../../components/Card/StatsCard';
+import StatsCard from '../../@core/components/Card/StatsCard';
 
 const DashboardPage = () => {
   return (

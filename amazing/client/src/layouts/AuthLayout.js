@@ -1,8 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import AuthHeader from '../components/Header/AuthHeader';
-import Footer from '../components/Footer/Footer';
+import AuthHeader from '../@core/components/Header/AuthHeader';
+import Footer from '../@core/components/Footer/Footer';
 
 // dinamically create pages routes
 import { routes } from '../routes';

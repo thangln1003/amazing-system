@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
-import Breadcrumbs from '../components/Breadcrumbs';
+import Header from '../@core/components/Header/Header';
+import Footer from '../@core/components/Footer/Footer';
+import Breadcrumbs from '../@core/components/Breadcrumbs';
 
 import { routes, breadcrumbRoutes } from '../routes.js';
 

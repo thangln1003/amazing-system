@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, FormControl, Radio } from 'react-bootstrap';
 import Datetime from 'react-datetime';
-import ReactTable from '../../components/Table/ReactTable';
-import makeData from '../../components/Table/makeData';
+import ReactTable from '../../@core/components/Table/ReactTable';
+import makeData from '../../@core/components/Table/makeData';
 
 
 const StdUI01 = () => {
