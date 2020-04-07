@@ -8,7 +8,6 @@ import Footer from '../@core/components/Footer/Footer';
 import { routes } from '../routes';
 
 import bgImage from 'assets/img/full-screen-image-3.jpg';
-import { Container } from 'react-bootstrap';
 
 const AuthLayout = (props) => {
   const { location } = props;
