@@ -9,6 +9,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "classnames": "^2.2.6",
+    "formik": "^2.1.4",
     "moment": "^2.24.0",
     "namor": "^2.0.2",
     "node-sass": "^4.13.1",
@@ -27,7 +28,8 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^5.0.1"
+    "styled-components": "^5.0.1",
+    "yup": "^0.28.3"
   },
   "resolutions": {
     "acorn": "^7.1.1"

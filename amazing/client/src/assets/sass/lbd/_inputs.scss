@@ -35,6 +35,10 @@
       outline: 0 !important;
       color: #333333;
     }
+
+    &.is-invalid {
+      transition: none;
+    }
   
     .has-error &,
     .has-error &:focus,
@@ -54,8 +58,8 @@
     .has-error &,
     &.error,
     .has-error &:focus {
-      color: $danger-color;
-      border-color: $danger-color;
+      color: $danger-color !important;
+      border-color: $danger-color !important;
     }
   
     & + .form-control-feedback {

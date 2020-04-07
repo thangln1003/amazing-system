@@ -12,12 +12,16 @@
   padding-left: 24px;
   margin-bottom: 0;
   line-height: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .checkbox label::before,
 .checkbox label::after {
-  font-family: "FontAwesome";
-  content: "\f096";
+  font-family: 'FontAwesome';
+  content: '\f096';
   display: inline-block;
   position: absolute;
   width: 20px;
@@ -35,46 +39,46 @@
 }
 
 .checkbox label::after {
-  content: "";
+  content: '';
   text-align: center;
   opacity: 1;
   left: 0;
   color: $medium-gray;
 }
 
-.checkbox input[type="checkbox"],
-.radio input[type="radio"] {
+.checkbox input[type='checkbox'],
+.radio input[type='radio'] {
   position: absolute;
   opacity: 0;
   margin-left: 0;
 }
 
-.checkbox input[type="checkbox"]:checked + label::after {
-  font-family: "FontAwesome";
-  content: "\f046";
+.checkbox input[type='checkbox']:checked + label::after {
+  font-family: 'FontAwesome';
+  content: '\f046';
 }
 
-.checkbox input[type="checkbox"]:checked + label::after {
+.checkbox input[type='checkbox']:checked + label::after {
   color: $color-azure;
 }
 
-.checkbox input[type="checkbox"]:checked + label::before {
+.checkbox input[type='checkbox']:checked + label::before {
   opacity: 0;
 }
 
-.checkbox input[type="checkbox"]:disabled + label,
-.radio input[type="radio"]:disabled + label,
-.checkbox input[type="checkbox"]:disabled:checked + label::after {
+.checkbox input[type='checkbox']:disabled + label,
+.radio input[type='radio']:disabled + label,
+.checkbox input[type='checkbox']:disabled:checked + label::after {
   color: $medium-gray;
 }
 
-.checkbox input[type="checkbox"]:disabled + label::before,
-.checkbox input[type="checkbox"]:disabled + label::after {
+.checkbox input[type='checkbox']:disabled + label::before,
+.checkbox input[type='checkbox']:disabled + label::after {
   cursor: not-allowed;
 }
 
-.checkbox input[type="checkbox"]:disabled + label,
-.radio input[type="radio"]:disabled + label {
+.checkbox input[type='checkbox']:disabled + label,
+.radio input[type='radio']:disabled + label {
   cursor: not-allowed;
 }
 
@@ -86,55 +90,55 @@
   padding-left: 0;
 }
 
-.checkbox-primary input[type="checkbox"]:checked + label::before {
+.checkbox-primary input[type='checkbox']:checked + label::before {
   background-color: #428bca;
   border-color: #428bca;
 }
 
-.checkbox-primary input[type="checkbox"]:checked + label::after {
+.checkbox-primary input[type='checkbox']:checked + label::after {
   color: #fff;
 }
 
-.checkbox-danger input[type="checkbox"]:checked + label::before {
+.checkbox-danger input[type='checkbox']:checked + label::before {
   background-color: #d9534f;
   border-color: #d9534f;
 }
 
-.checkbox-danger input[type="checkbox"]:checked + label::after {
+.checkbox-danger input[type='checkbox']:checked + label::after {
   color: #fff;
 }
 
-.checkbox-info input[type="checkbox"]:checked + label::before {
+.checkbox-info input[type='checkbox']:checked + label::before {
   background-color: #5bc0de;
   border-color: #5bc0de;
 }
 
-.checkbox-info input[type="checkbox"]:checked + label::after {
+.checkbox-info input[type='checkbox']:checked + label::after {
   color: #fff;
 }
 
-.checkbox-warning input[type="checkbox"]:checked + label::before {
+.checkbox-warning input[type='checkbox']:checked + label::before {
   background-color: #f0ad4e;
   border-color: #f0ad4e;
 }
 
-.checkbox-warning input[type="checkbox"]:checked + label::after {
+.checkbox-warning input[type='checkbox']:checked + label::after {
   color: #fff;
 }
 
-.checkbox-success input[type="checkbox"]:checked + label::before {
+.checkbox-success input[type='checkbox']:checked + label::before {
   background-color: #5cb85c;
   border-color: #5cb85c;
 }
 
-.checkbox-success input[type="checkbox"]:checked + label::after {
+.checkbox-success input[type='checkbox']:checked + label::after {
   color: #fff;
 }
 
 .radio label::before,
 .radio label::after {
-  font-family: "FontAwesome";
-  content: "\f10c";
+  font-family: 'FontAwesome';
+  content: '\f10c';
   font-size: 20px;
   height: 20px;
   width: 20px;
@@ -150,23 +154,23 @@
   transition: color 0.2s linear;
 }
 
-.radio input[type="radio"]:checked + label::after {
-  font-family: "FontAwesome";
-  content: "\f192";
+.radio input[type='radio']:checked + label::after {
+  font-family: 'FontAwesome';
+  content: '\f192';
   color: $medium-gray;
 }
 
-.radio input[type="radio"]:checked:not(:disabled):hover + label::after,
-.radio input[type="radio"]:checked + label::after {
+.radio input[type='radio']:checked:not(:disabled):hover + label::after,
+.radio input[type='radio']:checked + label::after {
   color: $color-azure;
 }
 
-.radio input[type="radio"]:disabled + label {
+.radio input[type='radio']:disabled + label {
   color: #ddd;
 }
 
-.radio input[type="radio"]:disabled + label::before,
-.radio input[type="radio"]:disabled + label::after {
+.radio input[type='radio']:disabled + label::before,
+.radio input[type='radio']:disabled + label::after {
   color: #ddd;
 }
 
@@ -380,8 +384,7 @@
   -ms-user-select: none;
   user-select: none;
   vertical-align: middle;
-  -webkit-transition: border-color ease-in-out 0.15s,
-    box-shadow ease-in-out 0.15s;
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 .bootstrap-switch .bootstrap-switch-container {
@@ -470,8 +473,8 @@
 .bootstrap-switch .bootstrap-switch-handle-off {
   text-indent: 6px;
 }
-.bootstrap-switch input[type="radio"],
-.bootstrap-switch input[type="checkbox"] {
+.bootstrap-switch input[type='radio'],
+.bootstrap-switch input[type='checkbox'] {
   position: absolute !important;
   top: 0;
   left: 0;
@@ -479,8 +482,8 @@
   filter: alpha(opacity=0);
   z-index: -1;
 }
-.bootstrap-switch input[type="radio"].form-control,
-.bootstrap-switch input[type="checkbox"].form-control {
+.bootstrap-switch input[type='radio'].form-control,
+.bootstrap-switch input[type='checkbox'].form-control {
   height: auto;
 }
 .bootstrap-switch.bootstrap-switch-mini .bootstrap-switch-handle-on,
@@ -581,33 +584,23 @@
   background-color: $medium-gray;
 }
 
-.bootstrap-switch.bootstrap-switch-on
-  .bootstrap-switch-danger
-  ~ .bootstrap-switch-default {
+.bootstrap-switch.bootstrap-switch-on .bootstrap-switch-danger ~ .bootstrap-switch-default {
   background-color: $color-red;
 }
 
-.bootstrap-switch.bootstrap-switch-on
-  .bootstrap-switch-warning
-  ~ .bootstrap-switch-default {
+.bootstrap-switch.bootstrap-switch-on .bootstrap-switch-warning ~ .bootstrap-switch-default {
   background-color: $color-orange;
 }
 
-.bootstrap-switch.bootstrap-switch-on
-  .bootstrap-switch-success
-  ~ .bootstrap-switch-default {
+.bootstrap-switch.bootstrap-switch-on .bootstrap-switch-success ~ .bootstrap-switch-default {
   background-color: $color-green;
 }
 
-.bootstrap-switch.bootstrap-switch-on
-  .bootstrap-switch-primary
-  ~ .bootstrap-switch-default {
+.bootstrap-switch.bootstrap-switch-on .bootstrap-switch-primary ~ .bootstrap-switch-default {
   background-color: $primary-color;
 }
 
-.bootstrap-switch.bootstrap-switch-on
-  .bootstrap-switch-info
-  ~ .bootstrap-switch-default {
+.bootstrap-switch.bootstrap-switch-on .bootstrap-switch-info ~ .bootstrap-switch-default {
   background-color: $color-blue;
 }
 
