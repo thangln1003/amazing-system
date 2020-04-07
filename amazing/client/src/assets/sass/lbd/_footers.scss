@@ -15,11 +15,13 @@
       color: $dark-gray;
       display: block;
       margin-bottom: 3px;
+      font-size: $font-size-base;
+
       &:hover,
       &:focus {
         color: $default-states-color;
-        padding: 10px 15px;
-        margin: 10px 3px;
+        // padding: 10px 15px;
+        // margin: 10px 3px;
         line-height: 20px;
         font-size: $font-size-base;
       }
