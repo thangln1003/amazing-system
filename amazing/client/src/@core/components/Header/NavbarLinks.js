@@ -92,6 +92,11 @@ const NavbarLinks = () => {
               <i className="pe-7s-close-circle" /> Log out
             </div>
           </NavDropdown.Item>
+          <NavDropdown.Item href="/auth/register" bsPrefix="dropdown-item has-icon">
+            <div className="text-danger">
+              <i className="pe-7s-close-circle" /> Log out
+            </div>
+          </NavDropdown.Item>
         </NavDropdown>
       </Nav>
     </>

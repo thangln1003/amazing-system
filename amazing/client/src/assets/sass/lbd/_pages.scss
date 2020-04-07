@@ -160,6 +160,70 @@
   }
 }
 
+.register-page,
+.register-page {
+  > .content {
+    padding-top: 22vh;
+  }
+}
+
+.register-page {
+  .card {
+    box-shadow: 0 25px 30px -13px rgba(40, 40, 40, 0.4);
+    border-radius: $border-radius-extreme;
+    padding-top: $padding-default-horizontal * 2;
+    padding-bottom: $padding-default-horizontal * 2;
+
+    @include transform-translate-y(0);
+    @extend .animation-transition-general;
+
+    &.card-hidden {
+      opacity: 0;
+      @include transform-translate-y(-60px);
+    }
+
+    .card-header {
+      padding: 15px 15px 0px;
+      background-color: transparent;
+      color: #333333;
+      font-weight: 300;
+      font-size: 22px;
+      padding-bottom: $padding-default-horizontal * 2;
+      border-bottom: none;
+    }
+
+    .form-group {
+      margin-bottom: $margin-base;
+
+      > label {
+        font-size: $font-size-small;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+      }
+    }
+
+    .btn-wd {
+      min-width: 180px;
+    }
+
+    .card-footer {
+      padding: 0 15px 10px;
+      background-color: transparent;
+      line-height: 30px;
+      border-top: none;
+    }
+  }
+
+  .form-control {
+    background-color: $white-bg;
+    border-radius: 4px;
+    padding: 8px 12px;
+    height: 40px;
+    box-shadow: none;
+    font-size: $font-size-base;
+  }
+}
+
 .lock-page {
   .user-profile {
     text-align: center;

@@ -5,6 +5,7 @@ import ReactTablePage from 'views/Components/ReactTablePage';
 
 // Pages
 import LoginPage from './views/Pages/LoginPage';
+import RegisterPage from './views/Pages/RegisterPage';
 import DashboardPage from './views/Pages/DashboardPage';
 import CarRentalContactPage from './views/Pages/CarRentalContactPage';
 import StdUI01 from './views/MO/StdUI01';
@@ -22,6 +23,13 @@ const routes = [
     name: 'Login',
     icon: 'pe-7s-graph',
     component: LoginPage,
+    layout: '/auth',
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    icon: 'pe-7s-graph',
+    component: RegisterPage,
     layout: '/auth',
   },
   {
