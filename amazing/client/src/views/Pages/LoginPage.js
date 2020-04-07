@@ -1,4 +1,4 @@
-import React, { useRouter } from 'react';
+import React from 'react';
 import { Card, Container, Row, Col, Form, FormControl } from 'react-bootstrap';
 import Button from '../../components/CustomButton/CustomButton';
 import Checkbox from '../../components/CustomCheckbox/CustomCheckbox';
