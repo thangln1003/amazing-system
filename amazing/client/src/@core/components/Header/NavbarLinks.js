@@ -40,21 +40,11 @@ const NavbarLinks = () => {
           id="basic-nav-dropdown2"
           bsPrefix="dropdown-with-icons dropdown"
         >
-          <NavDropdown.Item href="#action/2.1">
-            Notification 1
-          </NavDropdown.Item>
-          <NavDropdown.Item href="#action/2.2">
-            Notification 2
-          </NavDropdown.Item>
-          <NavDropdown.Item href="#action/2.3">
-            Notification 3
-          </NavDropdown.Item>
-          <NavDropdown.Item href="#action/2.4">
-            Notification 4
-          </NavDropdown.Item>
-          <NavDropdown.Item href="#action/2.5">
-            Another notifications
-          </NavDropdown.Item>
+          <NavDropdown.Item href="#action/2.1">Notification 1</NavDropdown.Item>
+          <NavDropdown.Item href="#action/2.2">Notification 2</NavDropdown.Item>
+          <NavDropdown.Item href="#action/2.3">Notification 3</NavDropdown.Item>
+          <NavDropdown.Item href="#action/2.4">Notification 4</NavDropdown.Item>
+          <NavDropdown.Item href="#action/2.5">Another notifications</NavDropdown.Item>
         </NavDropdown>
         <NavDropdown
           alignRight
@@ -87,12 +77,10 @@ const NavbarLinks = () => {
             <i className="pe-7s-lock" />
             Lock Screen
           </NavDropdown.Item>
-          <NavDropdown.Item href="/auth/login" bsPrefix="dropdown-item has-icon">
-            <div className="text-danger">
-              <i className="pe-7s-close-circle" /> Log out
-            </div>
-          </NavDropdown.Item>
           <NavDropdown.Item href="/auth/register" bsPrefix="dropdown-item has-icon">
+            <i className="pe-7s-add-user" /> Register
+          </NavDropdown.Item>
+          <NavDropdown.Item href="/auth/login" bsPrefix="dropdown-item has-icon">
             <div className="text-danger">
               <i className="pe-7s-close-circle" /> Log out
             </div>

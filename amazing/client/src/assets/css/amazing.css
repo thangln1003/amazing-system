@@ -848,7 +848,7 @@ input:focus {
   outline: 0 !important; }
 
 /*           Animations              */
-.animation-transition-general, .login-page .card {
+.animation-transition-general, .login-page .card, .register-page .card {
   -webkit-transition: all 300ms linear;
   -moz-transition: all 300ms linear;
   -o-transition: all 300ms linear;
@@ -4007,6 +4007,57 @@ form label.radio, form label.checkbox {
     border-top: none; }
 
 .login-page .form-control {
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding: 8px 12px;
+  height: 40px;
+  box-shadow: none;
+  font-size: 14px; }
+
+.register-page > .content,
+.register-page > .content {
+  padding-top: 22vh; }
+
+.register-page .card {
+  box-shadow: 0 25px 30px -13px rgba(40, 40, 40, 0.4);
+  border-radius: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
+  .register-page .card.card-hidden {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -60px, 0);
+    -moz-transform: translate3d(0, -60px, 0);
+    -o-transform: translate3d(0, -60px, 0);
+    -ms-transform: translate3d(0, -60px, 0);
+    transform: translate3d(0, -60px, 0); }
+  .register-page .card .card-header {
+    padding: 15px 15px 0px;
+    background-color: transparent;
+    color: #333333;
+    font-weight: 300;
+    font-size: 22px;
+    padding-bottom: 30px;
+    border-bottom: none; }
+  .register-page .card .form-group {
+    margin-bottom: 15px; }
+    .register-page .card .form-group > label {
+      font-size: 12px;
+      margin-bottom: 5px;
+      text-transform: uppercase; }
+  .register-page .card .btn-wd {
+    min-width: 180px; }
+  .register-page .card .card-footer {
+    padding: 0 15px 10px;
+    background-color: transparent;
+    line-height: 30px;
+    border-top: none; }
+
+.register-page .form-control {
   background-color: #ffffff;
   border-radius: 4px;
   padding: 8px 12px;
