@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactTable from '../../@core/components/Table/ReactTable';
-import makeData from '../../@core/components/Table/makeData';
+import ReactTable from '@core/components/Table/ReactTable';
+import makeData from '@fake-db/db/makeData';
 import { Card } from 'react-bootstrap';
 
 const ReactTablePage = () => {

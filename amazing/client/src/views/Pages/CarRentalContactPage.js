@@ -2,54 +2,83 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, FormControl } from 'react-bootstrap';
 import Datetime from 'react-datetime';
 import ReactTable from '@core/components/Table/ReactTable';
-import makeData from '@core/components/Table/makeData';
 import Button from '@core/components/CustomButton/CustomButton';
+import makeData from '@fake-db/db/makeData';
+
+import axios from 'axios';
 
 const CarRentalContactPage = () => {
   const [form, setForm] = useState({
     emailError: null,
   });
 
+  const editEvent = (dataItem) => {
+    alert('Edit event');
+    console.log(dataItem);
+  };
+
+  const deleteEvent = (dataItem) => {
+    alert('Delete event');
+    console.log(dataItem);
+  };
+
   const columns = React.useMemo(
     () => [
       {
-        Header: 'First Name',
-        accessor: 'firstName',
-      },
-      {
-        Header: 'Last Name',
-        accessor: 'lastName',
-      },
-      {
-        Header: 'Age',
-        accessor: 'age',
+        Header: '#',
+        accessor: 'no',
         width: 50,
       },
       {
-        Header: 'Visits',
-        accessor: 'visits',
-        width: 50,
+        Header: 'Contact NO',
+        accessor: 'contactNo',
       },
       {
-        Header: 'Status',
-        accessor: 'status',
+        Header: 'Contact Title',
+        accessor: 'contactTitle',
       },
       {
-        Header: 'Profile Progress',
-        accessor: 'progress',
-        disableSortBy: true,
+        Header: 'Biz Partner',
+        accessor: 'bizPartner',
+      },
+      {
+        Header: 'Personal In Charge',
+        accessor: 'poc',
+      },
+      {
+        Header: 'Car Plate',
+        accessor: 'carPlate',
+      },
+      {
+        Header: 'Contract Status',
+        accessor: 'contractStatus',
+      },
+      {
+        Header: 'Contracted By',
+        accessor: 'contractedBy',
+      },
+      {
+        Header: 'Effect From',
+        accessor: 'effectFrom',
+      },
+      {
+        Header: 'Effect To',
+        accessor: 'effectTo',
       },
     ],
     []
   );
 
-  // const data = React.useMemo(() => makeData(30000), []);
-  const initialState = { sortBy: [{ id: 'firstName' }] };
+  const initialState = { sortBy: [{ id: 'contactNo' }] };
   const [data, setData] = useState([]);
 
   const fectDateHandler = React.useCallback(() => {
-    const data = makeData(30000);
-    setData(data);
+    const request = axios.get('/api/carRentals');
+
+    request.then((response) => {
+      const data = response.data;
+      setData(data);
+    });
   });
 
   return (
@@ -60,20 +89,6 @@ const CarRentalContactPage = () => {
             <Card.Body>
               <Form id="frmSearching">
                 <Form.Group as={Row}>
-                  <Form.Label column lg={1} md={2}>
-                    Contact NO. <span className="star">*</span>
-                  </Form.Label>
-                  <Col lg={1} md={2}>
-                    <FormControl autoComplete="off" size="sm" type="text" name="email" />
-                    {form.emailError}
-                  </Col>
-                  <Form.Label column lg={1} md={2}>
-                    Contact NO. <span className="star">*</span>
-                  </Form.Label>
-                  <Col lg={1} md={2}>
-                    <FormControl autoComplete="off" size="sm" type="text" name="email" />
-                    {form.emailError}
-                  </Col>
                   <Form.Label column lg={1} md={2}>
                     Contact NO. <span className="star">*</span>
                   </Form.Label>
@@ -113,7 +128,7 @@ const CarRentalContactPage = () => {
                     />
                   </Col>
                   <Col md={1}>
-                    <Button simple fill wd variant="primary" size="sm" onClick={fectDateHandler}>
+                    <Button simple variant="primary" size="sm" onClick={fectDateHandler}>
                       <i className="fa fa-search"></i>
                     </Button>
                   </Col>
@@ -130,7 +145,12 @@ const CarRentalContactPage = () => {
               <Card.Title>
                 <legend>Card Rental Contact Information</legend>
               </Card.Title>
-              <ReactTable columns={columns} data={data} initialState={initialState} />
+              <ReactTable
+                columns={columns}
+                data={data}
+                initialState={initialState}
+                events={{ editEvent, deleteEvent }}
+              />
             </Card.Body>
           </Card>
         </Col>

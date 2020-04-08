@@ -27,7 +27,8 @@ const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref)
   );
 });
 
-const ReactTable = ({ columns, data, initialState }) => {
+const ReactTable = (props) => {
+  const { columns, data, initialState, events } = props;
   const defaultColumn = React.useMemo(
     () => ({
       // When using the useFlexLayout:
@@ -37,6 +38,12 @@ const ReactTable = ({ columns, data, initialState }) => {
     }),
     []
   );
+
+  // Event Handlers
+  const editItemHandler =
+    events !== undefined && events.editEvent !== undefined ? (dataItem) => events.editEvent(dataItem) : () => {};
+  const deleteItemHandler =
+    events !== undefined && events.deleteEvent !== undefined ? (dataItem) => events.deleteEvent(dataItem) : () => {};
 
   // Use the state and functions returned from useTable to build your UI
   const {
@@ -107,12 +114,16 @@ const ReactTable = ({ columns, data, initialState }) => {
           Header: 'Actions',
           Cell: ({ row }) => (
             <div className="right-actions">
-              <Button simple icon variant="info" size="sm" onClick={() => alert(row.id)}>
-                <i className="fa fa-edit"> </i>
-              </Button>{' '}
-              <Button simple icon variant="danger" size="sm" onClick={() => alert(row.id)}>
-                <i className="fa fa-close"> </i>
-              </Button>{' '}
+              {events !== undefined && typeof events.editEvent === 'function' ? (
+                <Button simple icon variant="info" size="sm" onClick={() => editItemHandler(row)}>
+                  <i className="fa fa-edit"> </i>
+                </Button>
+              ) : null}{' '}
+              {events !== undefined && typeof events.deleteEvent === 'function' ? (
+                <Button simple icon variant="danger" size="sm" onClick={() => deleteItemHandler(row)}>
+                  <i className="fa fa-close"> </i>
+                </Button>
+              ) : null}{' '}
             </div>
           ),
         },

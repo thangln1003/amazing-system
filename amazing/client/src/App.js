@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import AuthLayout from './layouts/AuthLayout';
 import AdminLayout from './layouts/AdminLayout';
 
+import '@fake-db';
+
 function App() {
   return (
     <BrowserRouter>
