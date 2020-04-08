@@ -98,7 +98,7 @@ const ReactTable = ({ columns, data, initialState }) => {
         },
         ...columns,
         {
-          id: 'action',
+          id: 'actions',
           disableSortBy: true,
           disableResizing: true,
           minWidth: 80,
@@ -231,7 +231,7 @@ const ReactTable = ({ columns, data, initialState }) => {
             })
           ) : (
             <tr role="row" className="react-table-row">
-              <td role="cell">Empty</td>
+              <td role="cell">No data available!</td>
             </tr>
           )}
         </tbody>
