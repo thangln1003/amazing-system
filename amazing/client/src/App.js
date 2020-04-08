@@ -1,6 +1,10 @@
 import React from 'react';
-
+import Provider from 'react-redux/es/components/Provider';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import AppContext from './AppContext';
+import { routes } from './routes';
+import store from './store';
+
 import AuthLayout from './layouts/AuthLayout';
 import AdminLayout from './layouts/AdminLayout';
 
@@ -8,13 +12,17 @@ import '@fake-db';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
-        <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
-        <Redirect from="/" to="/admin/dashboard" />
-      </Switch>
-    </BrowserRouter>
+    <AppContext.Provider value={{ routes }}>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Switch>
+            <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
+            <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
+            <Redirect from="/" to="/auth/login" />
+          </Switch>
+        </BrowserRouter>
+      </Provider>
+    </AppContext.Provider>
   );
 }
 

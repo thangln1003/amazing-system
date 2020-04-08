@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Container, Row, Col, Card, Form, FormControl } from 'react-bootstrap';
 import Datetime from 'react-datetime';
 import ReactTable from '@core/components/Table/ReactTable';
@@ -72,7 +72,7 @@ const CarRentalContactPage = () => {
   const initialState = { sortBy: [{ id: 'contactNo' }] };
   const [data, setData] = useState([]);
 
-  const fectDateHandler = React.useCallback(() => {
+  const fectDateHandler = useCallback(() => {
     const request = axios.get('/api/carRentals');
 
     request.then((response) => {

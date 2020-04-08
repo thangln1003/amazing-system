@@ -7,12 +7,12 @@ const AuthHeader = () => {
   return (
     <Navbar collapseOnSelect className="navbar-primary navbar-transparent navbar-absolute" expand="lg">
       <Container>
-        <Navbar.Brand href="/dashboard">Amazing System</Navbar.Brand>
+        <Navbar.Brand href="/admin/dashboard">Amazing System</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-between" id="basic-navbar-nav">
           <Nav className="justify-content-start"></Nav>
           <Nav className="justify-content-end">
-            <Nav.Link href="/dashboard">
+            <Nav.Link href="/admin/dashboard">
               <i className="fa fa-th-list" />
               <p>Dashboard</p>
             </Nav.Link>
