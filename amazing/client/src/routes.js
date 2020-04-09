@@ -6,6 +6,7 @@ import ReactTablePage from 'views/Components/ReactTablePage';
 // Pages
 import LoginPage from './views/Pages/LoginPage';
 import RegisterPage from './views/Pages/RegisterPage';
+import LockScreenPage from './views/Pages/LockScreenPage';
 import DashboardPage from './views/Pages/DashboardPage';
 import CarRentalContactPage from './views/Pages/CarRentalContactPage';
 import StdUI01 from './views/MO/StdUI01';
@@ -28,7 +29,7 @@ const routes = [
   {
     path: '/register',
     name: 'Register',
-    icon: 'pe-7s-graph',
+    icon: 'pe-7s-add-user',
     component: RegisterPage,
     layout: '/auth',
   },
@@ -73,6 +74,13 @@ const routes = [
     name: 'Standard UI 01',
     path: '/StdUI01',
     component: StdUI01,
+  },
+  {
+    layout: '/admin',
+    icon: 'pe-7s-lock',
+    name: 'Lock Screen',
+    path: '/lock-screen',
+    component: LockScreenPage,
   },
 ];
 
