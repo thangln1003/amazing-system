@@ -48,6 +48,11 @@
         left: 12px;
         right: auto;
       }
+
+      > a.has-icon {
+        padding-left: 0px;
+        line-height: 28px;
+      }
     }
 
     .show {

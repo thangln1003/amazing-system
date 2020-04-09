@@ -106,6 +106,15 @@
   &.btn-icon {
     padding: $padding-base-vertical;
   }
+
+  &:not(:disabled):not(.disabled):active {
+    @include btn-styles($default-color, $default-states-color);
+  }
+
+  &:active,
+  &:focus {
+    box-shadow: 0 0 0 0 transparent;
+  }
 }
 .btn-lg {
   @include btn-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $border-radius-large);

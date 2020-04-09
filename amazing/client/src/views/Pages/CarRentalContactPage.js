@@ -136,7 +136,7 @@ const CarRentalContactPage = () => {
                     />
                   </Col>
                   <Col md={1}>
-                    <Button simple variant="primary" size="sm" onClick={fectDateHandler}>
+                    <Button fill variant="primary" size="sm" onClick={fectDateHandler}>
                       <i className="fa fa-search"></i>
                     </Button>
                   </Col>

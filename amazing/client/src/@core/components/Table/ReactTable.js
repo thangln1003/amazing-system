@@ -170,9 +170,15 @@ const ReactTable = (props) => {
         <Col md={{ span: 4, offset: 3 }}>
           <div className="ReactTable-actions">
             <DropdownButton alignRight id="dropdown-actions" title="Actions" size="sm" disabled={!totalCount}>
-              <Dropdown.Item eventKey="1">Export to Excel</Dropdown.Item>
-              <Dropdown.Item eventKey="2">Export to PDF</Dropdown.Item>
-              <Dropdown.Item eventKey="3">Export to CSV</Dropdown.Item>
+              <Dropdown.Item bsPrefix="dropdown-item has-icon" eventKey="1">
+                <i className="fa fa-file-excel-o text-success"></i>Export to Excel
+              </Dropdown.Item>
+              <Dropdown.Item bsPrefix="dropdown-item has-icon" eventKey="2">
+                <i className="fa fa-file-pdf-o text-danger"></i>Export to PDF
+              </Dropdown.Item>
+              <Dropdown.Item bsPrefix="dropdown-item has-icon" eventKey="3">
+                <i className="fa fa-file-code-o"></i>Export to CSV
+              </Dropdown.Item>
             </DropdownButton>
             <Pagination>
               <Pagination.First onClick={() => gotoPage(0)} disabled={pageIndex === 0} />

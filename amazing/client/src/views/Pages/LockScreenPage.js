@@ -17,7 +17,7 @@ const LockScreenPage = () => {
               <Form.Group>
                 <FormControl type="password" placeholder="Enter Password" autoComplete="off" />
               </Form.Group>
-              <Button wd neutral round>
+              <Button wd neutral round variant="default">
                 Unlock
               </Button>
             </div>
