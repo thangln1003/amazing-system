@@ -34,7 +34,7 @@ const LoginPage = (props) => {
                 resetForm();
                 setSubmitting(false);
 
-                props.history.push('/dashboard');
+                props.history.push('/admin/dashboard');
               }, 500);
             }}
           >
