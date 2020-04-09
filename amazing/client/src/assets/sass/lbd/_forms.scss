@@ -27,6 +27,10 @@ form {
   padding-left: 3px;
 }
 
+.invalid-feedback {
+  font-size: 100%;
+}
+
 @media (min-width: $screen-md-min) {
   .form-horizontal {
     .control-label {

@@ -3,7 +3,7 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 
 const AuthHeader = () => {
   return (
-    <Navbar collapseOnSelect className="navbar-primary navbar-transparent navbar-absolute" expand="lg">
+    <Navbar collapseOnSelect className="navbar-primary navbar-transparent navbar-absolute navbar navbar-inverse" expand="lg">
       <Container>
         <Navbar.Brand href="/admin/dashboard">Amazing System</Navbar.Brand>
         <Navbar.Toggle />

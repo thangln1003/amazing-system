@@ -12,13 +12,13 @@
 
 .ReactTable {
   &-info {
-    font-size: $font-size-small;
+    font-size: $font-size-base;
     font-weight: $font-weight-bold;
 
     &--header {
       display: flex;
       flex-direction: row;
-      font-size: $font-size-small;
+      font-size: $font-size-base;
       font-weight: $font-weight-bold;
       align-items: center;
 
@@ -102,17 +102,11 @@
     }
 
     > tbody > tr > td {
-      font-size: $font-size-small;
+      font-size: $font-size-base;
 
       &.cell-action {
         text-align: center;
         padding: 4px;
-
-        .right-actions {
-          > button:not(:last-child) {
-            margin-right: 4px;
-          }
-        }
       }
     }
 
@@ -156,8 +150,8 @@
     > .page-item > input {
       border-radius: 0;
       text-align: center;
-      width: 70px;
-      height: 38px;
+      width: 60px;
+      height: 35px;
       margin-left: -2px;
     }
 

@@ -112,7 +112,7 @@
   }
 
   .form-group > label {
-    font-size: $font-size-small;
+    font-size: $font-size-base;
     margin-bottom: 5px;
     // text-transform: uppercase;
 
@@ -175,7 +175,7 @@
   */
 
   .author {
-    font-size: $font-size-small;
+    font-size: $font-size-base;
     font-weight: $font-weight-bold;
     text-transform: uppercase;
   }

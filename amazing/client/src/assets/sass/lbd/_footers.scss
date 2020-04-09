@@ -15,7 +15,7 @@
       color: $dark-gray;
       display: block;
       margin-bottom: 3px;
-      font-size: $font-size-base;
+      font-size: $font-size-medium;
 
       &:hover,
       &:focus {
@@ -23,7 +23,7 @@
         // padding: 10px 15px;
         // margin: 10px 3px;
         line-height: 20px;
-        font-size: $font-size-base;
+        font-size: $font-size-medium;
       }
     }
   }
@@ -49,10 +49,10 @@
   }
   .copyright {
     color: $default-states-color;
-    padding: 10px 15px;
-    margin: 10px 3px;
+    padding: 5px 15px;
+    margin: 5px 3px;
     line-height: 31px;
-    font-size: $font-size-base;
+    font-size: $font-size-medium;
   }
   hr {
     border-color: $medium-gray;
@@ -68,14 +68,14 @@
 
 .footer:not(.footer-big) {
   nav > ul {
-    font-size: 16px;
+    font-size: $font-size-medium;
     li {
       margin-left: 20px;
       float: left;
     }
     a {
       padding: 10px 0px;
-      margin: 15px 10px 15px 0px;
+      margin: 5px 5px 5px 0px;
     }
   }
 }

@@ -20,7 +20,7 @@
     border: 1px solid $light-gray;
     border-radius: $border-radius-base;
     color: #565656;
-    font-size: $font-size-small;
+    font-size: $font-size-base;
     @include input-size(
       $padding-small-vertical,
       $padding-small-horizontal - 4,
