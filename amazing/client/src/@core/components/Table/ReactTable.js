@@ -238,7 +238,7 @@ const ReactTable = (props) => {
                 <tr {...row.getRowProps({ className: 'react-table-row' })}>
                   {row.cells.map((cell) => {
                     return (
-                      <td {...cell.getCellProps()}>
+                      <td {...cell.getCellProps({ className: cell.column.id === 'actions' ? 'cell-action' : '' })}>
                         {cell.column.id === 'no' ? (
                           `${i + 1 + pageSize * pageIndex}`
                         ) : cell.column.dateFormat !== undefined ? (

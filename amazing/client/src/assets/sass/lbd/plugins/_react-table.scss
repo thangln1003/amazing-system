@@ -12,13 +12,13 @@
 
 .ReactTable {
   &-info {
-    font-size: $font-size-base;
+    font-size: $font-size-small;
     font-weight: $font-weight-bold;
 
     &--header {
       display: flex;
       flex-direction: row;
-      font-size: $font-size-base;
+      font-size: $font-size-small;
       font-weight: $font-weight-bold;
       align-items: center;
 
@@ -94,6 +94,15 @@
     > tbody > tr > td,
     > tfoot > tr > td {
       padding: 8px;
+    }
+
+    > tbody > tr > td {
+      font-size: $font-size-small;
+
+      &.cell-action {
+        text-align: center;
+        padding: 4px;
+      }
     }
 
     .react-table-row {
