@@ -1,8 +1,6 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 
-import NavbarLinks from './NavbarLinks';
-
 const AuthHeader = () => {
   return (
     <Navbar collapseOnSelect className="navbar-primary navbar-transparent navbar-absolute" expand="lg">

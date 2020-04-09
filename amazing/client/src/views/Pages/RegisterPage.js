@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card, Container, Row, Col, Form, FormControl } from 'react-bootstrap';
 import Button from '@core/components/CustomButton/CustomButton';
-import Checkbox from '@core/components/CustomCheckbox/CustomCheckbox';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 

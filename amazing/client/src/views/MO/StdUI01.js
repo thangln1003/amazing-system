@@ -1,49 +1,9 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Card, Form, FormControl, Radio } from 'react-bootstrap';
+import React from 'react';
+import { Container, Row, Col, Card, Form, FormControl } from 'react-bootstrap';
 import Datetime from 'react-datetime';
-import ReactTable from '@core/components/Table/ReactTable';
-import makeData from '@fake-db/db/makeData';
 
 
 const StdUI01 = () => {
-  const [form, setForm] = useState({ emailError: null, });
-
-  const columns = React.useMemo(
-    () => [
-      {
-        Header: 'First Name',
-        accessor: 'firstName',
-      },
-      {
-        Header: 'Last Name',
-        accessor: 'lastName',
-      },
-      {
-        Header: 'Age',
-        accessor: 'age',
-        width: 50,
-      },
-      {
-        Header: 'Visits',
-        accessor: 'visits',
-        width: 50,
-      },
-      {
-        Header: 'Status',
-        accessor: 'status',
-      },
-      {
-        Header: 'Profile Progress',
-        accessor: 'progress',
-        disableSortBy: true,
-      }
-    ],
-    []
-  );
-
-  const data = React.useMemo(() => makeData(30000), []);
-  const initialState = { sortBy: [{ id: 'firstName' }] };
-
   return (
     <Container fluid>
       <Row>

@@ -3,7 +3,6 @@ import { Container, Row, Col, Card, Form, FormControl } from 'react-bootstrap';
 import Datetime from 'react-datetime';
 import ReactTable from '@core/components/Table/ReactTable';
 import Button from '@core/components/CustomButton/CustomButton';
-import makeData from '@fake-db/db/makeData';
 
 import axios from 'axios';
 
