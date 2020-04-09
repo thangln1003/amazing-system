@@ -148,7 +148,7 @@
 
   i {
     text-align: center;
-    line-height: 28px;
+    line-height: $line-height;
     float: left;
 
     &[class^='pe-'] {
@@ -172,7 +172,7 @@
   + .dropdown-menu {
     > a.has-icon {
       padding-left: 0px;
-      line-height: 28px;
+      line-height: $line-height;
     }
   }
 }

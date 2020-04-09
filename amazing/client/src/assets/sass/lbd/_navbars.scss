@@ -23,7 +23,7 @@
     padding: $navbar-padding-brand;
     font-size: $font-size-large-navbar;
     text-transform: capitalize;
-    height: 50px;
+    height: 40px;
     line-height: 20px;
   }
 
@@ -370,6 +370,17 @@
     &:hover {
       color: $white-color;
       background-color: transparent;
+    }
+  }
+}
+
+@media (min-width: $screen-xs-max) {
+  .navbar-nav {
+    > .nav-item > a,
+    > a {
+      padding: $navbar-padding-a;
+      margin: $navbar-margin-a;
+      position: relative;
     }
   }
 }
