@@ -76,7 +76,7 @@ const routes = [
     component: StdUI01,
   },
   {
-    layout: '/admin',
+    layout: '/auth',
     icon: 'pe-7s-lock',
     name: 'Lock Screen',
     path: '/lock-screen',
