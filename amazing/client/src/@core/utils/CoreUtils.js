@@ -11,11 +11,15 @@ const CoreUtils = class {
 
   static range = (len) => {
     const arr = [];
-      for (let i = 0; i < len; i++) {
-        arr.push(i);
-      }
-      return arr;
-  }
+    for (let i = 0; i < len; i++) {
+      arr.push(i);
+    }
+    return arr;
+  };
+
+  static randomDate = (start, end) => {
+    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+  };
 };
 
 export default CoreUtils;

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import Moment from 'react-moment';
 import { Table, Pagination, Row, Col, Dropdown, DropdownButton } from 'react-bootstrap';
 import {
   useTable,
@@ -11,6 +12,7 @@ import {
 } from 'react-table';
 
 import Button from '../CustomButton/CustomButton';
+import SimpleLoading from '@core/components/Loading';
 
 const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref) => {
   const defaultRef = useRef();
@@ -28,7 +30,7 @@ const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref)
 });
 
 const ReactTable = (props) => {
-  const { columns, data, initialState, events } = props;
+  const { columns, data, initialState, events, loading } = props;
   const defaultColumn = React.useMemo(
     () => ({
       // When using the useFlexLayout:
@@ -167,7 +169,7 @@ const ReactTable = (props) => {
         </Col>
         <Col md={{ span: 4, offset: 3 }}>
           <div className="ReactTable-actions">
-            <DropdownButton alignRight id="dropdown-actions" title="Actions" size="sm">
+            <DropdownButton alignRight id="dropdown-actions" title="Actions" size="sm" disabled={!totalCount}>
               <Dropdown.Item eventKey="1">Export to Excel</Dropdown.Item>
               <Dropdown.Item eventKey="2">Export to PDF</Dropdown.Item>
               <Dropdown.Item eventKey="3">Export to CSV</Dropdown.Item>
@@ -177,6 +179,7 @@ const ReactTable = (props) => {
               <Pagination.Prev onClick={() => previousPage()} disabled={!canPreviousPage} />
               <li className="page-item">
                 <input
+                  disabled={!pageCount}
                   className="form-control form-control-sm"
                   type="number"
                   value={pageIndex + 1 || 1}
@@ -187,7 +190,10 @@ const ReactTable = (props) => {
                 />
               </li>
               <Pagination.Next onClick={() => nextPage()} disabled={!canNextPage} />
-              <Pagination.Last onClick={() => gotoPage(pageCount - 1)} disabled={pageIndex === pageCount - 1} />
+              <Pagination.Last
+                onClick={() => gotoPage(pageCount - 1)}
+                disabled={pageIndex === pageCount - 1 || !canNextPage}
+              />
             </Pagination>
           </div>
         </Col>
@@ -233,7 +239,13 @@ const ReactTable = (props) => {
                   {row.cells.map((cell) => {
                     return (
                       <td {...cell.getCellProps()}>
-                        {cell.column.id === 'no' ? `${i + 1 + pageSize * pageIndex}` : cell.render('Cell')}
+                        {cell.column.id === 'no' ? (
+                          `${i + 1 + pageSize * pageIndex}`
+                        ) : cell.column.dateFormat !== undefined ? (
+                          <Moment format={cell.column.dateFormat}>{cell.value}</Moment>
+                        ) : (
+                          cell.render('Cell')
+                        )}
                       </td>
                     );
                   })}
@@ -260,6 +272,7 @@ const ReactTable = (props) => {
             <Pagination.Prev onClick={() => previousPage()} disabled={!canPreviousPage} />
             <li className="page-item">
               <input
+                disabled={!pageCount}
                 className="form-control form-control-sm"
                 type="number"
                 value={pageIndex + 1 || 1}
@@ -270,10 +283,14 @@ const ReactTable = (props) => {
               />
             </li>
             <Pagination.Next onClick={() => nextPage()} disabled={!canNextPage} />
-            <Pagination.Last onClick={() => gotoPage(pageCount - 1)} disabled={pageIndex === pageCount - 1} />
+            <Pagination.Last
+              onClick={() => gotoPage(pageCount - 1)}
+              disabled={pageIndex === pageCount - 1 || !canNextPage}
+            />
           </Pagination>
         </Col>
       </Row>
+      <SimpleLoading variant="info" delay={loading} />
     </div>
   );
 };

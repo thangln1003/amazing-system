@@ -3,8 +3,15 @@ import namor from 'namor';
 
 import CoreUtils from '@core/utils';
 
+Date.prototype.addDays = function (days) {
+  let date = new Date(this.valueOf());
+  date.setDate(date.getDate() + days);
+  return date;
+};
+
 const newCarRental = () => {
   const statusChance = Math.random();
+  let effectFrom = CoreUtils.randomDate(new Date('2018-01-01'), new Date());
   return {
     id: CoreUtils.generateGUID(),
     contactNo: namor.generate({ words: 1, numbers: 0 }),
@@ -14,8 +21,8 @@ const newCarRental = () => {
     carPlate: Math.floor(Math.random() * 10000),
     contractStatus: statusChance > 0.66 ? 'Done' : statusChance > 0.33 ? 'In Progress' : 'Pending',
     contractedBy: namor.generate({ words: 1, numbers: 0 }),
-    effectFrom: '',
-    effectTo: '',
+    effectFrom: effectFrom,
+    effectTo: effectFrom.addDays(100),
   };
 };
 

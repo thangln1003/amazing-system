@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, Form, FormControl } from 'react-bootstrap';
 import Datetime from 'react-datetime';
 import ReactTable from '@core/components/Table/ReactTable';
 import Button from '@core/components/CustomButton/CustomButton';
+import { useTimeout } from '@core/hooks';
 
 import axios from 'axios';
 
@@ -10,6 +11,8 @@ const CarRentalContactPage = () => {
   const [form, setForm] = useState({
     emailError: null,
   });
+
+  const [loading, setLoading] = useState(false);
 
   const editEvent = (dataItem) => {
     alert('Edit event');
@@ -59,10 +62,12 @@ const CarRentalContactPage = () => {
       {
         Header: 'Effect From',
         accessor: 'effectFrom',
+        dateFormat: 'DD/MM/YYYY hh:mm:ss',
       },
       {
         Header: 'Effect To',
         accessor: 'effectTo',
+        dateFormat: 'DD/MM/YYYY hh:mm:ss',
       },
     ],
     []
@@ -72,13 +77,17 @@ const CarRentalContactPage = () => {
   const [data, setData] = useState([]);
 
   const fectDateHandler = useCallback(() => {
-    const request = axios.get('/api/carRentals');
+    setLoading(true);
 
-    request.then((response) => {
-      const data = response.data;
-      setData(data);
-    });
-  });
+    setTimeout(() => {
+      const request = axios.get('/api/carRentals');
+      request.then((response) => {
+        const data = response.data;
+        setData(data);
+        setLoading(false);
+      });
+    }, 1000);
+  }, []);
 
   return (
     <Container fluid>
@@ -149,6 +158,7 @@ const CarRentalContactPage = () => {
                 data={data}
                 initialState={initialState}
                 events={{ editEvent, deleteEvent }}
+                loading={loading}
               />
             </Card.Body>
           </Card>

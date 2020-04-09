@@ -31,7 +31,7 @@
     &.focus,
     &:active,
     &.active {
-      background-color: $transparent-bg;
+      background-color: $btn-color;
       border-color: $btn-color;
     }
   }
