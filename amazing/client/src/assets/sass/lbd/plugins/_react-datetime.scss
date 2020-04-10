@@ -110,7 +110,7 @@
       border-bottom: 1px solid #e3e3e3;
       font-size: 12px;
       text-transform: uppercase;
-      color: #9a9a9a;
+      color: $dark-gray;
       font-weight: 400;
       padding-bottom: 5px;
       padding-top: 10px;
@@ -172,12 +172,7 @@
 .rdtPrev span,
 .rdtNext span {
   display: block;
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Chrome/Safari/Opera */
-  -khtml-user-select: none; /* Konqueror */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none;
+  @include user-select(none);
 }
 
 .rdtPicker th.rdtDisabled,
@@ -274,12 +269,7 @@ td.rdtYear:hover {
   -ms-transition: all 60ms ease-in;
   transition: all 60ms ease-in;
 
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Chrome/Safari/Opera */
-  -khtml-user-select: none; /* Konqueror */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none;
+  @include user-select(none);
 }
 .rdtCounter .rdtBtn:hover {
   background: #eee;

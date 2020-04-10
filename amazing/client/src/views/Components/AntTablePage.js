@@ -1,5 +1,6 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { Container, Row, Col, Card, Form, FormControl } from 'react-bootstrap';
+import Moment from 'react-moment';
 import Datetime from 'react-datetime';
 import AntTable from '@core/components/Table/AntTable';
 import CoreUtils from '@core/utils';
@@ -7,84 +8,16 @@ import Button from '@core/components/CustomButton/CustomButton';
 
 import axios from 'axios';
 
+import { Input, Tag } from 'antd';
+import Highlighter from 'react-highlight-words';
+import { SearchOutlined } from '@ant-design/icons';
+
 const AntTablePage = (props) => {
   const [table, setTable] = useState({
     data: [],
     loading: false,
   });
-
-  const columns = React.useMemo(
-    () => [
-      {
-        title: 'Contact No',
-        width: 100,
-        dataIndex: 'contactNo',
-        key: 'contactNo',
-        fixed: 'left',
-        ellipsis: true,
-        sorter: (a, b) => CoreUtils.sorter(a.contactNo, b.contactNo),
-        sortDirections: ['descend', 'ascend'],
-      },
-      {
-        title: 'Contact Title',
-        width: 100,
-        dataIndex: 'contactTitle',
-        key: 'contactTitle',
-        fixed: 'left',
-        ellipsis: true,
-      },
-      {
-        title: 'Biz Partner',
-        dataIndex: 'bizPartner',
-        key: 'bizPartner',
-        width: 150,
-      },
-      {
-        title: 'Personal In Charge',
-        dataIndex: 'poc',
-        key: 'poc',
-        width: 150,
-      },
-      {
-        title: 'Car Plate',
-        dataIndex: 'carPlate',
-        key: 'carPlate',
-        width: 150,
-      },
-      {
-        title: 'Contract Status',
-        dataIndex: 'contractStatus',
-        key: 'contractStatus',
-        width: 150,
-      },
-      {
-        title: 'Contracted By',
-        dataIndex: 'contractedBy',
-        key: 'contractedBy',
-        width: 150,
-      },
-      {
-        title: 'Effect From',
-        dataIndex: 'effectFrom',
-        key: 'effectFrom',
-        width: 150,
-      },
-      {
-        title: 'Effect To',
-        dataIndex: 'effectTo',
-        key: 'effectTo',
-        width: 150,
-      },
-      {
-        title: 'Action',
-        key: 'operation',
-        fixed: 'right',
-        width: 100,
-        render: () => <a>action</a>,
-      },
-    ],
-    []
-  );
+  const [page, setPage] = useState(1);
 
   const fectDateHandler = useCallback(() => {
     setTable({ loading: true });
@@ -101,6 +34,189 @@ const AntTablePage = (props) => {
   const onChange = (pagination, filters, sorter, extra) => {
     console.log('params', pagination, filters, sorter, extra);
   };
+
+  const [search, setSearch] = useState({
+    searchText: '',
+    searchedColumn: '',
+  });
+  const handleSearch = (selectedKeys, confirm, dataIndex) => {
+    confirm();
+    setSearch({
+      searchText: selectedKeys[0],
+      searchedColumn: dataIndex,
+    });
+  };
+  const handleReset = (clearFilters) => {
+    clearFilters();
+    setSearch({ searchText: '' });
+  };
+
+  const searchInput = useRef(null);
+  const getColumnSearchProps = (dataIndex) => ({
+    filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
+      <div style={{ padding: 8 }}>
+        <Input
+          ref={searchInput}
+          placeholder={`Search ${dataIndex}`}
+          value={selectedKeys[0]}
+          onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+          onPressEnter={() => handleSearch(selectedKeys, confirm, dataIndex)}
+          style={{ width: 188, marginBottom: 8, display: 'block' }}
+        />
+        <Button
+          fill
+          variant="primary"
+          onClick={() => handleSearch(selectedKeys, confirm, dataIndex)}
+          size="sm"
+          style={{ width: 90, marginRight: 8 }}
+        >
+          <i className="fa fa-search"></i>
+          Search
+        </Button>
+        <Button onClick={() => handleReset(clearFilters)} size="sm" style={{ width: 90 }}>
+          Reset
+        </Button>
+      </div>
+    ),
+    filterIcon: (filtered) => <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />,
+    onFilter: (value, record) => {
+      return record[dataIndex].toString().toLowerCase().includes(value.toLowerCase());
+    },
+    onFilterDropdownVisibleChange: (visible) => {
+      if (visible) {
+        setTimeout(() => searchInput.current.select());
+      }
+    },
+    render: (text) =>
+      search.searchedColumn === dataIndex ? (
+        <Highlighter
+          highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
+          searchWords={[search.searchText]}
+          autoEscape
+          textToHighlight={text.toString()}
+        />
+      ) : (
+        text
+      ),
+  });
+
+  const columns = [
+    {
+      title: '#',
+      key: 'index',
+      width: 40,
+      render: (value, item, index) => (page - 1) * 10 + index,
+    },
+    {
+      title: 'Contact No',
+      width: 150,
+      dataIndex: 'contactNo',
+      key: 'contactNo',
+      fixed: 'left',
+      ellipsis: true,
+      defaultSortOrder: 'ascend',
+      sortDirections: ['ascend', 'descend'],
+      sorter: (a, b) => CoreUtils.sorter(a.contactNo, b.contactNo),
+      ...getColumnSearchProps('contactNo'),
+    },
+    {
+      title: 'Contact Title',
+      width: 100,
+      dataIndex: 'contactTitle',
+      key: 'contactTitle',
+      fixed: 'left',
+      ellipsis: true,
+    },
+    {
+      title: 'Biz Partner',
+      dataIndex: 'bizPartner',
+      key: 'bizPartner',
+      width: 150,
+    },
+    {
+      title: 'Personal In Charge',
+      dataIndex: 'poc',
+      key: 'poc',
+      width: 150,
+    },
+    {
+      title: 'Car Plate',
+      dataIndex: 'carPlate',
+      key: 'carPlate',
+      width: 100,
+      align: 'center',
+    },
+    {
+      title: 'Contract Status',
+      dataIndex: 'contractStatus',
+      key: 'contractStatus',
+      width: 150,
+      filters: [
+        {
+          text: 'Pending',
+          value: 'Pending',
+        },
+        {
+          text: 'In Progress',
+          value: 'In Progress',
+        },
+        {
+          text: 'Done',
+          value: 'Done',
+        },
+      ],
+      align: 'center',
+      filterMultiple: true,
+      onFilter: (value, record) => record.contractStatus.indexOf(value) === 0,
+      render: (value) => {
+        let color = '';
+        if (value === 'Pending') {
+          color = 'volcano';
+        } else if (value === 'In Progress') {
+          color = 'geekblue';
+        } else {
+          color = 'green';
+        }
+        return (
+          <Tag color={color} key={value}>
+            {value.toUpperCase()}
+          </Tag>
+        );
+      },
+    },
+    {
+      title: 'Contracted By',
+      dataIndex: 'contractedBy',
+      key: 'contractedBy',
+      width: 150,
+    },
+    {
+      title: 'Effect From',
+      dataIndex: 'effectFrom',
+      key: 'effectFrom',
+      width: 150,
+      render: (value) => {
+        return <Moment format="DD/MM/YYYY hh:mm:ss">{value}</Moment>;
+      },
+    },
+    {
+      title: 'Effect To',
+      dataIndex: 'effectTo',
+      key: 'effectTo',
+      width: 150,
+      render: (value) => {
+        return <Moment format="DD/MM/YYYY hh:mm:ss">{value}</Moment>;
+      },
+    },
+    {
+      title: 'Action',
+      key: 'operation',
+      fixed: 'right',
+      width: 100,
+      align: 'center',
+      render: () => <a>action</a>,
+    },
+  ];
 
   return (
     <Container fluid>
@@ -168,6 +284,11 @@ const AntTablePage = (props) => {
                 scroll={{ x: 1500, y: 500 }}
                 loading={table.loading}
                 onChange={onChange}
+                pagination={{
+                  onChange(current) {
+                    setPage(current);
+                  },
+                }}
               />
             </Card.Body>
           </Card>

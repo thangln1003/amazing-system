@@ -75,12 +75,7 @@
     margin-bottom: 8px !important;
 
     > thead > tr > th {
-      -webkit-touch-callout: none; /* iOS Safari */
-      -webkit-user-select: none; /* Safari */
-      -khtml-user-select: none; /* Konqueror HTML */
-      -moz-user-select: none; /* Old versions of Firefox */
-      -ms-user-select: none; /* Internet Explorer/Edge */
-      user-select: none;
+      @include user-select(none);
 
       > span {
         font-size: $font-size-base;

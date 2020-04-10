@@ -12,10 +12,7 @@
   padding-left: 24px;
   margin-bottom: 0;
   line-height: 20px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  @include user-select(none);
 }
 
 .checkbox label::before,

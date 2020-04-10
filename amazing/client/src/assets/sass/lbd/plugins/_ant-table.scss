@@ -1,3 +1,27 @@
 .ant-table {
+  font-size: $font-size-base;
+
+  .ant-table-thead > tr > th {
     font-size: $font-size-base;
+    font-weight: $font-weight-semi;
+    color: $dark-gray;
+    text-transform: uppercase;
+    @include user-select(none);
+  }
+
+  .ant-table-filter-trigger {
+    .anticon-search {
+      font-size: $font-size-medium;
+    }
+  }
+}
+
+.ant-table-filter-dropdown {
+  .btn-sm {
+    > i[class^='fa'] {
+      margin-left: -20px;
+      width: 24px;
+      font-size: $font-size-small;
+    }
+  }
 }
