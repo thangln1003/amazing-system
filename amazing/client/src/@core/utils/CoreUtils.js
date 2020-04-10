@@ -20,6 +20,11 @@ const CoreUtils = class {
   static randomDate = (start, end) => {
     return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
   };
+
+  /* 
+   * https://stackoverflow.com/questions/59479703/cant-sort-column-in-ant-design-table-in-gatsby-site
+   */
+  static sorter = (a, b) => (isNaN(a) && isNaN(b) ? (a || '').localeCompare(b || '') : a - b);
 };
 
 export default CoreUtils;

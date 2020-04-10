@@ -17,6 +17,7 @@ const NavbarLinks = () => {
         <Nav.Link href="dashboard">Dashboard</Nav.Link>
         <Nav.Link href="carrental">Car Rental Contact Mgnt</Nav.Link>
         <NavDropdown alignRight title="Components" id="basic-nav-dropdown1">
+          <NavDropdown.Item href="ant-table">Ant Table</NavDropdown.Item>
           <NavDropdown.Item href="react-table">React Table</NavDropdown.Item>
           <NavDropdown.Item href="icons">Icons</NavDropdown.Item>
           <NavDropdown.Item href="typography">Typography</NavDropdown.Item>

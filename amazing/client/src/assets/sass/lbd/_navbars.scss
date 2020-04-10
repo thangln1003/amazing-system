@@ -47,7 +47,7 @@
     }
     > .nav-item > a [class^='fa'],
     > a [class^='fa'] {
-      font-size: $font-size-medium;
+      font-size: $font-size-large;
       position: relative;
       line-height: 16px;
     }
@@ -70,7 +70,7 @@
       color: #ffffff;
       font-weight: bold;
       line-height: 18px;
-      top: 2px;
+      top: 0;
       left: 7px;
     }
 

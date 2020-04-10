@@ -1,92 +1,106 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Container, Row, Col, Card, Form, FormControl } from 'react-bootstrap';
 import Datetime from 'react-datetime';
-import ReactTable from '@core/components/Table/ReactTable';
+import AntTable from '@core/components/Table/AntTable';
+import CoreUtils from '@core/utils';
 import Button from '@core/components/CustomButton/CustomButton';
 
 import axios from 'axios';
 
-const CarRentalContactPage = () => {
-  const [form, setForm] = useState({
-    emailError: null,
+const AntTablePage = (props) => {
+  const [table, setTable] = useState({
+    data: [],
+    loading: false,
   });
-
-  const [loading, setLoading] = useState(false);
-
-  const editEvent = (dataItem) => {
-    alert('Edit event');
-    console.log(dataItem);
-  };
-
-  const deleteEvent = (dataItem) => {
-    alert('Delete event');
-    console.log(dataItem);
-  };
 
   const columns = React.useMemo(
     () => [
       {
-        Header: '#',
-        accessor: 'no',
-        width: 50,
+        title: 'Contact No',
+        width: 100,
+        dataIndex: 'contactNo',
+        key: 'contactNo',
+        fixed: 'left',
+        ellipsis: true,
+        sorter: (a, b) => CoreUtils.sorter(a.contactNo, b.contactNo),
+        sortDirections: ['descend', 'ascend'],
       },
       {
-        Header: 'Contact NO',
-        accessor: 'contactNo',
+        title: 'Contact Title',
+        width: 100,
+        dataIndex: 'contactTitle',
+        key: 'contactTitle',
+        fixed: 'left',
+        ellipsis: true,
       },
       {
-        Header: 'Contact Title',
-        accessor: 'contactTitle',
+        title: 'Biz Partner',
+        dataIndex: 'bizPartner',
+        key: 'bizPartner',
+        width: 150,
       },
       {
-        Header: 'Biz Partner',
-        accessor: 'bizPartner',
+        title: 'Personal In Charge',
+        dataIndex: 'poc',
+        key: 'poc',
+        width: 150,
       },
       {
-        Header: 'Personal In Charge',
-        accessor: 'poc',
+        title: 'Car Plate',
+        dataIndex: 'carPlate',
+        key: 'carPlate',
+        width: 150,
       },
       {
-        Header: 'Car Plate',
-        accessor: 'carPlate',
+        title: 'Contract Status',
+        dataIndex: 'contractStatus',
+        key: 'contractStatus',
+        width: 150,
       },
       {
-        Header: 'Contract Status',
-        accessor: 'contractStatus',
+        title: 'Contracted By',
+        dataIndex: 'contractedBy',
+        key: 'contractedBy',
+        width: 150,
       },
       {
-        Header: 'Contracted By',
-        accessor: 'contractedBy',
+        title: 'Effect From',
+        dataIndex: 'effectFrom',
+        key: 'effectFrom',
+        width: 150,
       },
       {
-        Header: 'Effect From',
-        accessor: 'effectFrom',
-        dateFormat: 'DD/MM/YYYY hh:mm:ss',
+        title: 'Effect To',
+        dataIndex: 'effectTo',
+        key: 'effectTo',
+        width: 150,
       },
       {
-        Header: 'Effect To',
-        accessor: 'effectTo',
-        dateFormat: 'DD/MM/YYYY hh:mm:ss',
+        title: 'Action',
+        key: 'operation',
+        fixed: 'right',
+        width: 100,
+        render: () => <a>action</a>,
       },
     ],
     []
   );
 
-  const initialState = { sortBy: [{ id: 'contactNo' }] };
-  const [data, setData] = useState([]);
-
   const fectDateHandler = useCallback(() => {
-    setLoading(true);
+    setTable({ loading: true });
 
     setTimeout(() => {
       const request = axios.get('/api/carRentals');
       request.then((response) => {
         const data = response.data;
-        setData(data);
-        setLoading(false);
+        setTable({ data: [...data], loading: false });
       });
     }, 1000);
   }, []);
+
+  const onChange = (pagination, filters, sorter, extra) => {
+    console.log('params', pagination, filters, sorter, extra);
+  };
 
   return (
     <Container fluid>
@@ -100,8 +114,7 @@ const CarRentalContactPage = () => {
                     Contact NO. <span className="star">*</span>
                   </Form.Label>
                   <Col lg={1} md={2}>
-                    <FormControl autoComplete="off" size="sm" type="text" name="email" />
-                    {form.emailError}
+                    <FormControl autoComplete="off" size="sm" type="text" name="contactNo" />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -109,8 +122,7 @@ const CarRentalContactPage = () => {
                     Contact Title <span className="star">*</span>
                   </Form.Label>
                   <Col lg={1} md={2}>
-                    <FormControl autoComplete="off" size="sm" type="text" name="email" />
-                    {form.emailError}
+                    <FormControl autoComplete="off" size="sm" type="text" name="contactTitles" />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -149,15 +161,13 @@ const CarRentalContactPage = () => {
         <Col md={12}>
           <Card>
             <Card.Body>
-              <Card.Title>
-                <legend>Card Rental Contact Information</legend>
-              </Card.Title>
-              <ReactTable
+              <AntTable
                 columns={columns}
-                data={data}
-                initialState={initialState}
-                events={{ editEvent, deleteEvent }}
-                loading={loading}
+                rowKey={(record) => record.id}
+                dataSource={table.data}
+                scroll={{ x: 1500, y: 500 }}
+                loading={table.loading}
+                onChange={onChange}
               />
             </Card.Body>
           </Card>
@@ -167,4 +177,4 @@ const CarRentalContactPage = () => {
   );
 };
 
-export default CarRentalContactPage;
+export default AntTablePage;

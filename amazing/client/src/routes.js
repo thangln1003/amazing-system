@@ -1,6 +1,7 @@
 // Components
 import Typography from './views/Components/Typography';
 import IconsPage from './views/Components/IconsPage';
+import AntTablePage from 'views/Components/AntTablePage';
 import ReactTablePage from 'views/Components/ReactTablePage';
 
 // Pages
@@ -45,6 +46,13 @@ const routes = [
     name: 'Typography',
     icon: 'pe-7s-news-paper',
     component: Typography,
+    layout: '/admin',
+  },
+  {
+    path: '/ant-table',
+    name: 'Ant Table',
+    icon: 'pe-7s-news-paper',
+    component: AntTablePage,
     layout: '/admin',
   },
   {

@@ -564,12 +564,12 @@ This file was modified entirely by Creative Tim for React-Select v2.0.0
   background-color: transparent; }
 
 .ReactTable-info {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600; }
   .ReactTable-info--header {
     display: flex;
     flex-direction: row;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
     align-items: center; }
     .ReactTable-info--header select {
@@ -588,6 +588,9 @@ This file was modified entirely by Creative Tim for React-Select v2.0.0
   .ReactTable-actions .dropdown-menu::before {
     left: 12px;
     right: auto; }
+  .ReactTable-actions .dropdown-menu > a.has-icon {
+    padding-left: 0px;
+    line-height: 20px; }
   .ReactTable-actions .show .dropdown-menu {
     background-color: #ffffff; }
 
@@ -614,7 +617,7 @@ This file was modified entirely by Creative Tim for React-Select v2.0.0
     user-select: none; }
     .ReactTable > .table-responsive > .table > thead > tr > th > span,
     .ReactTable > .table > thead > tr > th > span {
-      font-size: 14px; }
+      font-size: 12px; }
       .ReactTable > .table-responsive > .table > thead > tr > th > span.fa-sort-asc, .ReactTable > .table-responsive > .table > thead > tr > th > span.fa-sort-desc,
       .ReactTable > .table > thead > tr > th > span.fa-sort-asc,
       .ReactTable > .table > thead > tr > th > span.fa-sort-desc {
@@ -632,6 +635,13 @@ This file was modified entirely by Creative Tim for React-Select v2.0.0
   .ReactTable > .table > tbody > tr > td,
   .ReactTable > .table > tfoot > tr > td {
     padding: 8px; }
+  .ReactTable > .table-responsive > .table > tbody > tr > td,
+  .ReactTable > .table > tbody > tr > td {
+    font-size: 12px; }
+    .ReactTable > .table-responsive > .table > tbody > tr > td.cell-action,
+    .ReactTable > .table > tbody > tr > td.cell-action {
+      text-align: center;
+      padding: 4px; }
   .ReactTable > .table-responsive > .table .react-table-row,
   .ReactTable > .table .react-table-row {
     display: flex; }
@@ -658,20 +668,17 @@ This file was modified entirely by Creative Tim for React-Select v2.0.0
 .ReactTable .table-bordered th:last-child {
   border-right-width: 0; }
 
-.ReactTable .table-bordered td:has(.right-actions) {
-  padding: 2px !important; }
-
 .ReactTable .pagination {
   justify-content: center;
   margin: 8px 0; }
   .ReactTable .pagination > .page-item > input {
     border-radius: 0;
     text-align: center;
-    width: 70px;
-    height: 38px;
+    width: 60px;
+    height: 35px;
     margin-left: -2px; }
   .ReactTable .pagination .page-link {
-    font-size: 16px; }
+    font-size: 14px; }
 
 .ReactTable .btn-sm.btn-simple {
   padding: 4px; }
@@ -726,37 +733,37 @@ button.close {
   font-weight: 400; }
 
 body {
-  font-size: 14px; }
+  font-size: 12px; }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   font-weight: 300;
   margin: 30px 0 15px; }
 
 h1, .h1 {
-  font-size: 52px; }
+  font-size: 38px; }
 
 h2, .h2 {
-  font-size: 36px; }
+  font-size: 30px; }
 
 h3, .h3 {
-  font-size: 28px;
+  font-size: 24px;
   margin: 20px 0 10px; }
 
 h4, .h4 {
-  font-size: 22px;
+  font-size: 20px;
   line-height: 30px; }
 
 h5, .h5 {
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 15px; }
 
 h6, .h6 {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   text-transform: uppercase; }
 
 p {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.5; }
 
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
@@ -920,7 +927,7 @@ a.dropdown-toggle[aria-expanded='true'] .caret,
   transform: rotate(180deg); }
 
 legend {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 300; }
 
 .full-screen-map {
@@ -1045,7 +1052,7 @@ legend {
       text-transform: uppercase;
       padding: 5px 0px;
       display: inline-block;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 400;
       line-height: 30px;
       white-space: nowrap;
@@ -1056,7 +1063,7 @@ legend {
       margin: 10px 10px;
       line-height: 20px; }
     .sidebar .logo:before {
-      content: "";
+      content: '';
       position: absolute;
       bottom: 0px;
       right: 15px;
@@ -1122,14 +1129,14 @@ legend {
   margin: 10px 10px;
   color: #ffffff;
   line-height: 20px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 .sidebar .logo .logo-text,
 .bootstrap-navbar .logo .logo-text {
   text-transform: uppercase;
   padding: 5px 0px 5px 15px;
   display: block;
-  font-size: 18px;
+  font-size: 16px;
   color: #ffffff;
   font-weight: 400;
   line-height: 30px;
@@ -1154,7 +1161,7 @@ legend {
 
 .sidebar .logo:before,
 .bootstrap-navbar .logo:before {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0px;
   right: 15px;
@@ -1167,7 +1174,7 @@ legend {
   text-transform: uppercase;
   padding: 7px 0px;
   display: block;
-  font-size: 18px;
+  font-size: 16px;
   color: #ffffff;
   font-weight: 400;
   line-height: 30px;
@@ -1216,7 +1223,7 @@ legend {
 .bootstrap-navbar:after,
 .bootstrap-navbar:before {
   display: block;
-  content: "";
+  content: '';
   position: absolute;
   width: 100%;
   height: 100%;
@@ -1247,8 +1254,8 @@ legend {
 .bootstrap-navbar.has-image:after {
   opacity: 0.77; }
 
-.sidebar[data-color="blue"]:after,
-.bootstrap-navbar[data-color="blue"]:after {
+.sidebar[data-color='blue']:after,
+.bootstrap-navbar[data-color='blue']:after {
   background: #447df7;
   background: -moz-linear-gradient(top, #447df7 0%, rgba(83, 60, 225, 0.7) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #447df7), color-stop(100%, rgba(83, 60, 225, 0.7)));
@@ -1258,8 +1265,8 @@ legend {
   background: linear-gradient(to bottom, #447df7 0%, rgba(83, 60, 225, 0.7) 100%);
   background-size: 150% 150%; }
 
-.sidebar[data-color="azure"]:after,
-.bootstrap-navbar[data-color="azure"]:after {
+.sidebar[data-color='azure']:after,
+.bootstrap-navbar[data-color='azure']:after {
   background: #23ccef;
   background: -moz-linear-gradient(top, #23ccef 0%, rgba(64, 145, 255, 0.7) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #23ccef), color-stop(100%, rgba(64, 145, 255, 0.7)));
@@ -1269,8 +1276,8 @@ legend {
   background: linear-gradient(to bottom, #23ccef 0%, rgba(64, 145, 255, 0.7) 100%);
   background-size: 150% 150%; }
 
-.sidebar[data-color="green"]:after,
-.bootstrap-navbar[data-color="green"]:after {
+.sidebar[data-color='green']:after,
+.bootstrap-navbar[data-color='green']:after {
   background: #87cb16;
   background: -moz-linear-gradient(top, #87cb16 0%, rgba(109, 192, 48, 0.7) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #87cb16), color-stop(100%, rgba(109, 192, 48, 0.7)));
@@ -1280,8 +1287,8 @@ legend {
   background: linear-gradient(to bottom, #87cb16 0%, rgba(109, 192, 48, 0.7) 100%);
   background-size: 150% 150%; }
 
-.sidebar[data-color="orange"]:after,
-.bootstrap-navbar[data-color="orange"]:after {
+.sidebar[data-color='orange']:after,
+.bootstrap-navbar[data-color='orange']:after {
   background: #ffa534;
   background: -moz-linear-gradient(top, #ffa534 0%, rgba(236, 22, 87, 0.7) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffa534), color-stop(100%, rgba(236, 22, 87, 0.7)));
@@ -1291,8 +1298,8 @@ legend {
   background: linear-gradient(to bottom, #ffa534 0%, rgba(236, 22, 87, 0.7) 100%);
   background-size: 150% 150%; }
 
-.sidebar[data-color="red"]:after,
-.bootstrap-navbar[data-color="red"]:after {
+.sidebar[data-color='red']:after,
+.bootstrap-navbar[data-color='red']:after {
   background: #fb404b;
   background: -moz-linear-gradient(top, #fb404b 0%, rgba(187, 5, 2, 0.7) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fb404b), color-stop(100%, rgba(187, 5, 2, 0.7)));
@@ -1302,8 +1309,8 @@ legend {
   background: linear-gradient(to bottom, #fb404b 0%, rgba(187, 5, 2, 0.7) 100%);
   background-size: 150% 150%; }
 
-.sidebar[data-color="purple"]:after,
-.bootstrap-navbar[data-color="purple"]:after {
+.sidebar[data-color='purple']:after,
+.bootstrap-navbar[data-color='purple']:after {
   background: #9368e9;
   background: -moz-linear-gradient(top, #9368e9 0%, rgba(148, 59, 234, 0.7) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9368e9), color-stop(100%, rgba(148, 59, 234, 0.7)));
@@ -1319,7 +1326,7 @@ legend {
   min-height: 100%; }
   .main-panel .main-content {
     padding: 15px;
-    min-height: calc(100vh - 137px); }
+    min-height: calc(100vh - 101px); }
   .main-panel > .content-no-padding {
     padding: 0; }
   .main-panel > .footer {
@@ -1410,26 +1417,24 @@ legend {
         -ms-transform: translate3d(0px, 0, 0);
         transform: translate3d(0px, 0, 0);
         opacity: 1; }
-      .sidebar-mini .sidebar:hover .sidebar-wrapper > .nav li.active > a:not([data-toggle="collapse"]):before, .sidebar-mini .sidebar:hover .sidebar-wrapper > .nav li.active > a:not([data-toggle="collapse"]):after {
+      .sidebar-mini .sidebar:hover .sidebar-wrapper > .nav li.active > a:not([data-toggle='collapse']):before, .sidebar-mini .sidebar:hover .sidebar-wrapper > .nav li.active > a:not([data-toggle='collapse']):after {
         opacity: 0; } }
 
 .btn {
   border-width: 1px;
   background-color: transparent;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 12px;
   opacity: 0.8;
   filter: alpha(opacity=80);
   padding: 8px 16px;
-  background-color: #444;
   border-color: #444;
-  color: #ffffff;
-  opacity: 1;
-  filter: alpha(opacity=100); }
+  color: #444; }
   .btn:hover, .btn:focus, .btn:active, .btn.active, .btn:active:focus, .btn:active:hover, .btn.active:focus, .btn.active:hover,
   .show > .btn.dropdown-toggle {
-    background-color: #353535;
-    color: #ffffff; }
+    background-color: transparent;
+    color: #353535;
+    border-color: #353535; }
   .btn.disabled, .btn.disabled:hover, .btn.disabled:focus, .btn.disabled.focus, .btn.disabled:active, .btn.disabled.active, .btn:disabled, .btn:disabled:hover, .btn:disabled:focus, .btn:disabled.focus, .btn:disabled:active, .btn:disabled.active, .btn[disabled], .btn[disabled]:hover, .btn[disabled]:focus, .btn[disabled].focus, .btn[disabled]:active, .btn[disabled].active,
   fieldset[disabled] .btn,
   fieldset[disabled] .btn:hover,
@@ -1437,8 +1442,8 @@ legend {
   fieldset[disabled] .btn.focus,
   fieldset[disabled] .btn:active,
   fieldset[disabled] .btn.active {
-    background-color: transparent;
-    border-color: #444; }
+    background-color: #353535;
+    color: #ffffff; }
   .btn.btn-fill {
     color: #ffffff;
     background-color: #444;
@@ -1470,15 +1475,13 @@ legend {
     width: 20px; }
 
 .btn-primary {
-  background-color: #447df7;
   border-color: #447df7;
-  color: #ffffff;
-  opacity: 1;
-  filter: alpha(opacity=100); }
+  color: #447df7; }
   .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary.active:focus, .btn-primary.active:hover,
   .show > .btn-primary.dropdown-toggle {
-    background-color: #2c6cf6;
-    color: #ffffff; }
+    background-color: transparent;
+    color: #2c6cf6;
+    border-color: #2c6cf6; }
   .btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled.focus, .btn-primary.disabled:active, .btn-primary.disabled.active, .btn-primary:disabled, .btn-primary:disabled:hover, .btn-primary:disabled:focus, .btn-primary:disabled.focus, .btn-primary:disabled:active, .btn-primary:disabled.active, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled].focus, .btn-primary[disabled]:active, .btn-primary[disabled].active,
   fieldset[disabled] .btn-primary,
   fieldset[disabled] .btn-primary:hover,
@@ -1486,8 +1489,8 @@ legend {
   fieldset[disabled] .btn-primary.focus,
   fieldset[disabled] .btn-primary:active,
   fieldset[disabled] .btn-primary.active {
-    background-color: transparent;
-    border-color: #447df7; }
+    background-color: #2c6cf6;
+    color: #ffffff; }
   .btn-primary.btn-fill {
     color: #ffffff;
     background-color: #447df7;
@@ -1503,15 +1506,13 @@ legend {
     border-top-color: #447df7; }
 
 .btn-success {
-  background-color: #87cb16;
   border-color: #87cb16;
-  color: #ffffff;
-  opacity: 1;
-  filter: alpha(opacity=100); }
+  color: #87cb16; }
   .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .btn-success:active:focus, .btn-success:active:hover, .btn-success.active:focus, .btn-success.active:hover,
   .show > .btn-success.dropdown-toggle {
-    background-color: #78b414;
-    color: #ffffff; }
+    background-color: transparent;
+    color: #78b414;
+    border-color: #78b414; }
   .btn-success.disabled, .btn-success.disabled:hover, .btn-success.disabled:focus, .btn-success.disabled.focus, .btn-success.disabled:active, .btn-success.disabled.active, .btn-success:disabled, .btn-success:disabled:hover, .btn-success:disabled:focus, .btn-success:disabled.focus, .btn-success:disabled:active, .btn-success:disabled.active, .btn-success[disabled], .btn-success[disabled]:hover, .btn-success[disabled]:focus, .btn-success[disabled].focus, .btn-success[disabled]:active, .btn-success[disabled].active,
   fieldset[disabled] .btn-success,
   fieldset[disabled] .btn-success:hover,
@@ -1519,8 +1520,8 @@ legend {
   fieldset[disabled] .btn-success.focus,
   fieldset[disabled] .btn-success:active,
   fieldset[disabled] .btn-success.active {
-    background-color: transparent;
-    border-color: #87cb16; }
+    background-color: #78b414;
+    color: #ffffff; }
   .btn-success.btn-fill {
     color: #ffffff;
     background-color: #87cb16;
@@ -1536,15 +1537,13 @@ legend {
     border-top-color: #87cb16; }
 
 .btn-info {
-  background-color: #23ccef;
   border-color: #23ccef;
-  color: #ffffff;
-  opacity: 1;
-  filter: alpha(opacity=100); }
+  color: #23ccef; }
   .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .btn-info:active:focus, .btn-info:active:hover, .btn-info.active:focus, .btn-info.active:hover,
   .show > .btn-info.dropdown-toggle {
-    background-color: #11bfe3;
-    color: #ffffff; }
+    background-color: transparent;
+    color: #11bfe3;
+    border-color: #11bfe3; }
   .btn-info.disabled, .btn-info.disabled:hover, .btn-info.disabled:focus, .btn-info.disabled.focus, .btn-info.disabled:active, .btn-info.disabled.active, .btn-info:disabled, .btn-info:disabled:hover, .btn-info:disabled:focus, .btn-info:disabled.focus, .btn-info:disabled:active, .btn-info:disabled.active, .btn-info[disabled], .btn-info[disabled]:hover, .btn-info[disabled]:focus, .btn-info[disabled].focus, .btn-info[disabled]:active, .btn-info[disabled].active,
   fieldset[disabled] .btn-info,
   fieldset[disabled] .btn-info:hover,
@@ -1552,8 +1551,8 @@ legend {
   fieldset[disabled] .btn-info.focus,
   fieldset[disabled] .btn-info:active,
   fieldset[disabled] .btn-info.active {
-    background-color: transparent;
-    border-color: #23ccef; }
+    background-color: #11bfe3;
+    color: #ffffff; }
   .btn-info.btn-fill {
     color: #ffffff;
     background-color: #23ccef;
@@ -1569,15 +1568,13 @@ legend {
     border-top-color: #23ccef; }
 
 .btn-warning {
-  background-color: #ffa534;
   border-color: #ffa534;
-  color: #ffffff;
-  opacity: 1;
-  filter: alpha(opacity=100); }
+  color: #ffa534; }
   .btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active, .btn-warning:active:focus, .btn-warning:active:hover, .btn-warning.active:focus, .btn-warning.active:hover,
   .show > .btn-warning.dropdown-toggle {
-    background-color: #ff9510;
-    color: #ffffff; }
+    background-color: transparent;
+    color: #ff9510;
+    border-color: #ff9510; }
   .btn-warning.disabled, .btn-warning.disabled:hover, .btn-warning.disabled:focus, .btn-warning.disabled.focus, .btn-warning.disabled:active, .btn-warning.disabled.active, .btn-warning:disabled, .btn-warning:disabled:hover, .btn-warning:disabled:focus, .btn-warning:disabled.focus, .btn-warning:disabled:active, .btn-warning:disabled.active, .btn-warning[disabled], .btn-warning[disabled]:hover, .btn-warning[disabled]:focus, .btn-warning[disabled].focus, .btn-warning[disabled]:active, .btn-warning[disabled].active,
   fieldset[disabled] .btn-warning,
   fieldset[disabled] .btn-warning:hover,
@@ -1585,8 +1582,8 @@ legend {
   fieldset[disabled] .btn-warning.focus,
   fieldset[disabled] .btn-warning:active,
   fieldset[disabled] .btn-warning.active {
-    background-color: transparent;
-    border-color: #ffa534; }
+    background-color: #ff9510;
+    color: #ffffff; }
   .btn-warning.btn-fill {
     color: #ffffff;
     background-color: #ffa534;
@@ -1602,15 +1599,13 @@ legend {
     border-top-color: #ffa534; }
 
 .btn-danger {
-  background-color: #fb404b;
   border-color: #fb404b;
-  color: #ffffff;
-  opacity: 1;
-  filter: alpha(opacity=100); }
+  color: #fb404b; }
   .btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .btn-danger:active:focus, .btn-danger:active:hover, .btn-danger.active:focus, .btn-danger.active:hover,
   .show > .btn-danger.dropdown-toggle {
-    background-color: #fa1825;
-    color: #ffffff; }
+    background-color: transparent;
+    color: #fa1825;
+    border-color: #fa1825; }
   .btn-danger.disabled, .btn-danger.disabled:hover, .btn-danger.disabled:focus, .btn-danger.disabled.focus, .btn-danger.disabled:active, .btn-danger.disabled.active, .btn-danger:disabled, .btn-danger:disabled:hover, .btn-danger:disabled:focus, .btn-danger:disabled.focus, .btn-danger:disabled:active, .btn-danger:disabled.active, .btn-danger[disabled], .btn-danger[disabled]:hover, .btn-danger[disabled]:focus, .btn-danger[disabled].focus, .btn-danger[disabled]:active, .btn-danger[disabled].active,
   fieldset[disabled] .btn-danger,
   fieldset[disabled] .btn-danger:hover,
@@ -1618,8 +1613,8 @@ legend {
   fieldset[disabled] .btn-danger.focus,
   fieldset[disabled] .btn-danger:active,
   fieldset[disabled] .btn-danger.active {
-    background-color: transparent;
-    border-color: #fb404b; }
+    background-color: #fa1825;
+    color: #ffffff; }
   .btn-danger.btn-fill {
     color: #ffffff;
     background-color: #fb404b;
@@ -1635,15 +1630,13 @@ legend {
     border-top-color: #fb404b; }
 
 .btn-neutral {
-  background-color: #ffffff;
   border-color: #ffffff;
-  color: #ffffff;
-  opacity: 1;
-  filter: alpha(opacity=100); }
+  color: #ffffff; }
   .btn-neutral:hover, .btn-neutral:focus, .btn-neutral:active, .btn-neutral.active, .btn-neutral:active:focus, .btn-neutral:active:hover, .btn-neutral.active:focus, .btn-neutral.active:hover,
   .show > .btn-neutral.dropdown-toggle {
-    background-color: #ffffff;
-    color: #ffffff; }
+    background-color: transparent;
+    color: #ffffff;
+    border-color: #ffffff; }
   .btn-neutral.disabled, .btn-neutral.disabled:hover, .btn-neutral.disabled:focus, .btn-neutral.disabled.focus, .btn-neutral.disabled:active, .btn-neutral.disabled.active, .btn-neutral:disabled, .btn-neutral:disabled:hover, .btn-neutral:disabled:focus, .btn-neutral:disabled.focus, .btn-neutral:disabled:active, .btn-neutral:disabled.active, .btn-neutral[disabled], .btn-neutral[disabled]:hover, .btn-neutral[disabled]:focus, .btn-neutral[disabled].focus, .btn-neutral[disabled]:active, .btn-neutral[disabled].active,
   fieldset[disabled] .btn-neutral,
   fieldset[disabled] .btn-neutral:hover,
@@ -1651,8 +1644,8 @@ legend {
   fieldset[disabled] .btn-neutral.focus,
   fieldset[disabled] .btn-neutral:active,
   fieldset[disabled] .btn-neutral.active {
-    background-color: transparent;
-    border-color: #ffffff; }
+    background-color: #ffffff;
+    color: #ffffff; }
   .btn-neutral.btn-fill {
     color: #ffffff;
     background-color: #ffffff;
@@ -1691,13 +1684,45 @@ legend {
 
 .btn-simple {
   border: 0;
-  font-size: 16px;
+  font-size: 14px;
   padding: 8px 16px; }
   .btn-simple.btn-icon {
     padding: 8px; }
+  .btn-simple:not(:disabled):not(.disabled):active {
+    border-color: #444;
+    color: #444; }
+    .btn-simple:not(:disabled):not(.disabled):active:hover, .btn-simple:not(:disabled):not(.disabled):active:focus, .btn-simple:not(:disabled):not(.disabled):active:active, .btn-simple:not(:disabled):not(.disabled):active.active, .btn-simple:not(:disabled):not(.disabled):active:active:focus, .btn-simple:not(:disabled):not(.disabled):active:active:hover, .btn-simple:not(:disabled):not(.disabled):active.active:focus, .btn-simple:not(:disabled):not(.disabled):active.active:hover,
+    .show > .btn-simple:not(:disabled):not(.disabled):active.dropdown-toggle {
+      background-color: transparent;
+      color: #353535;
+      border-color: #353535; }
+    .btn-simple:not(:disabled):not(.disabled):active.disabled, .btn-simple:not(:disabled):not(.disabled):active.disabled:hover, .btn-simple:not(:disabled):not(.disabled):active.disabled:focus, .btn-simple:not(:disabled):not(.disabled):active.disabled.focus, .btn-simple:not(:disabled):not(.disabled):active.disabled:active, .btn-simple:not(:disabled):not(.disabled):active.disabled.active, .btn-simple:not(:disabled):not(.disabled):active:disabled, .btn-simple:not(:disabled):not(.disabled):active:disabled:hover, .btn-simple:not(:disabled):not(.disabled):active:disabled:focus, .btn-simple:not(:disabled):not(.disabled):active:disabled.focus, .btn-simple:not(:disabled):not(.disabled):active:disabled:active, .btn-simple:not(:disabled):not(.disabled):active:disabled.active, .btn-simple:not(:disabled):not(.disabled):active[disabled], .btn-simple:not(:disabled):not(.disabled):active[disabled]:hover, .btn-simple:not(:disabled):not(.disabled):active[disabled]:focus, .btn-simple:not(:disabled):not(.disabled):active[disabled].focus, .btn-simple:not(:disabled):not(.disabled):active[disabled]:active, .btn-simple:not(:disabled):not(.disabled):active[disabled].active,
+    fieldset[disabled] .btn-simple:not(:disabled):not(.disabled):active,
+    fieldset[disabled] .btn-simple:not(:disabled):not(.disabled):active:hover,
+    fieldset[disabled] .btn-simple:not(:disabled):not(.disabled):active:focus,
+    fieldset[disabled] .btn-simple:not(:disabled):not(.disabled):active.focus,
+    fieldset[disabled] .btn-simple:not(:disabled):not(.disabled):active:active,
+    fieldset[disabled] .btn-simple:not(:disabled):not(.disabled):active.active {
+      background-color: #353535;
+      color: #ffffff; }
+    .btn-simple:not(:disabled):not(.disabled):active.btn-fill {
+      color: #ffffff;
+      background-color: #444;
+      opacity: 1;
+      filter: alpha(opacity=100); }
+      .btn-simple:not(:disabled):not(.disabled):active.btn-fill:hover, .btn-simple:not(:disabled):not(.disabled):active.btn-fill:focus, .btn-simple:not(:disabled):not(.disabled):active.btn-fill:active, .btn-simple:not(:disabled):not(.disabled):active.btn-fill.active,
+      .show > .btn-simple:not(:disabled):not(.disabled):active.btn-fill.dropdown-toggle {
+        background-color: #353535;
+        color: #ffffff; }
+      .btn-simple:not(:disabled):not(.disabled):active.btn-fill .caret {
+        border-top-color: #ffffff; }
+    .btn-simple:not(:disabled):not(.disabled):active .caret {
+      border-top-color: #444; }
+  .btn-simple:active, .btn-simple:focus {
+    box-shadow: 0 0 0 0 transparent; }
 
 .btn-lg {
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 6px;
   padding: 14px 30px;
   font-weight: 400; }
@@ -1707,7 +1732,7 @@ legend {
     padding: 16px 30px; }
 
 .btn-sm {
-  font-size: 12px;
+  font-size: 10px;
   border-radius: 3px;
   padding: 5px 10px; }
   .btn-sm.btn-round {
@@ -1716,7 +1741,7 @@ legend {
     padding: 7px 10px; }
 
 .btn-xs {
-  font-size: 12px;
+  font-size: 10px;
   border-radius: 3px;
   padding: 1px 5px; }
   .btn-xs.btn-round {
@@ -1803,7 +1828,7 @@ legend {
     border-color: #fb404b !important; }
   .form-control + .form-control-feedback {
     border-radius: 6px;
-    font-size: 14px;
+    font-size: 12px;
     margin-top: -7px;
     position: absolute;
     right: 10px;
@@ -1894,7 +1919,7 @@ fieldset[disabled] .form-control {
   border-color: #aaaaaa; }
 
 form label.radio, form label.checkbox {
-  font-size: 14px;
+  font-size: 12px;
   text-transform: none;
   cursor: pointer; }
 
@@ -1910,6 +1935,9 @@ form label.radio, form label.checkbox {
 .star {
   color: #fb404b;
   padding-left: 3px; }
+
+.invalid-feedback {
+  font-size: 100%; }
 
 @media (min-width: 992px) {
   .form-horizontal .control-label {
@@ -2427,7 +2455,7 @@ form label.radio, form label.checkbox {
 
 .navbar {
   border: 0;
-  font-size: 16px;
+  font-size: 14px;
   border-radius: 0;
   padding: 0; }
   .navbar .navbar-minimize {
@@ -2435,26 +2463,26 @@ form label.radio, form label.checkbox {
     margin: 3px 15px; }
   .navbar .navbar-brand {
     font-weight: 400;
-    margin: 7px 0px;
-    padding: 15px 15px;
-    font-size: 20px;
+    margin: 4px 0px;
+    padding: 8px 8px;
+    font-size: 18px;
     text-transform: capitalize;
-    height: 50px;
+    height: 40px;
     line-height: 20px; }
   .navbar .navbar-toggler {
     margin-right: 15px; }
   .navbar .navbar-nav > .nav-item > a,
   .navbar .navbar-nav > a {
-    padding: 10px 15px;
-    margin: 10px 3px;
+    padding: 5px 15px;
+    margin: 5px 3px;
     position: relative; }
   .navbar .navbar-nav > a.btn {
     margin: 15px 3px;
     padding: 8px 16px; }
   .navbar .navbar-nav > a.btn-round {
     margin: 16px 3px; }
-  .navbar .navbar-nav > .nav-item > a [class^="fa"],
-  .navbar .navbar-nav > a [class^="fa"] {
+  .navbar .navbar-nav > .nav-item > a [class^='fa'],
+  .navbar .navbar-nav > a [class^='fa'] {
     font-size: 16px;
     position: relative;
     line-height: 16px; }
@@ -2474,15 +2502,15 @@ form label.radio, form label.checkbox {
     color: #ffffff;
     font-weight: bold;
     line-height: 18px;
-    top: 2px;
+    top: 0;
     left: 7px; }
   .navbar .navbar-nav .nav-item.dropdown {
     display: flex; }
   .navbar .btn {
     margin: 10px 3px;
-    font-size: 14px; }
+    font-size: 12px; }
   .navbar .btn-simple {
-    font-size: 16px; }
+    font-size: 14px; }
   .navbar.fixed {
     width: calc(100% - calc(100% - 260px));
     right: 0;
@@ -2504,21 +2532,21 @@ form label.radio, form label.checkbox {
   margin-top: -5px; }
 
 .navbar-transparent .navbar-brand,
-[class*="navbar-ct"] .navbar-brand {
+[class*='navbar-ct'] .navbar-brand {
   color: #ffffff;
   opacity: 0.9;
   filter: alpha(opacity=90); }
   .navbar-transparent .navbar-brand:focus, .navbar-transparent .navbar-brand:hover,
-  [class*="navbar-ct"] .navbar-brand:focus,
-  [class*="navbar-ct"] .navbar-brand:hover {
+  [class*='navbar-ct'] .navbar-brand:focus,
+  [class*='navbar-ct'] .navbar-brand:hover {
     background-color: transparent;
     opacity: 1;
     filter: alpha(opacity=100); }
 
 .navbar-transparent .navbar-nav > .nav-item > a:not(.btn),
 .navbar-transparent .navbar-nav > a:not(.btn),
-[class*="navbar-ct"] .navbar-nav > .nav-item > a:not(.btn),
-[class*="navbar-ct"] .navbar-nav > a:not(.btn) {
+[class*='navbar-ct'] .navbar-nav > .nav-item > a:not(.btn),
+[class*='navbar-ct'] .navbar-nav > a:not(.btn) {
   color: #ffffff;
   border-color: #ffffff;
   opacity: 0.8;
@@ -2529,15 +2557,15 @@ form label.radio, form label.checkbox {
 .navbar-transparent .navbar-nav > a.active:not(.btn):focus,
 .navbar-transparent .navbar-nav > .nav-item > a:not(.btn):hover,
 .navbar-transparent .navbar-nav > .nav-item > a:not(.btn):focus,
-.navbar-transparent .navbar-nav > li > a:hover:not(.btn),
-.navbar-transparent .navbar-nav > li > a:focus:not(.btn),
-[class*="navbar-ct"] .navbar-nav > a.active,
-[class*="navbar-ct"] .navbar-nav > a.active:not(.btn):hover,
-[class*="navbar-ct"] .navbar-nav > a.active:not(.btn):focus,
-[class*="navbar-ct"] .navbar-nav > .nav-item > a:not(.btn):hover,
-[class*="navbar-ct"] .navbar-nav > .nav-item > a:not(.btn):focus,
-[class*="navbar-ct"] .navbar-nav > li > a:hover:not(.btn),
-[class*="navbar-ct"] .navbar-nav > li > a:focus:not(.btn) {
+.navbar-transparent .navbar-nav > a:hover:not(.btn),
+.navbar-transparent .navbar-nav > a:focus:not(.btn),
+[class*='navbar-ct'] .navbar-nav > a.active,
+[class*='navbar-ct'] .navbar-nav > a.active:not(.btn):hover,
+[class*='navbar-ct'] .navbar-nav > a.active:not(.btn):focus,
+[class*='navbar-ct'] .navbar-nav > .nav-item > a:not(.btn):hover,
+[class*='navbar-ct'] .navbar-nav > .nav-item > a:not(.btn):focus,
+[class*='navbar-ct'] .navbar-nav > a:hover:not(.btn),
+[class*='navbar-ct'] .navbar-nav > a:focus:not(.btn) {
   background-color: transparent;
   border-radius: 3px;
   color: #ffffff;
@@ -2545,36 +2573,36 @@ form label.radio, form label.checkbox {
   filter: alpha(opacity=100); }
 
 .navbar-transparent .navbar-nav .nav > li > a.btn:hover,
-[class*="navbar-ct"] .navbar-nav .nav > li > a.btn:hover {
+[class*='navbar-ct'] .navbar-nav .nav > li > a.btn:hover {
   background-color: transparent; }
 
 .navbar-transparent .navbar-nav > .dropdown > a .caret,
 .navbar-transparent .navbar-nav > .dropdown > a:hover .caret,
 .navbar-transparent .navbar-nav > .dropdown > a:focus .caret,
-[class*="navbar-ct"] .navbar-nav > .dropdown > a .caret,
-[class*="navbar-ct"] .navbar-nav > .dropdown > a:hover .caret,
-[class*="navbar-ct"] .navbar-nav > .dropdown > a:focus .caret {
+[class*='navbar-ct'] .navbar-nav > .dropdown > a .caret,
+[class*='navbar-ct'] .navbar-nav > .dropdown > a:hover .caret,
+[class*='navbar-ct'] .navbar-nav > .dropdown > a:focus .caret {
   border-bottom-color: #ffffff;
   border-top-color: #ffffff; }
 
 .navbar-transparent .navbar-nav > .open > a,
 .navbar-transparent .navbar-nav > .open > a:hover,
 .navbar-transparent .navbar-nav > .open > a:focus,
-[class*="navbar-ct"] .navbar-nav > .open > a,
-[class*="navbar-ct"] .navbar-nav > .open > a:hover,
-[class*="navbar-ct"] .navbar-nav > .open > a:focus {
+[class*='navbar-ct'] .navbar-nav > .open > a,
+[class*='navbar-ct'] .navbar-nav > .open > a:hover,
+[class*='navbar-ct'] .navbar-nav > .open > a:focus {
   background-color: transparent;
   color: #ffffff;
   opacity: 1;
   filter: alpha(opacity=100); }
 
 .navbar-transparent .btn-default,
-[class*="navbar-ct"] .btn-default {
+[class*='navbar-ct'] .btn-default {
   color: #ffffff;
   border-color: #ffffff; }
 
 .navbar-transparent .btn-default.btn-fill,
-[class*="navbar-ct"] .btn-default.btn-fill {
+[class*='navbar-ct'] .btn-default.btn-fill {
   color: #9a9a9a;
   background-color: #ffffff;
   opacity: 0.9;
@@ -2585,11 +2613,11 @@ form label.radio, form label.checkbox {
 .navbar-transparent .btn-default.btn-fill:active,
 .navbar-transparent .btn-default.btn-fill.active,
 .navbar-transparent .open .dropdown-toggle.btn-fill.btn-default,
-[class*="navbar-ct"] .btn-default.btn-fill:hover,
-[class*="navbar-ct"] .btn-default.btn-fill:focus,
-[class*="navbar-ct"] .btn-default.btn-fill:active,
-[class*="navbar-ct"] .btn-default.btn-fill.active,
-[class*="navbar-ct"] .open .dropdown-toggle.btn-fill.btn-default {
+[class*='navbar-ct'] .btn-default.btn-fill:hover,
+[class*='navbar-ct'] .btn-default.btn-fill:focus,
+[class*='navbar-ct'] .btn-default.btn-fill:active,
+[class*='navbar-ct'] .btn-default.btn-fill.active,
+[class*='navbar-ct'] .open .dropdown-toggle.btn-fill.btn-default {
   border-color: #ffffff;
   opacity: 1;
   filter: alpha(opacity=100); }
@@ -2646,7 +2674,7 @@ form label.radio, form label.checkbox {
   padding: 6px 15px;
   margin: 6px 3px; }
 
-.navbar-icons .navbar-nav [class^="pe"] {
+.navbar-icons .navbar-nav [class^='pe'] {
   font-size: 30px;
   position: relative; }
 
@@ -2661,29 +2689,29 @@ form label.radio, form label.checkbox {
     height: 30px;
     border-radius: 0;
     border: 0;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.5;
     color: #e3e3e3; }
   .navbar-transparent .navbar-form .form-control,
-  [class*="navbar-ct"] .navbar-form .form-control,
+  [class*='navbar-ct'] .navbar-form .form-control,
   .navbar-transparent .navbar-form .input-group-addon,
-  [class*="navbar-ct"] .navbar-form .input-group-addon {
+  [class*='navbar-ct'] .navbar-form .input-group-addon {
     color: #ffffff;
     border: 0;
     background-color: rgba(255, 255, 255, 0.13); }
-  [class*="navbar-ct"] .navbar-form .form-control:focus,
-  [class*="navbar-ct"] .navbar-form .input-group-focus .input-group-addon {
+  [class*='navbar-ct'] .navbar-form .form-control:focus,
+  [class*='navbar-ct'] .navbar-form .input-group-focus .input-group-addon {
     background-color: rgba(255, 255, 255, 0.23);
     color: #ffffff; }
-  [class*="navbar-ct"] .navbar-form .form-control:-moz-placeholder {
+  [class*='navbar-ct'] .navbar-form .form-control:-moz-placeholder {
     color: #ffffff;
     opacity: 1;
     filter: alpha(opacity=100); }
-  [class*="navbar-ct"] .navbar-form .form-control:-webkit-input-placeholder {
+  [class*='navbar-ct'] .navbar-form .form-control:-webkit-input-placeholder {
     color: #ffffff;
     opacity: 1;
     filter: alpha(opacity=100); }
-  [class*="navbar-ct"] .navbar-form .form-control:-ms-input-placeholder {
+  [class*='navbar-ct'] .navbar-form .form-control:-ms-input-placeholder {
     color: #ffffff;
     opacity: 1;
     filter: alpha(opacity=100); }
@@ -2693,7 +2721,7 @@ form label.radio, form label.checkbox {
     padding: 0;
     background-color: transparent;
     color: #e3e3e3;
-    font-size: 16px;
+    font-size: 14px;
     padding: 0 7px;
     border-radius: 4px 0 0 4px; }
   .navbar-form .input-group-focus .input-group-addon,
@@ -2716,7 +2744,7 @@ form label.radio, form label.checkbox {
   background-color: #fc727a; }
 
 .navbar-transparent {
-  padding-top: 15px;
+  padding-top: 5px;
   background-color: transparent;
   border-bottom: 1px solid transparent; }
 
@@ -2732,6 +2760,17 @@ form label.radio, form label.checkbox {
   .navbar-toggle.navbar-default .navbar-toggle:hover,
   .navbar-toggle.navbar-default .navbar-toggle:focus {
     background-color: transparent; }
+
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
+  color: #ffffff;
+  background-color: transparent; }
+
+@media (min-width: 767px) {
+  .navbar-nav > .nav-item > a,
+  .navbar-nav > a {
+    padding: 5px 15px;
+    margin: 5px 3px;
+    position: relative; } }
 
 .footer {
   background-color: #ffffff;
@@ -2762,7 +2801,7 @@ form label.radio, form label.checkbox {
     display: inline-block;
     vertical-align: top;
     padding: 10px 5px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: normal;
     line-height: 20px;
     text-align: center; }
@@ -2770,8 +2809,8 @@ form label.radio, form label.checkbox {
       color: #353535; }
   .footer .copyright {
     color: #353535;
-    padding: 10px 15px;
-    margin: 10px 3px;
+    padding: 5px 15px;
+    margin: 5px 3px;
     line-height: 31px;
     font-size: 14px; }
   .footer hr {
@@ -2783,13 +2822,13 @@ form label.radio, form label.checkbox {
   background-color: #f5f5f5; }
 
 .footer:not(.footer-big) nav > ul {
-  font-size: 16px; }
+  font-size: 14px; }
   .footer:not(.footer-big) nav > ul li {
     margin-left: 20px;
     float: left; }
   .footer:not(.footer-big) nav > ul a {
     padding: 10px 0px;
-    margin: 15px 10px 15px 0px; }
+    margin: 5px 5px 5px 0px; }
 
 .footer-black,
 .footer-transparent {
@@ -2858,7 +2897,7 @@ form label.radio, form label.checkbox {
   padding: 0;
   border-radius: 10px;
   z-index: 9000;
-  font-size: 14px;
+  font-size: 12px;
   -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.125);
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.125); }
   .dropdown-menu > a {
@@ -2967,13 +3006,13 @@ form label.radio, form label.checkbox {
   min-width: 180px; }
   .dropdown-menu i {
     text-align: center;
-    line-height: 28px;
+    line-height: 20px;
     float: left; }
     .dropdown-menu i[class^='pe-'] {
       font-size: 24px;
       width: 46px; }
     .dropdown-menu i[class^='fa'] {
-      font-size: 14px;
+      font-size: 18px;
       width: 38px; }
 
 .dropdown-with-icons.dropdown-toggle:after {
@@ -2981,7 +3020,7 @@ form label.radio, form label.checkbox {
 
 .dropdown-with-icons + .dropdown-menu > a.has-icon {
   padding-left: 0px;
-  line-height: 28px; }
+  line-height: 20px; }
 
 .btn-group.select {
   overflow: hidden; }
@@ -3075,10 +3114,10 @@ form label.radio, form label.checkbox {
     padding: 15px 15px 0px;
     color: #333333;
     font-weight: 300;
-    font-size: 22px; }
+    font-size: 20px; }
   .card .category,
   .card .form-group > label {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
     color: #444;
     margin-bottom: 0px; }
@@ -3088,7 +3127,7 @@ form label.radio, form label.checkbox {
       color: #fb404b; }
     .card .category i,
     .card .form-group > label i {
-      font-size: 16px; }
+      font-size: 14px; }
   .card .form-group > label {
     font-size: 12px;
     margin-bottom: 5px; }
@@ -3112,7 +3151,7 @@ form label.radio, form label.checkbox {
     border-radius: 50%;
     margin-right: 5px; }
   .card .description {
-    font-size: 14px;
+    font-size: 12px;
     color: #333; }
   .card .footer {
     padding: 0 15px 10px;
@@ -3132,9 +3171,9 @@ form label.radio, form label.checkbox {
     font-weight: 600;
     text-transform: uppercase; }
   .card .author i {
-    font-size: 14px; }
+    font-size: 12px; }
   .card h6 {
-    font-size: 12px;
+    font-size: 10px;
     margin: 0; }
   .card.card-separator:after {
     height: 100%;
@@ -3878,7 +3917,7 @@ form label.radio, form label.checkbox {
   z-index: 4; }
 
 .full-page > .content {
-  min-height: calc(100vh - 70px); }
+  min-height: calc(100vh - 51px); }
 
 .full-page .full-page-background {
   position: absolute;
@@ -3998,21 +4037,56 @@ form label.radio, form label.checkbox {
       font-size: 12px;
       margin-bottom: 5px;
       text-transform: uppercase; }
+  .login-page .card .form-control {
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 8px 12px;
+    height: 40px;
+    box-shadow: none;
+    font-size: 14px; }
   .login-page .card .btn-wd {
+    font-size: 14px;
     min-width: 180px; }
   .login-page .card .card-footer {
     padding: 0 15px 10px;
     background-color: transparent;
     line-height: 30px;
     border-top: none; }
+  .login-page .card .checkbox > label {
+    font-size: 14px; }
 
-.login-page .form-control {
-  background-color: #ffffff;
-  border-radius: 4px;
-  padding: 8px 12px;
-  height: 40px;
-  box-shadow: none;
-  font-size: 14px; }
+.lock-page .user-profile {
+  text-align: center;
+  width: 240px;
+  margin: 30px auto 0;
+  color: #ffffff;
+  position: absolute;
+  left: 50%;
+  margin-left: -120px;
+  display: block; }
+  .lock-page .user-profile.with-animation {
+    -webkit-transition: all 300ms ease-in;
+    -moz-transition: all 300ms ease-in;
+    -o-transition: all 300ms ease-in;
+    -ms-transition: all 300ms ease-in;
+    transition: all 300ms ease-in; }
+  .lock-page .user-profile .author {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    margin: 0 auto;
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+    transition: all 300ms linear; }
+    .lock-page .user-profile .author img {
+      width: 100%; }
+  .lock-page .user-profile h4 {
+    margin-top: 15px;
+    margin-bottom: 30px; }
 
 .register-page > .content,
 .register-page > .content {
@@ -4063,7 +4137,7 @@ form label.radio, form label.checkbox {
   padding: 8px 12px;
   height: 40px;
   box-shadow: none;
-  font-size: 14px; }
+  font-size: 12px; }
 
 .lock-page .user-profile {
   text-align: center;
@@ -4115,7 +4189,7 @@ form label.radio, form label.checkbox {
     float: left;
     margin-right: 5px; }
   .register-page .media i {
-    font-size: 36px; }
+    font-size: 30px; }
   .register-page .media h4 {
     margin: 0 0 5px 0; }
 
@@ -4290,7 +4364,7 @@ form label.radio, form label.checkbox {
     .sidebar .nav i,
     .bootstrap-navbar .nav i,
     .off-canvas-sidebar .navbar-collapse .nav i {
-      font-size: 22px; }
+      font-size: 20px; }
     .sidebar .nav > li > a,
     .bootstrap-navbar .nav > li > a,
     .off-canvas-sidebar .navbar-collapse .nav > li > a {
@@ -4753,7 +4827,7 @@ form label.radio, form label.checkbox {
     -webkit-box-shadow: none;
     box-shadow: none; }
   .navbar-collapse .nav p {
-    font-size: 14px;
+    font-size: 12px;
     margin: 0; }
   .navbar-collapse [class^="pe-7s-"] {
     float: left;
