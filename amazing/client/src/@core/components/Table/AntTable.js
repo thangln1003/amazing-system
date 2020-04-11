@@ -5,13 +5,21 @@ import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
 
 const expandable = { expandedRowRender: (record) => <p>{record.description}</p> };
-const pagination = { position: ['topRight', 'bottomRight'] };
 
 const Title = (props) => {
   const { totalCount } = props;
 
   return (
-    <DropdownButton fill alignRight id="dropdown-actions" title="Export" size="sm" disabled={!totalCount}>
+    <DropdownButton
+      id="dropdown-actions"
+      title={
+        <span>
+          <i className="fa fa-download"></i>Export{' '}
+        </span>
+      }
+      size="sm"
+      disabled={!totalCount}
+    >
       <Dropdown.Item bsPrefix="dropdown-item has-icon" eventKey="1">
         <i className="fa fa-file-excel-o text-success"></i>Export to Excel
       </Dropdown.Item>
@@ -45,7 +53,7 @@ const AntTable = (props) => {
 
   const [state, setState] = useState({
     bordered: true,
-    pagination,
+    // pagination,
     size: 'small',
     expandable: rest.expandable ? expandable : undefined,
     // title: rest.title ? rest.title : undefined,

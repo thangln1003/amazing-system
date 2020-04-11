@@ -281,6 +281,7 @@ const AntTablePage = (props) => {
                 scroll={{ x: 1500, y: 500 }}
                 loading={table.loading}
                 pagination={{
+                  position: ['topRight', 'bottomRight'],
                   onChange(current, pageSize) {
                     setPage({ current, pageSize });
                   },
