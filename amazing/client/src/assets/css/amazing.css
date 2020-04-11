@@ -176,16 +176,9 @@
 .rdtPrev span,
 .rdtNext span {
   display: block;
-  -webkit-touch-callout: none;
-  /* iOS Safari */
   -webkit-user-select: none;
-  /* Chrome/Safari/Opera */
-  -khtml-user-select: none;
-  /* Konqueror */
   -moz-user-select: none;
-  /* Firefox */
   -ms-user-select: none;
-  /* Internet Explorer/Edge */
   user-select: none; }
 
 .rdtPicker th.rdtDisabled,
@@ -266,16 +259,9 @@ td.rdtYear:hover {
   -o-transition: all 60ms ease-in;
   -ms-transition: all 60ms ease-in;
   transition: all 60ms ease-in;
-  -webkit-touch-callout: none;
-  /* iOS Safari */
   -webkit-user-select: none;
-  /* Chrome/Safari/Opera */
-  -khtml-user-select: none;
-  /* Konqueror */
   -moz-user-select: none;
-  /* Firefox */
   -ms-user-select: none;
-  /* Internet Explorer/Edge */
   user-select: none; }
 
 .rdtCounter .rdtBtn:hover {
@@ -604,16 +590,9 @@ This file was modified entirely by Creative Tim for React-Select v2.0.0
   margin-bottom: 8px !important; }
   .ReactTable > .table-responsive > .table > thead > tr > th,
   .ReactTable > .table > thead > tr > th {
-    -webkit-touch-callout: none;
-    /* iOS Safari */
     -webkit-user-select: none;
-    /* Safari */
-    -khtml-user-select: none;
-    /* Konqueror HTML */
     -moz-user-select: none;
-    /* Old versions of Firefox */
     -ms-user-select: none;
-    /* Internet Explorer/Edge */
     user-select: none; }
     .ReactTable > .table-responsive > .table > thead > tr > th > span,
     .ReactTable > .table > thead > tr > th > span {
@@ -709,6 +688,25 @@ This file was modified entirely by Creative Tim for React-Select v2.0.0
   .ReactTable .pagination {
     justify-content: flex-end;
     margin-bottom: 8px; } }
+
+.ant-table {
+  font-size: 12px; }
+  .ant-table .ant-table-thead > tr > th {
+    font-size: 12px;
+    font-weight: 500;
+    color: #9a9a9a;
+    text-transform: uppercase;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+  .ant-table .ant-table-filter-trigger .anticon-search {
+    font-size: 14px; }
+
+.ant-table-filter-dropdown .btn-sm > i[class^='fa'] {
+  margin-left: -20px;
+  width: 24px;
+  font-size: 10px; }
 
 /*           Font Smoothing      */
 body,

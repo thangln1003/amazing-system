@@ -17,6 +17,7 @@
 @import 'lbd/alerts';
 @import 'lbd/tables';
 @import 'lbd/breadcrumbs';
+@import 'lbd/grid';
 
 @import 'lbd/checkbox-radio-switch';
 @import 'lbd/navbars';
@@ -28,7 +29,7 @@
 @import 'lbd/chartist';
 
 // SCSS for Pages
-@import "lbd/pages.scss";
+@import 'lbd/pages.scss';
 
 // Responsive adjustments
 @import 'lbd/responsive';

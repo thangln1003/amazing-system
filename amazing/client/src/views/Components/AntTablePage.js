@@ -104,7 +104,7 @@ const AntTablePage = (props) => {
     {
       title: '#',
       key: 'index',
-      width: 40,
+      width: 50,
       render: (value, item, index) => (page - 1) * 10 + index,
     },
     {
@@ -112,7 +112,6 @@ const AntTablePage = (props) => {
       width: 150,
       dataIndex: 'contactNo',
       key: 'contactNo',
-      fixed: 'left',
       ellipsis: true,
       defaultSortOrder: 'ascend',
       sortDirections: ['ascend', 'descend'],
@@ -124,7 +123,6 @@ const AntTablePage = (props) => {
       width: 100,
       dataIndex: 'contactTitle',
       key: 'contactTitle',
-      fixed: 'left',
       ellipsis: true,
     },
     {
@@ -226,23 +224,23 @@ const AntTablePage = (props) => {
             <Card.Body>
               <Form id="frmSearching">
                 <Form.Group as={Row}>
-                  <Form.Label column lg={1} md={2}>
+                  <Form.Label className="col-lg-0-7" column md={2}>
                     Contact NO. <span className="star">*</span>
                   </Form.Label>
-                  <Col lg={1} md={2}>
+                  <Col lg={2} md={2}>
                     <FormControl autoComplete="off" size="sm" type="text" name="contactNo" />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
-                  <Form.Label column lg={1} md={2}>
+                  <Form.Label className="col-lg-0-7" column md={2}>
                     Contact Title <span className="star">*</span>
                   </Form.Label>
-                  <Col lg={1} md={2}>
+                  <Col lg={2} md={2}>
                     <FormControl autoComplete="off" size="sm" type="text" name="contactTitles" />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
-                  <Form.Label column lg={1} md={2}>
+                  <Form.Label className="col-lg-0-7" column md={2}>
                     Basis Date <span className="star">*</span>
                   </Form.Label>
                   <Col lg={1} md={2}>
@@ -253,7 +251,6 @@ const AntTablePage = (props) => {
                       defaultValue={new Date()}
                     />
                   </Col>
-                  <span className="d-none d-sm-block">~</span>
                   <Col lg={1} md={2}>
                     <Datetime
                       dateFormat="DD/MM/YYYY"
