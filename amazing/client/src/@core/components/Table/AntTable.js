@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { DropdownButton, Dropdown } from 'react-bootstrap';
+import { ButtonGroup, Dropdown } from 'react-bootstrap';
 import { Table, Button, Input } from 'antd';
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
@@ -10,26 +10,22 @@ const Title = (props) => {
   const { totalCount } = props;
 
   return (
-    <DropdownButton
-      id="dropdown-actions"
-      title={
-        <span>
-          <i className="fa fa-download"></i>Export{' '}
-        </span>
-      }
-      size="sm"
-      disabled={!totalCount}
-    >
-      <Dropdown.Item bsPrefix="dropdown-item has-icon" eventKey="1">
-        <i className="fa fa-file-excel-o text-success"></i>Export to Excel
-      </Dropdown.Item>
-      <Dropdown.Item bsPrefix="dropdown-item has-icon" eventKey="2">
-        <i className="fa fa-file-pdf-o text-danger"></i>Export to PDF
-      </Dropdown.Item>
-      <Dropdown.Item bsPrefix="dropdown-item has-icon" eventKey="3">
-        <i className="fa fa-file-code-o"></i>Export to CSV
-      </Dropdown.Item>
-    </DropdownButton>
+    <Dropdown as={ButtonGroup} disabled={!totalCount}>
+      <Dropdown.Toggle id="dropdown-actions" size="sm" className="btn-fill">
+        <i className="fa fa-download"></i>Export{' '}
+      </Dropdown.Toggle>
+      <Dropdown.Menu className="super-colors">
+        <Dropdown.Item bsPrefix="dropdown-item has-icon" as="button" onClick={() => alert('Export to Excel')}>
+          <i className="fa fa-file-excel-o text-success"></i>Export to Excel
+        </Dropdown.Item>
+        <Dropdown.Item bsPrefix="dropdown-item has-icon" as="button" onClick={() => alert('Export to PDF')}>
+          <i className="fa fa-file-pdf-o text-danger"></i>Export to PDF
+        </Dropdown.Item>
+        <Dropdown.Item bsPrefix="dropdown-item has-icon" as="button" onClick={() => alert('Export to CSV')}>
+          <i className="fa fa-file-code-o"></i>Export to CSV
+        </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
   );
 };
 

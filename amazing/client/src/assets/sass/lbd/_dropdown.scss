@@ -6,7 +6,8 @@
   font-size: $font-size-base;
   @include box-shadow($dropdown-shadow);
 
-  > a {
+  > a, 
+  > button {
     padding: $padding-base-vertical $padding-base-horizontal;
     color: #333333;
 
@@ -51,7 +52,8 @@
 
   > a.active,
   > a.active:focus,
-  > a.active:hover {
+  > a.active:hover,
+  > button:active {
     background-color: $light-blue;
     color: #333333;
   }
