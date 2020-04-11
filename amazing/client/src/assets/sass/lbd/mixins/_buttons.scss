@@ -28,8 +28,10 @@
     &.focus,
     &:active,
     &.active {
-      background-color: $btn-states-color;
-      color: $white-color;
+      background-color: $transparent-bg;
+      border-color: $btn-color;
+      color: $btn-color;
+      cursor: not-allowed;
     }
   }
 

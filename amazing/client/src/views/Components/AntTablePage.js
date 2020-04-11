@@ -17,7 +17,10 @@ const AntTablePage = (props) => {
     data: [],
     loading: false,
   });
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState({
+    current: 1,
+    pageSize: 10,
+  });
 
   const fectDateHandler = useCallback(() => {
     setTable({ loading: true });
@@ -30,10 +33,6 @@ const AntTablePage = (props) => {
       });
     }, 1000);
   }, []);
-
-  const onChange = (pagination, filters, sorter, extra) => {
-    console.log('params', pagination, filters, sorter, extra);
-  };
 
   const [search, setSearch] = useState({
     searchText: '',
@@ -63,18 +62,18 @@ const AntTablePage = (props) => {
           onPressEnter={() => handleSearch(selectedKeys, confirm, dataIndex)}
           style={{ width: 188, marginBottom: 8, display: 'block' }}
         />
+        <Button onClick={() => handleReset(clearFilters)} size="sm" style={{ width: 90, marginRight: 8 }}>
+          Reset
+        </Button>
         <Button
           fill
           variant="primary"
           onClick={() => handleSearch(selectedKeys, confirm, dataIndex)}
           size="sm"
-          style={{ width: 90, marginRight: 8 }}
+          style={{ width: 90 }}
         >
           <i className="fa fa-search"></i>
           Search
-        </Button>
-        <Button onClick={() => handleReset(clearFilters)} size="sm" style={{ width: 90 }}>
-          Reset
         </Button>
       </div>
     ),
@@ -105,7 +104,7 @@ const AntTablePage = (props) => {
       title: '#',
       key: 'index',
       width: 50,
-      render: (value, item, index) => (page - 1) * 10 + index,
+      render: (value, item, index) => (page.current - 1) * page.pageSize + (index + 1),
     },
     {
       title: 'Contact No',
@@ -225,7 +224,7 @@ const AntTablePage = (props) => {
             <Card.Body>
               <Form id="frmSearching">
                 <Form.Group as={Row}>
-                  <Form.Label className="col-lg-0-7" column md={2}>
+                  <Form.Label column lg={1} md={2}>
                     Contact NO. <span className="star">*</span>
                   </Form.Label>
                   <Col lg={2} md={2}>
@@ -233,7 +232,7 @@ const AntTablePage = (props) => {
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
-                  <Form.Label className="col-lg-0-7" column md={2}>
+                  <Form.Label column lg={1} md={2}>
                     Contact Title <span className="star">*</span>
                   </Form.Label>
                   <Col lg={2} md={2}>
@@ -241,7 +240,7 @@ const AntTablePage = (props) => {
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
-                  <Form.Label className="col-lg-0-7" column md={2}>
+                  <Form.Label column lg={1} md={2}>
                     Basis Date <span className="star">*</span>
                   </Form.Label>
                   <Col lg={1} md={2}>
@@ -281,10 +280,9 @@ const AntTablePage = (props) => {
                 dataSource={table.data}
                 scroll={{ x: 1500, y: 500 }}
                 loading={table.loading}
-                onChange={onChange}
                 pagination={{
-                  onChange(current) {
-                    setPage(current);
+                  onChange(current, pageSize) {
+                    setPage({ current, pageSize });
                   },
                 }}
               />
