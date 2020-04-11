@@ -7,7 +7,7 @@ import Button from '@core/components/CustomButton/CustomButton';
 import axios from 'axios';
 
 const CarRentalContactPage = () => {
-  const [form, setForm] = useState({
+  const [form] = useState({
     emailError: null,
   });
 

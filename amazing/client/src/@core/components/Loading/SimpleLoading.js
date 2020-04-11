@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Spinner } from 'react-bootstrap';
-import { useTimeout } from '@core/hooks';
 
 import styled from 'styled-components';
 

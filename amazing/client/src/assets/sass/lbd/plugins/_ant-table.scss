@@ -16,12 +16,23 @@
   }
 }
 
-.ant-table-filter-dropdown {
-  .btn-sm {
-    > i[class^='fa'] {
-      margin-left: -20px;
-      width: 24px;
-      font-size: $font-size-small;
+.ant-dropdown {
+  font-size: $font-size-base;
+
+  .ant-table-filter-dropdown {
+    font-size: $font-size-base;
+
+    .btn-sm {
+      > i[class^='fa'] {
+        margin-left: -20px;
+        width: 24px;
+        font-size: $font-size-small;
+      }
     }
+  }
+
+  .ant-dropdown-menu-item,
+  .ant-dropdown-menu-submenu-title {
+    font-size: $font-size-base;
   }
 }

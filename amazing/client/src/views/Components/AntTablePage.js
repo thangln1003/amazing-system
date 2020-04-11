@@ -143,6 +143,7 @@ const AntTablePage = (props) => {
       key: 'carPlate',
       width: 100,
       align: 'center',
+      sorter: (a, b) => CoreUtils.sorter(a.carPlate, b.carPlate),
     },
     {
       title: 'Contract Status',
