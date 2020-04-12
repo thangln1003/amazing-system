@@ -10,8 +10,8 @@ const Title = (props) => {
   const { totalCount } = props;
 
   return (
-    <Dropdown as={ButtonGroup} disabled={!totalCount}>
-      <Dropdown.Toggle id="dropdown-actions" size="sm" className="btn-fill">
+    <Dropdown as={ButtonGroup}>
+      <Dropdown.Toggle id="dropdown-actions" size="sm" className="btn-fill" disabled={!totalCount}>
         <i className="fa fa-download"></i>Export{' '}
       </Dropdown.Toggle>
       <Dropdown.Menu className="super-colors">

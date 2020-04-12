@@ -147,4 +147,10 @@
   &:not(:first-child):not(.dropdown-toggle) {
     border-left: none;
   }
+
+  &:disabled,
+  &[disabled],
+  &.disabled {
+    opacity: 0.5;
+  }
 }
