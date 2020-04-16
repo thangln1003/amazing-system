@@ -21,11 +21,19 @@ module.exports = (sequelize, DataTypes) => {
 				allowNull: false,
 				type: DataTypes.STRING,
 			},
+			normalizedEmail: {
+				allowNull: false,
+				type: DataTypes.STRING,
+			},
 			username: {
 				allowNull: false,
 				type: DataTypes.STRING,
 			},
-			password: {
+			normalizedUserName: {
+				allowNull: false,
+				type: DataTypes.STRING,
+			},
+			passwordHash: {
 				allowNull: false,
 				type: DataTypes.STRING,
 			},
@@ -38,6 +46,17 @@ module.exports = (sequelize, DataTypes) => {
 				allowNull: false,
 				type: DataTypes.BOOLEAN,
 				defaultValue: false,
+			},
+			lockoutEnabled: {
+				allowNull: false,
+				type: DataTypes.BOOLEAN,
+				defaultValue: false,
+			},
+			accessFailedCount: {
+				type: DataTypes.INTEGER,
+			},
+			lockoutEnd: {
+				type: DataTypes.DATE,
 			},
 			deletedAt: {
 				type: DataTypes.DATE,
