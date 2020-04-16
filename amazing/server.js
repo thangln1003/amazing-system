@@ -2,14 +2,14 @@ const express = require('express');
 const app = express();
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
-const pathToSwaggerUi = require('swagger-ui-dist').absolutePath();
+// const pathToSwaggerUi = require('swagger-ui-dist').absolutePath();
 require('dotenv').config();
 
 const PORT = process.env.PORT || 5000;
 
 // Init Middleware
 app.use(express.json());
-app.use(express.static(pathToSwaggerUi));
+// app.use(express.static(pathToSwaggerUi));
 
 // Extended: https://swagger.io/specification/#infoObject
 const swaggerDefinition = require('./swaggerDef');
@@ -21,9 +21,8 @@ const swaggerOptions = {
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-app.get('/', (req, res) => res.send('API Running'));
-
 // Define Routes
+app.get('/', (req, res) => res.redirect('/api-docs'));
 app.use('/api/v1/auth', require('./routes/api/v1/auth'));
 app.use('/api/v1/users', require('./routes/api/v1/users'));
 app.use('/api/v1/roles', require('./routes/api/v1/roles'));
