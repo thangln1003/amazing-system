@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const { User } = require('../../../db/models');
+const {
+	calculateLimitAndOffset,
+	paginate,
+} = require('../../../utils/paginate-info');
+
 /**
  * @swagger
  * tags:
@@ -22,11 +27,35 @@ const { User } = require('../../../db/models');
  */
 router.get('/', async (req, res) => {
 	try {
-		const users = await User.findAll();
+		const {
+			query: { page, pageSize },
+		} = req;
+		const { limit, offset } = calculateLimitAndOffset(page, pageSize);
+		const selectedFields = [
+			'id',
+			'username',
+			'email',
+			'firstName',
+			'lastName',
+			'isActive',
+			'createdAt',
+			'createdBy',
+		];
 
-		return res.json(users);
+		const { count, rows } = await User.findAndCountAll({
+			attributes: [...selectedFields],
+			offset,
+			limit,
+		});
+
+		const paginationInfo = paginate(page, count, rows);
+
+		return res.status(200).json({
+			success: true,
+			data: { result: rows, meta: paginationInfo },
+		});
 	} catch (err) {
-		res.status(500).send('Internal Server Error');
+		res.status(500).send(`Internal Server Error - ${err.message}`);
 	}
 });
 
