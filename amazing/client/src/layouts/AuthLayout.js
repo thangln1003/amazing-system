@@ -24,6 +24,9 @@ const AuthLayout = (props) => {
       case '/auth/lock-screen':
         pageClass = ' lock-page';
         break;
+      case '/auth/forgot-password':
+        pageClass = ' forgot-password-page';
+        break;
       default:
         pageClass = '';
         break;

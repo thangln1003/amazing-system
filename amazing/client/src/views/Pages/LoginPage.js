@@ -4,17 +4,21 @@ import Button from '@core/components/CustomButton/CustomButton';
 import Checkbox from '@core/components/CustomCheckbox/CustomCheckbox';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
+import { Divider } from 'antd';
+import { Link } from "react-router-dom";
 
 const LoginPage = (props) => {
   // Schema for yup
   const validationSchema = Yup.object().shape({
-    email: Yup.string()
-      .required('*Email is required')
-      .email('*Must be a valid email address')
-      .max(100, '*Email must be less than 100 characters'),
-    password: Yup.string().when('email', {
+    username: Yup.string()
+      .required('*User ID is required')
+      .min(6, '*User ID must be greater than 5 characters')
+      .max(100, '*User ID must be less than 100 characters'),
+    password: Yup.string().when('username', {
       is: (val) => (val && val.length > 5 ? true : false),
-      then: Yup.string().required('*Password is required').min(8, 'Password is too short - should be 8 chars minimum.'),
+      then: Yup.string()
+        .required('*Password is required')
+        .min(8, '*Password is too short - should be 8 chars minimum.'),
     }),
   });
 
@@ -23,7 +27,7 @@ const LoginPage = (props) => {
       <Row>
         <Col md={{ span: 4, offset: 4 }} sm={{ span: 6, offset: 3 }}>
           <Formik
-            initialValues={{ email: '', password: '', rememberMe: false }}
+            initialValues={{ username: '', password: '', rememberMe: true }}
             validationSchema={validationSchema}
             onSubmit={(values, { setSubmitting, resetForm }) => {
               setSubmitting(true);
@@ -43,19 +47,19 @@ const LoginPage = (props) => {
                 <Card>
                   <Card.Header className="text-center">Login</Card.Header>
                   <Card.Body>
-                    <Form.Group controlId="formEmail">
-                      <Form.Label>Email address</Form.Label>
+                    <Form.Group controlId="formUserID">
+                      <Form.Label>User ID</Form.Label>
                       <FormControl
                         autoComplete="off"
-                        placeholder="Enter email"
-                        type="email"
-                        name="email"
+                        placeholder="Enter User ID"
+                        type="text"
+                        name="username"
                         onBlur={handleBlur}
                         onChange={handleChange}
                         value={values.value}
-                        isInvalid={!!errors.email}
+                        isInvalid={!!errors.username}
                       />
-                      <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>
+                      <Form.Control.Feedback type="invalid">{errors.username}</Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group controlId="formPassword">
                       <Form.Label>Password</Form.Label>
@@ -71,19 +75,29 @@ const LoginPage = (props) => {
                       />
                       <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
                     </Form.Group>
-                    <Form.Group controlId="formRememberMe">
-                      <Checkbox
-                        id="rememberMe"
-                        name="rememberMe"
-                        label="Remember me"
-                        checked={values.value}
-                        className={`form-check-input${errors.rememberMe && touched.rememberMe ? ' is-invalid' : ''}`}
-                      />
+
+                    <Form.Group as={Row}>
+                      <Col md={6}>
+                        <Checkbox
+                          id="rememberMe"
+                          name="rememberMe"
+                          label="Remember me"
+                          value={values.value}
+                          className={`form-check-input${errors.rememberMe && touched.rememberMe ? ' is-invalid' : ''}`}
+                        />
+                      </Col>
+                      <Col md={6}>
+                        <Link to="/auth/forgot-password">Forgot Password?</Link>
+                      </Col>
                     </Form.Group>
                   </Card.Body>
                   <Card.Footer className="text-center">
-                    <Button variant="info" fill wd type="submit" disabled={isSubmitting}>
+                    <Button variant="info" fill wd type="submit" block disabled={isSubmitting}>
                       Login
+                    </Button>
+                    <Divider>OR</Divider>
+                    <Button variant="primary" fill wd type="button" size="sm" disabled={isSubmitting}>
+                      Login with Google
                     </Button>
                   </Card.Footer>
                 </Card>

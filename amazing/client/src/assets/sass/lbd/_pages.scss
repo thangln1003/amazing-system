@@ -97,13 +97,15 @@
 }
 
 .login-page,
-.lock-page {
+.lock-page,
+.forgot-password-page {
   > .content {
     padding-top: 22vh;
   }
 }
 
-.login-page {
+.login-page,
+.forgot-password-page {
   .card {
     box-shadow: 0 25px 30px -13px rgba(40, 40, 40, 0.4);
     border-radius: $border-radius-extreme;
@@ -131,6 +133,10 @@
     .form-group {
       margin-bottom: $margin-base;
 
+      // &:last-child {
+      //   margin-bottom: 0;
+      // }
+
       > label {
         font-size: $font-size-base;
         margin-bottom: 5px;
@@ -150,6 +156,10 @@
     .btn-wd {
       font-size: $font-size-medium;
       min-width: 180px;
+
+      &.btn-sm {
+        font-size: $font-size-base;
+      }
     }
 
     .card-footer {
@@ -164,6 +174,11 @@
         font-size: $font-size-medium;
       }
     }
+
+    a:not(.btn) { 
+      font-size: $font-size-medium;
+    }
+
   }
 }
 

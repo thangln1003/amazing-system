@@ -1,4 +1,5 @@
 import React from 'react';
+import history from '@history';
 import Provider from 'react-redux/es/components/Provider';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import AppContext from './AppContext';
@@ -16,8 +17,8 @@ function App() {
       <Provider store={store}>
         <BrowserRouter>
           <Switch>
-            <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
-            <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
+            <Route history={history} path="/auth" render={(props) => <AuthLayout {...props} />} />
+            <Route history={history} path="/admin" render={(props) => <AdminLayout {...props} />} />
             <Redirect from="/" to="/auth/login" />
           </Switch>
         </BrowserRouter>

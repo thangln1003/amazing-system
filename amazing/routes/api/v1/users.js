@@ -21,6 +21,11 @@ const {
  *    description: Use to request all users
  *    tags:
  *     - Users
+ *    parameters:
+ *     - in: query
+ *       name: page
+ *     - in: query
+ *       name: pageSize
  *    responses:
  *      '200':
  *        description: A successful response

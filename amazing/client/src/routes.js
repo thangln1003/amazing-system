@@ -10,6 +10,7 @@ import RegisterPage from './views/Pages/RegisterPage';
 import LockScreenPage from './views/Pages/LockScreenPage';
 import DashboardPage from './views/Pages/DashboardPage';
 import CarRentalContactPage from './views/Pages/CarRentalContactPage';
+import ForgotPasswordPage from './views/Pages/ForgotPasswordPage';
 import StdUI01 from './views/MO/StdUI01';
 
 const breadcrumbRoutes = {
@@ -89,6 +90,13 @@ const routes = [
     name: 'Lock Screen',
     path: '/lock-screen',
     component: LockScreenPage,
+  },
+  {
+    layout: '/auth',
+    icon: 'pe-7s-lock',
+    name: 'Forgot Password',
+    path: '/forgot-password',
+    component: ForgotPasswordPage,
   },
 ];
 

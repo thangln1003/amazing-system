@@ -1,5 +1,6 @@
 import React from 'react';
 import { Nav, NavDropdown } from 'react-bootstrap';
+import { NavLink } from "react-router-dom";
 
 const NavbarLinks = () => {
   const notification = (
@@ -14,13 +15,13 @@ const NavbarLinks = () => {
   return (
     <>
       <Nav className="justify-content-start">
-        <Nav.Link href="dashboard">Dashboard</Nav.Link>
-        <Nav.Link href="carrental">Car Rental Contact Mgnt</Nav.Link>
+        <Nav.Link as={NavLink} to="dashboard">Dashboard</Nav.Link>
+        <Nav.Link as={NavLink} to="carrental">Car Rental Contact Mgnt</Nav.Link>
         <NavDropdown alignRight title="Components" id="basic-nav-dropdown1">
-          <NavDropdown.Item href="ant-table">Ant Table</NavDropdown.Item>
-          <NavDropdown.Item href="react-table">React Table</NavDropdown.Item>
-          <NavDropdown.Item href="icons">Icons</NavDropdown.Item>
-          <NavDropdown.Item href="typography">Typography</NavDropdown.Item>
+          <NavDropdown.Item as={NavLink} to="ant-table">Ant Table</NavDropdown.Item>
+          <NavDropdown.Item as={NavLink} to="react-table">React Table</NavDropdown.Item>
+          <NavDropdown.Item as={NavLink} to="icons">Icons</NavDropdown.Item>
+          <NavDropdown.Item as={NavLink} to="typography">Typography</NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
         </NavDropdown>
@@ -74,14 +75,14 @@ const NavbarLinks = () => {
             Settings
           </NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="/auth/lock-screen" bsPrefix="dropdown-item has-icon">
+          <NavDropdown.Item as={NavLink} to="/auth/lock-screen" bsPrefix="dropdown-item has-icon">
             <i className="pe-7s-lock" />
             Lock Screen
           </NavDropdown.Item>
-          <NavDropdown.Item href="/auth/register" bsPrefix="dropdown-item has-icon">
+          <NavDropdown.Item as={NavLink} to="/auth/register" bsPrefix="dropdown-item has-icon">
             <i className="pe-7s-add-user" /> Register
           </NavDropdown.Item>
-          <NavDropdown.Item href="/auth/login" bsPrefix="dropdown-item has-icon">
+          <NavDropdown.Item as={NavLink} to="/auth/login" bsPrefix="dropdown-item has-icon">
             <div className="text-danger">
               <i className="pe-7s-close-circle" /> Log out
             </div>

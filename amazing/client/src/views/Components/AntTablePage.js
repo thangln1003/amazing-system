@@ -22,7 +22,7 @@ const AntTablePage = (props) => {
     pageSize: 10,
   });
 
-  const fectDateHandler = useCallback(() => {
+  const fetchDataHandler = useCallback(() => {
     setTable({ loading: true });
 
     setTimeout(() => {
@@ -260,7 +260,7 @@ const AntTablePage = (props) => {
                     />
                   </Col>
                   <Col md={1}>
-                    <Button fill variant="primary" size="sm" onClick={fectDateHandler}>
+                    <Button fill variant="primary" size="sm" onClick={fetchDataHandler}>
                       <i className="fa fa-search"></i>
                     </Button>
                   </Col>
