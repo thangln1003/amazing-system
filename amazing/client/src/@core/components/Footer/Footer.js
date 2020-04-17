@@ -25,8 +25,8 @@ const Footer = (props) => {
         </nav>
         <p className="copyright pull-right">
           &copy; {1900 + new Date().getYear()}{' '}
-          <a href="https://www.creative-tim.com?ref=lbdpr-footer" target="_blank" rel="noopener noreferrer">
-            Creative Tim
+          <a href="http://expertseeking.com" target="_blank" rel="noopener noreferrer">
+            Amazing Team
           </a>
           , made with <i className="fa fa-heart heart" /> for a better web
         </p>
