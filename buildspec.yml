@@ -23,6 +23,6 @@ artifacts:
     - package.json
     - node_modules/**/*
   discard-paths: yes
-  base-directory: $CODEBUILD_SRC_DIR
+  # base-directory: $CODEBUILD_SRC_DIR
   name: amazing-$AWS_REGION
   
