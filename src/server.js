@@ -27,8 +27,20 @@ app.use('/api/v1/auth', require('./routes/api/v1/auth'));
 app.use('/api/v1/users', require('./routes/api/v1/users'));
 app.use('/api/v1/roles', require('./routes/api/v1/roles'));
 
-var db = require('./db/models');
+if (process.env.NODE_ENV === 'production') {
+	// Express will serve up production assets
+	// like our main.js file, or main.css file!
+	app.use(expres.static('../client/build'));
 
+	// Express will serve up the index.html file
+	// if it doesn't recognize the route
+	const path = require('path');
+	app.get('*', (req, res) => {
+		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.htmls'));
+	});
+}
+
+const db = require('./db/models');
 // sync() will create all table if they doesn't exist in database
 db.sequelize.sync().then(function () {
 	app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
@@ -60,7 +72,8 @@ function onError(error) {
 
 function onListening() {
 	const addr = server.address();
-	const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
+	const bind =
+		typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
 	debug('Listening on ' + bind);
 }
 
