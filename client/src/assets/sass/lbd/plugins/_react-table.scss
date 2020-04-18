@@ -1,0 +1,204 @@
+.ReactTable {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: transparent;
+}
+
+.ReactTable {
+  &-info {
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+
+    &--header {
+      display: flex;
+      flex-direction: row;
+      font-size: $font-size-base;
+      font-weight: $font-weight-bold;
+      align-items: center;
+
+      select {
+        width: 60px;
+        margin: 0 4px;
+      }
+    }
+  }
+
+  &-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    .dropdown {
+      margin-bottom: 8px;
+    }
+
+    .dropdown-menu {
+      &::after {
+        left: 12px;
+        right: auto;
+      }
+
+      &::before {
+        left: 12px;
+        right: auto;
+      }
+
+      > a.has-icon {
+        padding-left: 0px;
+        line-height: $line-height;
+      }
+    }
+
+    .show {
+      .dropdown-menu {
+        background-color: $white-bg;
+      }
+    }
+  }
+
+  .table-responsive {
+    margin-bottom: 0;
+
+    .table-bordered {
+      border: 1px solid #dee2e6;
+    }
+  }
+
+  > .table-responsive > .table,
+  > .table {
+    margin-bottom: 8px !important;
+
+    > thead > tr > th {
+      @include user-select(none);
+
+      > span {
+        font-size: $font-size-base;
+
+        &.fa-sort-asc,
+        &.fa-sort-desc {
+          color: $color-azure;
+        }
+      }
+    }
+
+    > thead > tr > th,
+    > tbody > tr > th,
+    > tfoot > tr > th,
+    > thead > tr > td,
+    > tbody > tr > td,
+    > tfoot > tr > td {
+      padding: 8px;
+    }
+
+    > tbody > tr > td {
+      font-size: $font-size-base;
+
+      &.cell-action {
+        text-align: center;
+        padding: 4px;
+      }
+    }
+
+    .react-table-row {
+      display: flex;
+    }
+
+    .resizer {
+      right: -4px;
+      width: 6px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      touch-action: none;
+
+      &:hover,
+      &.isResizing {
+        background: $medium-gray;
+      }
+    }
+  }
+
+  .table-bordered {
+    td,
+    th {
+      border-left-width: 0;
+      border-bottom-width: 0;
+    }
+
+    td:last-child,
+    th:last-child {
+      border-right-width: 0;
+    }
+  }
+
+  .pagination {
+    justify-content: center;
+    margin: 8px 0;
+
+    > .page-item > input {
+      border-radius: 0;
+      text-align: center;
+      width: 60px;
+      height: 35px;
+      margin-left: -2px;
+    }
+
+    .page-link {
+      font-size: $font-size-medium;
+    }
+  }
+
+  .btn-sm.btn-simple {
+    padding: 4px;
+  }
+
+  @media (min-width: $screen-xs-max) {
+    &-actions {
+      justify-content: flex-end;
+      align-items: center;
+
+      .dropdown {
+        margin-right: 8px;
+      }
+
+      .dropdown-menu {
+        &::after {
+          left: auto;
+          right: 12px;
+        }
+
+        &::before {
+          left: auto;
+          right: 12px;
+        }
+      }
+    }
+
+    .pagination {
+      justify-content: flex-end;
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+  }
+
+  @media (min-width: $screen-md-min) {
+    .pagination {
+      justify-content: flex-end;
+      margin-bottom: 8px;
+    }
+  }
+
+  @media (min-width: $screen-md-max) {
+    .pagination {
+      justify-content: flex-end;
+      margin-bottom: 8px;
+    }
+  }
+}

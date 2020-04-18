@@ -1,0 +1,81 @@
+.ant-spin-container {
+  .ant-table {
+    font-size: $font-size-base;
+
+    .ant-table-thead > tr > th {
+      font-size: $font-size-base;
+      font-weight: $font-weight-semi;
+      color: $dark-gray;
+      text-transform: uppercase;
+      @include user-select(none);
+    }
+
+    .ant-table-filter-trigger {
+      .anticon-search {
+        font-size: $font-size-medium;
+      }
+    }
+
+    .ant-table-title {
+      .dropdown-menu {
+        &::before,
+        &::after {
+          display: none;
+        }
+
+        &.show {
+          background-color: $white-bg;
+          border: 1px solid rgba(0,0,0,.15);  
+          box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.125);
+          margin-top: 4px;
+        }
+
+        .has-icon {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}
+
+.ant-dropdown {
+  font-size: $font-size-base;
+
+  .ant-table-filter-dropdown {
+    font-size: $font-size-base;
+
+    .btn-sm {
+      > i[class^='fa'] {
+        margin-left: -20px;
+        width: 24px;
+        font-size: $font-size-small;
+      }
+    }
+  }
+
+  .ant-dropdown-menu-item,
+  .ant-dropdown-menu-submenu-title {
+    font-size: $font-size-base;
+  }
+}
+
+@media (min-width: $screen-sm) {
+  .ant-spin-container {
+    > .ant-table-pagination-right:first-child {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+      margin-top: 10px;
+    }
+
+    > .ant-table {
+      + .ant-table-pagination-right {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin-bottom: 6px;
+      }
+    }
+  }
+}

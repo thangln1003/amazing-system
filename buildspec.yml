@@ -20,8 +20,8 @@ phases:
 artifacts:
   files:
     - src/server.js
-    - src/package.json
-    - src/node_modules/**/*
+    - package.json
+    - node_modules/**/*
   discard-paths: yes
   base-directory: $CODEBUILD_SRC_DIR
   name: amazing-$AWS_REGION
