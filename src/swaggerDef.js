@@ -1,4 +1,4 @@
-const host = `${process.env.IP}:${process.env.PORT}`;
+const host = `${process.env.DOMAIN_NAME}`;
 
 module.exports = {
 	swagger: '2.0',
