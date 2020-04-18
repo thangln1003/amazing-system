@@ -22,7 +22,7 @@ const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Define Routes
-app.get('/', (req, res) => res.redirect('/api-docs'));
+// app.get('/', (req, res) => res.redirect('/api-docs'));
 app.use('/api/v1/auth', require('./routes/api/v1/auth'));
 app.use('/api/v1/users', require('./routes/api/v1/users'));
 app.use('/api/v1/roles', require('./routes/api/v1/roles'));
