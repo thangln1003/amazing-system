@@ -27,6 +27,7 @@ artifacts:
     - src/client/build/**/*
     - package.json
     - node_modules/**/*
+    - .ebextensions/**/*
   # discard-paths: yess
   # base-directory: $CODEBUILD_SRC_DIR
   name: amazing-$AWS_REGION
