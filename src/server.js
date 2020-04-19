@@ -1,13 +1,17 @@
 const express = require('express');
-const app = express();
+const helmet = require('helmet');
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 // const pathToSwaggerUi = require('swagger-ui-dist').absolutePath();
+const app = express();
+
 require('dotenv').config();
 
 const PORT = process.env.PORT || 5000;
+console.log(process.env.PORT);
 
 // Init Middleware
+app.use(helmet());
 app.use(express.json());
 // app.use(express.static(pathToSwaggerUi));
 
@@ -22,10 +26,13 @@ const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Define Routes
-// app.get('/', (req, res) => res.redirect('/api-docs'));
 app.use('/api/v1/auth', require('./routes/api/v1/auth'));
 app.use('/api/v1/users', require('./routes/api/v1/users'));
 app.use('/api/v1/roles', require('./routes/api/v1/roles'));
+
+if (process.env.NODE_ENV === 'development') {
+	app.get('/', (req, res) => res.redirect('/api-docs'));
+}
 
 if (process.env.NODE_ENV === 'production') {
 	// Express will serve up production assets
