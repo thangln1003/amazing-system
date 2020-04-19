@@ -15,7 +15,7 @@ phases:
       - npm run build --prefix client
   post_build:
     commands:
-      - echo Build completed on `date`
+      - echo Build completed on $(date)
       - echo $CODEBUILD_SRC_DIR
 artifacts:
   files:
@@ -23,7 +23,7 @@ artifacts:
     - src/client/build/**/*
     - package.json
     - node_modules/**/*
-  discard-paths: yes
+  # discard-paths: yess
   # base-directory: $CODEBUILD_SRC_DIR
   name: amazing-$AWS_REGION
   
