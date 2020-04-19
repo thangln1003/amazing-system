@@ -19,7 +19,11 @@ phases:
       - echo $CODEBUILD_SRC_DIR
 artifacts:
   files:
-    - src/server.js
+    - src/config/**/*
+    - src/db/**/*
+    - src/routes/**/*
+    - src/utils/**/*
+    - src/*
     - src/client/build/**/*
     - package.json
     - node_modules/**/*
