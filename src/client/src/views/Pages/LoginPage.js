@@ -96,7 +96,7 @@ const LoginPage = (props) => {
                       Login
                     </Button>
                     <Divider>OR</Divider>
-                    <Button variant="primary" fill wd type="button" size="sm" disabled={isSubmitting}>
+                    <Button variant="primary" fill wd type="button" size="sm" disabled={isSubmitting} href="/auth/google">
                       Login with Google
                     </Button>
                   </Card.Footer>
