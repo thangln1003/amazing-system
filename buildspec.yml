@@ -23,6 +23,7 @@ artifacts:
     - src/db/**/*
     - src/routes/**/*
     - src/utils/**/*
+    - src/services/**/*
     - src/*
     - src/client/build/**/*
     - package.json
