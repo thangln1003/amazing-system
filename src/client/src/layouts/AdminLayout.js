@@ -1,9 +1,10 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Header from '../@core/components/Header/Header';
-import Footer from '../@core/components/Footer/Footer';
-import Breadcrumbs from '../@core/components/Breadcrumbs';
+import Header from '@core/components/Header/Header';
+import Footer from '@core/components/Footer/Footer';
+import Breadcrumbs from '@core/components/Breadcrumbs';
+import Notification from '@core/components/Notification/Notification';
 
 import { routes, breadcrumbRoutes } from '../routes.js';
 
@@ -32,6 +33,7 @@ const AdminLayout = () => {
     <div className="wrapper">
       <div id="main-panel" className="main-panel" ref={mainPanelRef}>
         <Header />
+        <Notification />
         <div className="main-content">
           <Breadcrumbs mappedRoutes={breadcrumbRoutes} />
           <Switch>{getRoutes(routes)}</Switch>

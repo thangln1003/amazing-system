@@ -212,7 +212,7 @@ const AntTablePage = (props) => {
       fixed: 'right',
       width: 100,
       align: 'center',
-      render: () => <a>action</a>,
+      render: () => <a href='#'>action</a>,
     },
   ];
 
