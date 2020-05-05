@@ -1,15 +1,17 @@
-export const HIDE_NOTIFICATION = '[MESSAGE] HIDE NOTIFICATION';
 export const SHOW_NOTIFICATION = '[MESSAGE] SHOW NOTIFICATION';
+export const HIDE_NOTIFICATION = '[MESSAGE] HIDE NOTIFICATION';
 
-export const hideNotification = () => {
+export const showNotification = (notification) => {
   return {
-    type: HIDE_NOTIFICATION,
+    type: SHOW_NOTIFICATION,
+    notification,
   };
 };
 
-export const showNotification = (options) => {
+export const hideNotification = (options) => {
   return {
-    type: SHOW_NOTIFICATION,
+    type: HIDE_NOTIFICATION,
     options,
   };
 };
+

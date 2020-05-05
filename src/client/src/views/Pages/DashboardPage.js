@@ -1,10 +1,17 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import ReactTable from '@core/components/Table/ReactTable';
-import StatsCard from '../../@core/components/Card/StatsCard';
-import { Card } from 'antd';
+import StatsCard from '@core/components/Card/StatsCard';
+import Button from '@core/components/CustomButton';
+import { useDispatch } from 'react-redux';
+import * as Actions from 'store/actions/core';
 
 const DashboardPage = () => {
+  const dispatch = useDispatch();
+
+  const clickHandler = () => {
+    dispatch(Actions.showNotification({ message: 'Hello, world! This is a toast message.' }));
+  };
+
   return (
     <Container fluid>
       <Row>
@@ -51,7 +58,7 @@ const DashboardPage = () => {
           </Row>
         </Col>
         <Col md={8}>
-          
+          <Button fill onClick={clickHandler}>Show Notification</Button>
         </Col>
       </Row>
     </Container>

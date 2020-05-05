@@ -1,14 +1,14 @@
 import * as Actions from '../../actions/core';
 
 const initialState = {
-  state: true,
+  isShow: false,
+  notifications: [],
   options: {
-    autoHide: false,
+    autoHide: true,
     delay: 6000,
-    message: 'Hello, world! This is a toast message.',
     header: 'Bootstrap',
-    position: 'top-right',
-    showHeader: false,
+    position: 'bottom-right',
+    showHeader: true,
     variant: 'success',
   },
 };
@@ -16,18 +16,29 @@ const initialState = {
 const notification = (state = initialState, action) => {
   switch (action.type) {
     case Actions.SHOW_NOTIFICATION: {
+      const notifications = [...state.notifications];
+      notifications.push(action.notification.message);
+
       return {
-        state: true,
+        isShow: true,
         options: {
           ...initialState.options,
-          ...action.options,
+          ...action.notification.options,
         },
+        notifications,
       };
     }
     case Actions.HIDE_NOTIFICATION: {
+      let notifications = [...state.notifications];
+
+      if (typeof action.options === 'undefined') {
+        notifications = [];
+      }
+
       return {
         ...state,
-        state: null,
+        isShow: null,
+        notifications,
       };
     }
     default: {

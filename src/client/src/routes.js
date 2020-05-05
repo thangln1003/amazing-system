@@ -12,6 +12,7 @@ import DashboardPage from './views/Pages/DashboardPage';
 import CarRentalContactPage from './views/Pages/CarRentalContactPage';
 import ForgotPasswordPage from './views/Pages/ForgotPasswordPage';
 import StdUI01 from './views/MO/StdUI01';
+import RolesPage from './views/Pages/RolesPage';
 
 const breadcrumbRoutes = {
   '/': 'Home',
@@ -97,6 +98,13 @@ const routes = [
     name: 'Forgot Password',
     path: '/forgot-password',
     component: ForgotPasswordPage,
+  },
+  {
+    layout: '/admin',
+    icon: 'pe-7s-lock',
+    name: 'Role',
+    path: '/roles',
+    component: RolesPage,
   },
 ];
 
