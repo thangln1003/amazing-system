@@ -7,12 +7,15 @@ import CoreUtils from '@core/utils';
 import Button from '@core/components/CustomButton/CustomButton';
 
 import axios from 'axios';
+import * as Actions from '../../store/actions';
+import { useDispatch } from 'react-redux';
 
 import { Input, Tag } from 'antd';
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
 
 const RolesPage = (props) => {
+  const dispatch = useDispatch();
   const [table, setTable] = useState({
     data: [],
     loading: false,
@@ -25,14 +28,10 @@ const RolesPage = (props) => {
   const fetchDataHandler = useCallback(() => {
     setTable({ loading: true });
 
-    setTimeout(() => {
-      const request = axios.get('/api/carRentals');
-      request.then((response) => {
-        const data = response.data;
-        setTable({ data: [...data], loading: false });
-      });
-    }, 1000);
-  }, []);
+    dispatch(Actions.fetchRoles());
+
+    setTable({ loading: false });
+  }, [dispatch]);
 
   const [search, setSearch] = useState({
     searchText: '',
@@ -127,6 +126,38 @@ const RolesPage = (props) => {
       width: 150,
       render: (value) => {
         return <Moment format="DD/MM/YYYY hh:mm:ss">{value}</Moment>;
+      },
+    },
+    {
+      title: 'Status',
+      dataIndex: 'status',
+      key: 'status',
+      width: 150,
+      filters: [
+        {
+          text: 'Active',
+          value: 'Active',
+        },
+        {
+          text: 'Inactive',
+          value: 'Inactive',
+        },
+      ],
+      align: 'center',
+      filterMultiple: true,
+      onFilter: (value, record) => record.status.indexOf(value) === 0,
+      render: (value) => {
+        let color = '';
+        if (value === 'Active') {
+          color = 'green';
+        } else {
+          color = 'volcano';
+        }
+        return (
+          <Tag color={color} key={value}>
+            {value.toUpperCase()}
+          </Tag>
+        );
       },
     },
   ];

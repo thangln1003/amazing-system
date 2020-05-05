@@ -1,6 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 const router = express.Router();
+const logger = require('../../../config/winston');
 
 router.get(
 	'/google',
@@ -11,10 +12,13 @@ router.get(
 
 router.get(
 	'/google/callback',
-	passport.authenticate('google', { failureRedirect: '/login' }),
+	passport.authenticate('google', {
+		failureRedirect: 'http://localhost:3000',
+	}),
 	(req, res) => {
+		logger.info('Google Callback Successful');
 		// Successful authentication, redirect home.
-		res.redirect('/');
+		res.redirect('http://localhost:3000/admin/roles');
 	}
 );
 

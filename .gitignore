@@ -28,3 +28,4 @@ src/client/build
 package-lock.json
 amazing.min.css
 yarn.lock
+logs

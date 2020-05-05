@@ -5,6 +5,14 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const keys = require('../config/keys');
 const { User, UserLogin, Sequelize } = require('../db/models');
 
+passport.serializeUser(function (user, cb) {
+	cb(null, user);
+});
+
+passport.deserializeUser(function (obj, cb) {
+	cb(null, obj);
+});
+
 passport.use(
 	new GoogleStrategy(
 		{
@@ -13,7 +21,7 @@ passport.use(
 			callbackURL: '/auth/google/callback',
 			proxy: true,
 		},
-		async (accessToken, refreshToken, profile, callback) => {
+		async (accessToken, refreshToken, profile, done) => {
 			console.log('access_token', accessToken);
 			console.log('refresh_token', refreshToken);
 			console.log('profile:', profile);
@@ -35,10 +43,13 @@ passport.use(
 			});
 
 			if (!existingUser) {
-				return callback('This Google Email does not exist in system!');
+				return done(null, {}, {
+					message:
+						'Sorry! Your email id is not found. Please contact to Admin.',
+				});
 			}
 
-			callback(null, existingUser);
+			done(null, existingUser);
 		}
 	)
 );

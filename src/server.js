@@ -1,21 +1,34 @@
 const express = require('express');
+const http = require('http');
 const helmet = require('helmet');
+const passport = require('passport');
+const morgan = require('morgan');
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
+const logger = require('./config/winston');
+require('./services/passport');
+require('dotenv').config();
 // const pathToSwaggerUi = require('swagger-ui-dist').absolutePath();
 
 const app = express();
 
-require('./services/passport');
-require('dotenv').config();
+/**
+ * Create HTTP server.
+ */
+const server = http.createServer(app);
 
-const PORT = process.env.PORT || 5000;
+const port = normalizePort(process.env.PORT || '5000');
+app.set('port', port);
 
 // Init Middleware
+app.use(morgan('combined', { stream: logger.stream }));
 app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(express.static(pathToSwaggerUi));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Extended: https://swagger.io/specification/#infoObject
 const swaggerDefinition = require('./swaggerDef');
@@ -52,9 +65,9 @@ if (process.env.NODE_ENV === 'production') {
 const db = require('./db/models');
 // sync() will create all table if they doesn't exist in database
 db.sequelize.sync().then(function () {
-	app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
-	app.on('error', onError);
-	app.on('listening', onListening);
+	server.listen(port, () => logger.info(`Server started on port ${port}`));
+	server.on('error', onError);
+	server.on('listening', onListening);
 });
 
 function onError(error) {
@@ -67,11 +80,11 @@ function onError(error) {
 	// handle specific listen errors with friendly messages
 	switch (error.code) {
 		case 'EACCES':
-			console.error(bind + ' requires elevated privileges');
+			logger.error(bind + ' requires elevated privileges');
 			process.exit(1);
 			break;
 		case 'EADDRINUSE':
-			console.error(bind + ' is already in use');
+			logger.error(bind + ' is already in use');
 			process.exit(1);
 			break;
 		default:
@@ -83,7 +96,27 @@ function onListening() {
 	const addr = server.address();
 	const bind =
 		typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
-	debug('Listening on ' + bind);
+	logger.info('Listening on ' + bind);
+}
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+	const port = parseInt(val, 10);
+
+	if (isNaN(port)) {
+		// named pipe
+		return val;
+	}
+
+	if (port >= 0) {
+		// port number
+		return port;
+	}
+
+	return false;
 }
 
 // app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

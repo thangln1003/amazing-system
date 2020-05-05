@@ -17,6 +17,7 @@
 	"author": "Brian Ly",
 	"license": "ISC",
 	"dependencies": {
+		"app-root-path": "^3.0.0",
 		"bcryptjs": "^2.4.3",
 		"config": "^3.3.1",
 		"dotenv": "^8.2.0",
@@ -25,6 +26,7 @@
 		"helmet": "^3.22.0",
 		"jsonwebtoken": "^8.5.1",
 		"mongoose": "^5.9.7",
+		"morgan": "^1.10.0",
 		"passport": "^0.4.1",
 		"passport-google-oauth20": "^2.0.0",
 		"pg": "^8.0.2",
@@ -33,10 +35,11 @@
 		"sequelize": "^5.21.6",
 		"sequelize-cli": "^5.5.1",
 		"swagger-jsdoc": "^4.0.0",
-		"swagger-ui-express": "^4.1.4"
+		"swagger-ui-express": "^4.1.4",
+		"winston": "^3.2.1"
 	},
 	"devDependencies": {
-		"concurrently": "^5.1.0",
-		"nodemon": "^2.0.2"
+		"concurrently": "^5.2.0",
+		"nodemon": "^2.0.3"
 	}
 }
