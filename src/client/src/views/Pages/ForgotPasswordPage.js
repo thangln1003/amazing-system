@@ -47,7 +47,7 @@ const ForgotPasswordPage = (props) => {
                         name="email"
                         onBlur={handleBlur}
                         onChange={handleChange}
-                        value={values.value}
+                        value={values.email}
                         isInvalid={!!errors.email}
                       />
                       <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>

@@ -11,10 +11,6 @@ const RegisterPage = (props) => {
       .required('*Email is required')
       .email('*Must be a valid email address')
       .max(100, '*Email must be less than 100 characters'),
-    password: Yup.string().when('email', {
-      is: (val) => (val && val.length > 5 ? true : false),
-      then: Yup.string().required('*Password is required').min(8, 'Password is too short - should be 8 chars minimum.'),
-    }),
   });
 
   return (
@@ -22,7 +18,7 @@ const RegisterPage = (props) => {
       <Row>
         <Col md={{ span: 6, offset: 6 }} sm={{ span: 8, offset: 4 }}>
           <Formik
-            initialValues={{ email: '', password: '', rememberMe: false }}
+            initialValues={{ firstName: '', lastName: '', registerId: '', email: '' }}
             validationSchema={validationSchema}
             onSubmit={(values, { setSubmitting, resetForm }) => {
               setSubmitting(true);
@@ -44,60 +40,60 @@ const RegisterPage = (props) => {
                   <Card.Body>
                     <Row>
                       <Col md={6}>
-                        <Form.Group controlId="formPassword">
+                        <Form.Group controlId="formFirstName">
                           <Form.Label>First Name</Form.Label>
                           <FormControl
                             autoComplete="off"
-                            placeholder="Password"
-                            type="password"
-                            name="password"
+                            placeholder="First Name"
+                            type="text"
+                            name="firstName"
                             onBlur={handleBlur}
                             onChange={handleChange}
-                            value={values.value}
-                            isInvalid={!!errors.password}
+                            value={values.firstName}
+                            isInvalid={!!errors.firstName}
                           />
-                          <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
+                          <Form.Control.Feedback type="invalid">{errors.firstName}</Form.Control.Feedback>
                         </Form.Group>
                       </Col>
 
                       <Col md={6}>
-                        <Form.Group controlId="formPassword">
+                        <Form.Group controlId="formLastName">
                           <Form.Label>Last Name</Form.Label>
                           <FormControl
                             autoComplete="off"
-                            placeholder="Password"
-                            type="password"
-                            name="password"
+                            placeholder="Last Name"
+                            type="text"
+                            name="lastName"
                             onBlur={handleBlur}
                             onChange={handleChange}
-                            value={values.value}
-                            isInvalid={!!errors.password}
+                            value={values.lastName}
+                            isInvalid={!!errors.lastName}
                           />
-                          <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
+                          <Form.Control.Feedback type="invalid">{errors.lastName}</Form.Control.Feedback>
                         </Form.Group>
                       </Col>
                     </Row>
 
                     <Row>
                       <Col md={6}>
-                          <Form.Group controlId="formPassword">
-                            <Form.Label>Register ID</Form.Label>
-                            <FormControl
-                              autoComplete="off"
-                              placeholder="Password"
-                              type="password"
-                              name="password"
-                              onBlur={handleBlur}
-                              onChange={handleChange}
-                              value={values.value}
-                              isInvalid={!!errors.password}
-                            />
-                            <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
-                          </Form.Group>
+                        <Form.Group controlId="formRegisterId">
+                          <Form.Label>Register ID</Form.Label>
+                          <FormControl
+                            autoComplete="off"
+                            placeholder="Register ID"
+                            type="text"
+                            name="registerId"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={values.registerId}
+                            isInvalid={!!errors.registerId}
+                          />
+                          <Form.Control.Feedback type="invalid">{errors.registerId}</Form.Control.Feedback>
+                        </Form.Group>
                       </Col>
 
                       <Col md={6}>
-                          <Form.Group controlId="formEmail">
+                        <Form.Group controlId="formEmail">
                           <Form.Label>Email address</Form.Label>
                           <FormControl
                             autoComplete="off"
@@ -106,7 +102,7 @@ const RegisterPage = (props) => {
                             name="email"
                             onBlur={handleBlur}
                             onChange={handleChange}
-                            value={values.value}
+                            value={values.email}
                             isInvalid={!!errors.email}
                           />
                           <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>
@@ -114,13 +110,12 @@ const RegisterPage = (props) => {
                       </Col>
                     </Row>
                   </Card.Body>
-                  
+
                   <Card.Footer className="text-center">
                     <Button variant="info" fill wd type="submit" disabled={isSubmitting}>
                       Login
                     </Button>
                   </Card.Footer>
-
                 </Card>
               </Form>
             )}

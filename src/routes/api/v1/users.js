@@ -48,6 +48,7 @@ router.get('/', async (req, res) => {
 		];
 
 		const { count, rows } = await User.findAndCountAll({
+			where: { isDeleted: false },
 			attributes: [...selectedFields],
 			offset,
 			limit,

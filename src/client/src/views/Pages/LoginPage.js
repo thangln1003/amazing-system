@@ -56,7 +56,7 @@ const LoginPage = (props) => {
                         name="username"
                         onBlur={handleBlur}
                         onChange={handleChange}
-                        value={values.value}
+                        value={values.username}
                         isInvalid={!!errors.username}
                       />
                       <Form.Control.Feedback type="invalid">{errors.username}</Form.Control.Feedback>
@@ -70,7 +70,7 @@ const LoginPage = (props) => {
                         name="password"
                         onBlur={handleBlur}
                         onChange={handleChange}
-                        value={values.value}
+                        value={values.password}
                         isInvalid={!!errors.password}
                       />
                       <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
@@ -82,7 +82,7 @@ const LoginPage = (props) => {
                           id="rememberMe"
                           name="rememberMe"
                           label="Remember me"
-                          value={values.value}
+                          value={values.rememberMe}
                           className={`form-check-input${errors.rememberMe && touched.rememberMe ? ' is-invalid' : ''}`}
                         />
                       </Col>

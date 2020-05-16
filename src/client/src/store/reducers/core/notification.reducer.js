@@ -5,9 +5,9 @@ const initialState = {
   notifications: [],
   options: {
     autoHide: true,
-    delay: 6000,
-    header: 'Bootstrap',
-    position: 'bottom-right',
+    delay: 10000,
+    header: 'Notification',
+    position: 'top-right',
     showHeader: true,
     variant: 'success',
   },

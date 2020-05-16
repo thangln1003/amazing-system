@@ -18,8 +18,8 @@ const NavbarLinks = () => {
         <Nav.Link as={NavLink} to="dashboard">Dashboard</Nav.Link>
         <Nav.Link as={NavLink} to="carrental">Car Rental Contact Mgnt</Nav.Link>
         <NavDropdown alignRight title="Admin" id="basic-nav-dropdown1">
-          <NavDropdown.Item as={NavLink} to="roles">Roles</NavDropdown.Item>
-          <NavDropdown.Item as={NavLink} to="users">Users</NavDropdown.Item>
+          <NavDropdown.Item as={NavLink} to="/admin/roles">Roles</NavDropdown.Item>
+          <NavDropdown.Item as={NavLink} to="/admin/users">Users</NavDropdown.Item>
         </NavDropdown>
         <NavDropdown alignRight title="Components" id="basic-nav-dropdown2">
           <NavDropdown.Item as={NavLink} to="ant-table">Ant Table</NavDropdown.Item>

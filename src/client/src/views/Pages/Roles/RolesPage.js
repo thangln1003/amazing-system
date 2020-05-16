@@ -1,13 +1,13 @@
 import React, { useState, useCallback, useRef } from 'react';
 import { Container, Row, Col, Card, Form, FormControl } from 'react-bootstrap';
 import Moment from 'react-moment';
-import Datetime from 'react-datetime';
 import AntTable from '@core/components/Table/AntTable';
 import CoreUtils from '@core/utils';
 import Button from '@core/components/CustomButton/CustomButton';
+import { Link } from 'react-router-dom';
+import { Formik } from 'formik';
 
-import axios from 'axios';
-import * as Actions from '../../store/actions';
+import * as Actions from '../../../store/actions';
 import { useDispatch } from 'react-redux';
 
 import { Input, Tag } from 'antd';
@@ -25,13 +25,21 @@ const RolesPage = (props) => {
     pageSize: 10,
   });
 
-  const fetchDataHandler = useCallback(() => {
-    setTable({ loading: true });
+  const fetchDataHandler = useCallback(
+    (event) => {
+      const form = event.currentTarget;
 
-    dispatch(Actions.fetchRoles());
+      event.preventDefault();
+      debugger;
 
-    setTable({ loading: false });
-  }, [dispatch]);
+      setTable({ loading: true });
+
+      dispatch(Actions.fetchRoles());
+
+      setTable({ loading: false });
+    },
+    [dispatch]
+  );
 
   const [search, setSearch] = useState({
     searchText: '',
@@ -168,46 +176,25 @@ const RolesPage = (props) => {
         <Col md={12}>
           <Card>
             <Card.Body>
-              <Form id="frmSearching">
+              <Card.Title>Roles</Card.Title>
+              <Form id="frmSearching" noValidate onSubmit={fetchDataHandler}>
                 <Form.Group as={Row}>
                   <Form.Label column lg={1} md={2}>
-                    Contact NO. <span className="star">*</span>
+                    Role Name
                   </Form.Label>
                   <Col lg={2} md={2}>
-                    <FormControl autoComplete="off" size="sm" type="text" name="contactNo" />
+                    <FormControl autoComplete="off" size="sm" type="text" name="name" />
                   </Col>
-                </Form.Group>
-                <Form.Group as={Row}>
-                  <Form.Label column lg={1} md={2}>
-                    Contact Title <span className="star">*</span>
-                  </Form.Label>
-                  <Col lg={2} md={2}>
-                    <FormControl autoComplete="off" size="sm" type="text" name="contactTitles" />
-                  </Col>
-                </Form.Group>
-                <Form.Group as={Row}>
-                  <Form.Label column lg={1} md={2}>
-                    Basis Date <span className="star">*</span>
-                  </Form.Label>
-                  <Col lg={1} md={2}>
-                    <Datetime
-                      dateFormat="DD/MM/YYYY"
-                      timeFormat={false}
-                      inputProps={{ placeholder: 'From Date' }}
-                      defaultValue={new Date()}
-                    />
-                  </Col>
-                  <Col lg={1} md={2}>
-                    <Datetime
-                      dateFormat="DD/MM/YYYY"
-                      timeFormat={false}
-                      inputProps={{ placeholder: 'To Date' }}
-                      defaultValue={new Date()}
-                    />
-                  </Col>
-                  <Col md={1}>
-                    <Button fill variant="primary" size="sm" onClick={fetchDataHandler}>
+                  <Col md={2}>
+                    <Button fill variant="primary" size="sm" type="submit">
                       <i className="fa fa-search"></i>
+                    </Button>
+                  </Col>
+                </Form.Group>
+                <Form.Group as={Row}>
+                  <Col md={2}>
+                    <Button fill variant="info" size="sm" type="button" as={Link} to="/admin/roles/new">
+                      Create Role
                     </Button>
                   </Col>
                 </Form.Group>
