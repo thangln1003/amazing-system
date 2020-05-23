@@ -55,7 +55,8 @@ router.get('/', async (req, res) => {
 
 		return res.status(200).json({
 			success: true,
-			data: { result: rows, meta: paginationInfo },
+			result: rows,
+			meta: paginationInfo,
 		});
 	} catch (err) {
 		res.status(500).send(`Internal Server Error - ${err.message}`);

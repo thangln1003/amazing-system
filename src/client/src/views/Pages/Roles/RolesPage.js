@@ -1,25 +1,21 @@
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { Container, Row, Col, Card, Form, FormControl } from 'react-bootstrap';
 import Moment from 'react-moment';
 import AntTable from '@core/components/Table/AntTable';
 import CoreUtils from '@core/utils';
 import Button from '@core/components/CustomButton/CustomButton';
 import { Link } from 'react-router-dom';
-import { Formik } from 'formik';
-
-import * as Actions from '../../../store/actions';
-import { useDispatch } from 'react-redux';
-
+import * as Actions from 'store/actions';
+import { useDispatch, useSelector } from 'react-redux';
 import { Input, Tag } from 'antd';
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
 
 const RolesPage = (props) => {
   const dispatch = useDispatch();
-  const [table, setTable] = useState({
-    data: [],
-    loading: false,
-  });
+  const roles = useSelector(({ gus }) => gus.roles.data);
+
+  const [table, setTable] = useState(roles);
   const [page, setPage] = useState({
     current: 1,
     pageSize: 10,
@@ -27,10 +23,7 @@ const RolesPage = (props) => {
 
   const fetchDataHandler = useCallback(
     (event) => {
-      const form = event.currentTarget;
-
       event.preventDefault();
-      debugger;
 
       setTable({ loading: true });
 
@@ -109,18 +102,21 @@ const RolesPage = (props) => {
   const columns = [
     {
       title: 'Role name',
-      width: 150,
-      dataIndex: 'roleName',
-      key: 'roleName',
+      // width: 150,
+      dataIndex: 'name',
+      key: 'name',
       ellipsis: true,
       defaultSortOrder: 'ascend',
       sortDirections: ['ascend', 'descend'],
-      sorter: (a, b) => CoreUtils.sorter(a.roleName, b.roleName),
-      ...getColumnSearchProps('roleName'),
+      sorter: (a, b) => CoreUtils.sorter(a.name, b.name),
+      ...getColumnSearchProps('name'),
+      render: (text, row) => {
+        return <Link to={`/admin/roles/${row.name}`}>{text}</Link>;
+      },
     },
     {
       title: 'Description',
-      width: 150,
+      // width: 150,
       dataIndex: 'description',
       key: 'description',
       ellipsis: true,
@@ -131,42 +127,50 @@ const RolesPage = (props) => {
       title: 'Created date',
       dataIndex: 'createdDate',
       key: 'createdDate',
-      width: 150,
+      width: 300,
       render: (value) => {
         return <Moment format="DD/MM/YYYY hh:mm:ss">{value}</Moment>;
       },
     },
+    // {
+    //   title: 'Status',
+    //   dataIndex: 'status',
+    //   key: 'status',
+    //   width: 150,
+    //   filters: [
+    //     {
+    //       text: 'Active',
+    //       value: 'Active',
+    //     },
+    //     {
+    //       text: 'Inactive',
+    //       value: 'Inactive',
+    //     },
+    //   ],
+    //   align: 'center',
+    //   filterMultiple: true,
+    //   onFilter: (value, record) => record.status.indexOf(value) === 0,
+    //   render: (value) => {
+    //     let color = '';
+    //     if (value === 'Active') {
+    //       color = 'green';
+    //     } else {
+    //       color = 'volcano';
+    //     }
+    //     return (
+    //       <Tag color={color} key={value}>
+    //         {value.toUpperCase()}
+    //       </Tag>
+    //     );
+    //   },
+    // },
     {
-      title: 'Status',
-      dataIndex: 'status',
-      key: 'status',
-      width: 150,
-      filters: [
-        {
-          text: 'Active',
-          value: 'Active',
-        },
-        {
-          text: 'Inactive',
-          value: 'Inactive',
-        },
-      ],
+      title: 'Action',
+      key: 'operation',
+      fixed: 'right',
+      width: 100,
       align: 'center',
-      filterMultiple: true,
-      onFilter: (value, record) => record.status.indexOf(value) === 0,
-      render: (value) => {
-        let color = '';
-        if (value === 'Active') {
-          color = 'green';
-        } else {
-          color = 'volcano';
-        }
-        return (
-          <Tag color={color} key={value}>
-            {value.toUpperCase()}
-          </Tag>
-        );
-      },
+      render: () => <a href="#">action</a>,
     },
   ];
 
@@ -210,9 +214,9 @@ const RolesPage = (props) => {
               <AntTable
                 columns={columns}
                 rowKey={(record) => record.id}
-                dataSource={table.data}
+                dataSource={roles}
                 scroll={{ x: 1500, y: 500 }}
-                loading={table.loading}
+                loading={false}
                 pagination={{
                   position: ['topRight', 'bottomRight'],
                   onChange(current, pageSize) {
@@ -228,4 +232,5 @@ const RolesPage = (props) => {
   );
 };
 
+// export default withReducer('gus', reducer)(RolesPage);
 export default RolesPage;

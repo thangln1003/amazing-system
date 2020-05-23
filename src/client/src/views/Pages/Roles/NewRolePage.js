@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
-import * as Actions from 'store/actions/core';
+import * as Actions from 'store/actions';
 
 const NewRolePage = (props) => {
   const dispatch = useDispatch();
@@ -27,21 +27,18 @@ const NewRolePage = (props) => {
                   try {
                     setSubmitting(true);
 
-                    // Simulate submitting to database, shows us values submitted, resets form
-                    setTimeout(() => {
-                      console.log(JSON.stringify(values, null, 2));
-                      resetForm();
-                      setStatus({ success: true });
-                      setSubmitting(false);
+                    dispatch(Actions.createRole(values));
 
-                      dispatch(
-                        Actions.showNotification({
-                          message: 'Role is created successfully!',
-                          variant: 'success',
-                        })
-                      );
-                      // props.history.push('/admin/roles');
-                    }, 1000);
+                    resetForm();
+                    setStatus({ success: true });
+                    setSubmitting(false);
+
+                    dispatch(
+                      Actions.showNotification({
+                        message: 'Role is created successfully!',
+                        variant: 'success',
+                      })
+                    );
                   } catch (err) {
                     setStatus({ success: false });
                     setSubmitting(false);

@@ -14,6 +14,7 @@ import ForgotPasswordPage from './views/Pages/ForgotPasswordPage';
 import StdUI01 from './views/MO/StdUI01';
 import RolesPage from './views/Pages/Roles/RolesPage';
 import NewRolePage from './views/Pages/Roles/NewRolePage';
+import RoleDetailsPage from './views/Pages/Roles/RoleDetailsPage';
 
 const breadcrumbRoutes = {
   '/': 'Home',
@@ -106,6 +107,13 @@ const routes = [
     name: 'New Role',
     path: '/roles/new',
     component: NewRolePage,
+  },
+  {
+    layout: '/admin',
+    icon: 'pe-7s-lock',
+    name: 'Role',
+    path: '/roles/:id',
+    component: RoleDetailsPage,
   },
   {
     layout: '/admin',

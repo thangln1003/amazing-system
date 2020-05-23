@@ -83,6 +83,7 @@ const AntTable = (props) => {
       rowKey={rowKey}
       loading={loading}
       dataSource={state.hasData ? dataSource : null}
+      dataSource={dataSource}
       columns={columns}
       onChange={onChange}
       title={() => Title({ ...data })}
