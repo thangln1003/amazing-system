@@ -3,8 +3,9 @@ import * as Actions from './../core';
 
 export const FETCH_ROLES = '[GUS] FETCH ROLES';
 export const CREATE_ROLE = '[GUS] CREATE ROLE';
+export const LOADING_ROLE = '[GUS] LOADING ROLE';
 
-export const fetchRoles = () => {
+export const fetchRoles = (data) => {
   const request = axios.get(`/api/roles`);
 
   return (dispatch) =>
@@ -33,4 +34,13 @@ export const createRole = (data) => {
         payload: response.data.role,
       });
     });
+};
+
+export const isLoading = (loading) => {
+  return (dispatch) => {
+    return dispatch({
+      type: LOADING_ROLE,
+      payload: loading,
+    });
+  };
 };

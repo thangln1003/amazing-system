@@ -1,5 +1,7 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { Container, Row, Col, Card, Form, FormControl } from 'react-bootstrap';
+// import { useDebounce } from '@core/hooks';
+import _ from '@lodash';
 import Moment from 'react-moment';
 import AntTable from '@core/components/Table/AntTable';
 import CoreUtils from '@core/utils';
@@ -13,23 +15,23 @@ import { SearchOutlined } from '@ant-design/icons';
 
 const RolesPage = (props) => {
   const dispatch = useDispatch();
-  const roles = useSelector(({ gus }) => gus.roles.data);
-
-  const [table, setTable] = useState(roles);
+  const roles = useSelector(({ gus }) => gus.roles);
   const [page, setPage] = useState({
     current: 1,
     pageSize: 10,
   });
 
-  const fetchDataHandler = useCallback(
-    (event) => {
-      event.preventDefault();
+  const debounceFetchHandler = _.debounce((value) => {
+    dispatch(Actions.isLoading(true));
+    dispatch(Actions.fetchRoles(value));
+  }, 200);
 
-      setTable({ loading: true });
+  const submitDataHandler = useCallback(
+    (e) => {
+      const form = e.currentTarget;
 
-      dispatch(Actions.fetchRoles());
-
-      setTable({ loading: false });
+      e.preventDefault();
+      debounceFetchHandler(form['name'].value);
     },
     [dispatch]
   );
@@ -115,7 +117,7 @@ const RolesPage = (props) => {
       },
     },
     {
-      title: 'Description',
+      title: 'Role description',
       // width: 150,
       dataIndex: 'description',
       key: 'description',
@@ -132,38 +134,6 @@ const RolesPage = (props) => {
         return <Moment format="DD/MM/YYYY hh:mm:ss">{value}</Moment>;
       },
     },
-    // {
-    //   title: 'Status',
-    //   dataIndex: 'status',
-    //   key: 'status',
-    //   width: 150,
-    //   filters: [
-    //     {
-    //       text: 'Active',
-    //       value: 'Active',
-    //     },
-    //     {
-    //       text: 'Inactive',
-    //       value: 'Inactive',
-    //     },
-    //   ],
-    //   align: 'center',
-    //   filterMultiple: true,
-    //   onFilter: (value, record) => record.status.indexOf(value) === 0,
-    //   render: (value) => {
-    //     let color = '';
-    //     if (value === 'Active') {
-    //       color = 'green';
-    //     } else {
-    //       color = 'volcano';
-    //     }
-    //     return (
-    //       <Tag color={color} key={value}>
-    //         {value.toUpperCase()}
-    //       </Tag>
-    //     );
-    //   },
-    // },
     {
       title: 'Action',
       key: 'operation',
@@ -180,8 +150,17 @@ const RolesPage = (props) => {
         <Col md={12}>
           <Card>
             <Card.Body>
-              <Card.Title>Roles</Card.Title>
-              <Form id="frmSearching" noValidate onSubmit={fetchDataHandler}>
+              <Card.Title>
+                <Row>
+                  <Col>Roles</Col>
+                  <Col className="d-flex justify-content-end">
+                    <Button fill variant="info" size="sm" type="button" as={Link} to="/admin/roles/new">
+                      Create Role
+                    </Button>
+                  </Col>
+                </Row>
+              </Card.Title>
+              <Form id="frmSearching" noValidate onSubmit={submitDataHandler}>
                 <Form.Group as={Row}>
                   <Form.Label column lg={1} md={2}>
                     Role Name
@@ -192,13 +171,6 @@ const RolesPage = (props) => {
                   <Col md={2}>
                     <Button fill variant="primary" size="sm" type="submit">
                       <i className="fa fa-search"></i>
-                    </Button>
-                  </Col>
-                </Form.Group>
-                <Form.Group as={Row}>
-                  <Col md={2}>
-                    <Button fill variant="info" size="sm" type="button" as={Link} to="/admin/roles/new">
-                      Create Role
                     </Button>
                   </Col>
                 </Form.Group>
@@ -214,9 +186,9 @@ const RolesPage = (props) => {
               <AntTable
                 columns={columns}
                 rowKey={(record) => record.id}
-                dataSource={roles}
+                dataSource={roles.data}
                 scroll={{ x: 1500, y: 500 }}
-                loading={false}
+                loading={roles.loading}
                 pagination={{
                   position: ['topRight', 'bottomRight'],
                   onChange(current, pageSize) {

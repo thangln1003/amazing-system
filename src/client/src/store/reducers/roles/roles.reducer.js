@@ -13,6 +13,13 @@ const rolesReducer = (state = initialState, action) => {
         ...state,
         data: action.payload.result,
         meta: action.payload.meta,
+        loading: false,
+      };
+    }
+    case Actions.LOADING_ROLE: {
+      return {
+        ...state,
+        loading: true,
       };
     }
     default: {

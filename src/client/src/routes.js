@@ -11,7 +11,6 @@ import LockScreenPage from './views/Pages/LockScreenPage';
 import DashboardPage from './views/Pages/DashboardPage';
 import CarRentalContactPage from './views/Pages/CarRentalContactPage';
 import ForgotPasswordPage from './views/Pages/ForgotPasswordPage';
-import StdUI01 from './views/MO/StdUI01';
 import RolesPage from './views/Pages/Roles/RolesPage';
 import NewRolePage from './views/Pages/Roles/NewRolePage';
 import RoleDetailsPage from './views/Pages/Roles/RoleDetailsPage';
@@ -79,13 +78,6 @@ const routes = [
     icon: 'pe-7s-news-paper',
     component: CarRentalContactPage,
     layout: '/admin',
-  },
-  {
-    layout: '/admin',
-    icon: 'pe-7s-news-paper',
-    name: 'Standard UI 01',
-    path: '/StdUI01',
-    component: StdUI01,
   },
   {
     layout: '/auth',

@@ -53,10 +53,65 @@ router.get('/', async (req, res) => {
 
 		const paginationInfo = paginate(page, count, rows);
 
+		await sleep(3000);
+
 		return res.status(200).json({
 			success: true,
 			result: rows,
 			meta: paginationInfo,
+		});
+	} catch (err) {
+		res.status(500).send(`Internal Server Error - ${err.message}`);
+	}
+});
+
+/**
+ * @swagger
+ * /roles:
+ *  get:
+ *    summary: Get specific role
+ *    description: Use to request specific role
+ *    tags:
+ *     - Roles
+ *    parameters:
+ *     - in: query
+ *       name: page
+ *     - in: query
+ *       name: pageSize
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
+router.get('/:name', async (req, res) => {
+	try {
+		const {
+			query: { name },
+		} = req;
+
+		const selectedFields = [
+			'id',
+			'name',
+			'description',
+			'createdAt',
+			'createdBy',
+			'updatedAt',
+			'updatedBy',
+		];
+
+		const role = await Role.findOne({
+			where: { isDeleted: false, name },
+			attributes: [...selectedFields],
+		});
+
+		if (!role) {
+			return res
+				.status(404)
+				.json({ errors: [{ msg: 'Role does not exist.' }] });
+		}
+
+		return res.status(200).json({
+			success: true,
+			result: role,
 		});
 	} catch (err) {
 		res.status(500).send(`Internal Server Error - ${err.message}`);
@@ -108,5 +163,11 @@ router.post('/', async (req, res) => {
 		res.status(500).json({ errors: [{ msg: 'Server error.' }] });
 	}
 });
+
+function sleep(ms) {
+	return new Promise((resolve) => {
+		setTimeout(resolve, ms);
+	});
+}
 
 module.exports = router;

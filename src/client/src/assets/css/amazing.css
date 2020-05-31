@@ -792,7 +792,7 @@ h6, .h6 {
   text-transform: uppercase; }
 
 p {
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.5; }
 
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
@@ -3185,7 +3185,7 @@ form label.radio, form label.checkbox {
       color: #fb404b; }
     .card .category i,
     .card .form-group > label i {
-      font-size: 14px; }
+      font-size: 12px; }
   .card .form-group > label {
     font-size: 12px;
     margin-bottom: 5px; }
@@ -3193,7 +3193,8 @@ form label.radio, form label.checkbox {
       padding-top: calc(0.375rem + 1px);
       padding-bottom: calc(0.375rem + 1px);
       margin-bottom: 0;
-      line-height: 2; }
+      line-height: 1.5;
+      font-weight: 700; }
       .card .form-group > label.col-form-label-sm {
         padding-top: calc(0.25rem + 1px);
         padding-bottom: calc(0.25rem + 1px);
