@@ -127,10 +127,20 @@ const RolesPage = (props) => {
     },
     {
       title: 'Created date',
-      dataIndex: 'createdDate',
-      key: 'createdDate',
+      dataIndex: 'createdAt',
+      key: 'createdAt',
       width: 300,
       render: (value) => {
+        return <Moment format="DD/MM/YYYY hh:mm:ss">{value}</Moment>;
+      },
+    },
+    {
+      title: 'Updated date',
+      dataIndex: 'updatedAt',
+      key: 'updatedAt',
+      width: 300,
+      render: (value) => {
+        console.log(value);
         return <Moment format="DD/MM/YYYY hh:mm:ss">{value}</Moment>;
       },
     },

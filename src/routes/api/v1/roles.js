@@ -42,6 +42,8 @@ router.get('/', async (req, res) => {
 			'description',
 			'createdAt',
 			'createdBy',
+			'updatedAt',
+			'updatedBy',
 		];
 
 		const { count, rows } = await Role.findAndCountAll({
