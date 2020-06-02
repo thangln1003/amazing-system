@@ -104,7 +104,7 @@ const routes = [
     layout: '/admin',
     icon: 'pe-7s-lock',
     name: 'Role',
-    path: '/roles/:id',
+    path: '/roles/:name',
     component: RoleDetailsPage,
   },
   {

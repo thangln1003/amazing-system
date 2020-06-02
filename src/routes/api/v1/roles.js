@@ -83,11 +83,9 @@ router.get('/', async (req, res) => {
  *        description: A successful response
  */
 router.get('/:name', async (req, res) => {
+	debugger;
 	try {
-		const {
-			query: { name },
-		} = req;
-
+		const name = req.params.name;
 		const selectedFields = [
 			'id',
 			'name',

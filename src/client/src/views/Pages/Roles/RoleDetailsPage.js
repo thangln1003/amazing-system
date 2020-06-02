@@ -1,9 +1,22 @@
 import React, { useEffect } from 'react';
 import { Container, Row, Col, Card, Form } from 'react-bootstrap';
 import Button from '@core/components/CustomButton';
-import { Divider } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import * as Actions from 'store/actions/roles';
 
 const RoleDetailsPage = (props) => {
+  const dispatch = useDispatch();
+  const role = useSelector(({ gus }) => gus.role.data);
+  const { name } = props.match.params;
+
+  useEffect(() => {
+    dispatch(Actions.getRole(name));
+  }, []);
+
+  if (!role || (role && name !== role.name)) {
+    return 'Loading';
+  }
+
   return (
     <Container fluid>
       <Row>
@@ -26,7 +39,7 @@ const RoleDetailsPage = (props) => {
                     Role Name
                   </Form.Label>
                   <Col lg={2} md={2}>
-                    <p>Dev Master</p>
+                    <p>{role.name}</p>
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -34,7 +47,7 @@ const RoleDetailsPage = (props) => {
                     Role Description
                   </Form.Label>
                   <Col lg={2} md={2}>
-                    <p>Dev Master</p>
+                    <p>{role.description}</p>
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -42,9 +55,7 @@ const RoleDetailsPage = (props) => {
                     Created Date
                   </Form.Label>
                   <Col lg={2} md={2}>
-                    <p column lg={2} md={2}>
-                      2020-05-03 12:00:00Z
-                    </p>
+                    <p>{role.createdAt}</p>
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -52,7 +63,7 @@ const RoleDetailsPage = (props) => {
                     Created By
                   </Form.Label>
                   <Col lg={2} md={2}>
-                    <p>system</p>
+                    <p>{role.createdBy}</p>
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -60,7 +71,7 @@ const RoleDetailsPage = (props) => {
                     Updated Date
                   </Form.Label>
                   <Col lg={2} md={2}>
-                    <p>2020-05-03 12:00:00Z</p>
+                    <p>{role.updatedAt}</p>
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -68,7 +79,7 @@ const RoleDetailsPage = (props) => {
                     Updated By
                   </Form.Label>
                   <Col lg={2} md={2}>
-                    <p>system</p>
+                    <p>{role.updatedBy}</p>
                   </Col>
                 </Form.Group>
               </Form>
