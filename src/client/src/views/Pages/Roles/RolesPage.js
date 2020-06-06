@@ -1,6 +1,5 @@
-import React, { useState, useCallback, useRef, useEffect } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { Container, Row, Col, Card, Form, FormControl } from 'react-bootstrap';
-// import { useDebounce } from '@core/hooks';
 import _ from '@lodash';
 import Moment from 'react-moment';
 import AntTable from '@core/components/Table/AntTable';
@@ -9,14 +8,14 @@ import Button from '@core/components/CustomButton/CustomButton';
 import { Link } from 'react-router-dom';
 import * as Actions from 'store/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { Input, Tag } from 'antd';
+import { Input } from 'antd';
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
 
 const RolesPage = (props) => {
   const dispatch = useDispatch();
   const roles = useSelector(({ gus }) => gus.roles);
-  const [page, setPage] = useState({
+  const [setPage] = useState({
     current: 1,
     pageSize: 10,
   });
@@ -33,7 +32,7 @@ const RolesPage = (props) => {
       e.preventDefault();
       debounceFetchHandler(form['name'].value);
     },
-    [dispatch]
+    [debounceFetchHandler]
   );
 
   const [search, setSearch] = useState({
@@ -140,7 +139,6 @@ const RolesPage = (props) => {
       key: 'updatedAt',
       width: 300,
       render: (value) => {
-        console.log(value);
         return <Moment format="DD/MM/YYYY hh:mm:ss">{value}</Moment>;
       },
     },

@@ -8,8 +8,14 @@ export const UPDATE_ROLE = '[GUS] UPDATE ROLE';
 export const DELETE_ROLE = '[GUS] DELETE ROLE';
 export const LOADING_ROLE = '[GUS] LOADING ROLE';
 
-export const fetchRoles = (data) => async (dispatch) => {
-  const response = await axios.get(`/api/roles`);
+export const fetchRoles = (params) => async (dispatch) => {
+  const response = await axios.get(`/api/roles`, {
+    params: {
+      name: params,
+      page: 1,
+      pageSize: 10,
+    },
+  });
 
   dispatch({
     type: FETCH_ROLES,

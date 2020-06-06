@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const { Role } = require('../../../db/models');
+const { Role, Sequelize } = require('../../../db/models');
 const {
 	calculateLimitAndOffset,
 	paginate,
 } = require('../../../utils/paginate-info');
+const Op = Sequelize.Op;
 
 /**
  * @swagger
@@ -33,7 +34,7 @@ const {
 router.get('/', async (req, res) => {
 	try {
 		const {
-			query: { page, pageSize },
+			query: { name, page, pageSize },
 		} = req;
 		const { limit, offset } = calculateLimitAndOffset(page, pageSize);
 		const selectedFields = [
@@ -46,16 +47,22 @@ router.get('/', async (req, res) => {
 			'updatedBy',
 		];
 
+		let whereStatement = {
+			isDeleted: false,
+		};
+
+		if (name) {
+			whereStatement.name = { [Op.iLike]: `${name}%` };
+		}
+
 		const { count, rows } = await Role.findAndCountAll({
-			where: { isDeleted: false },
+			where: whereStatement,
 			attributes: [...selectedFields],
 			offset,
 			limit,
 		});
 
 		const paginationInfo = paginate(page, count, rows);
-
-		await sleep(3000);
 
 		return res.status(200).json({
 			success: true,
@@ -85,7 +92,6 @@ router.get('/', async (req, res) => {
  *        description: A successful response
  */
 router.get('/:name', async (req, res) => {
-	debugger;
 	try {
 		const name = req.params.name;
 		const selectedFields = [

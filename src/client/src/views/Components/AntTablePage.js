@@ -22,16 +22,14 @@ const AntTablePage = (props) => {
     pageSize: 10,
   });
 
-  const fetchDataHandler = useCallback(() => {
+  const fetchDataHandler = useCallback(async () => {
     setTable({ loading: true });
 
-    setTimeout(() => {
-      const request = axios.get('/api/carRentals');
-      request.then((response) => {
-        const data = response.data;
-        setTable({ data: [...data], loading: false });
-      });
-    }, 1000);
+    const response = await axios.get('/api/carRentals');
+    const data = response.data;
+    
+    setTable({ data: [...data], loading: false });
+
   }, []);
 
   const [search, setSearch] = useState({
@@ -212,7 +210,7 @@ const AntTablePage = (props) => {
       fixed: 'right',
       width: 100,
       align: 'center',
-      render: () => <a href='#'>action</a>,
+      render: () => <a href="#">action</a>,
     },
   ];
 
