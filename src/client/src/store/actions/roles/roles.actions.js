@@ -9,9 +9,11 @@ export const DELETE_ROLE = '[GUS] DELETE ROLE';
 export const LOADING_ROLE = '[GUS] LOADING ROLE';
 
 export const fetchRoles = (params) => async (dispatch) => {
+  const name = params.trim();
+
   const response = await axios.get(`/api/roles`, {
     params: {
-      name: params,
+      name: name,
       page: 1,
       pageSize: 10,
     },
