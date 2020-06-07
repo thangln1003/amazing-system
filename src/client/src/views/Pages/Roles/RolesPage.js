@@ -139,12 +139,7 @@ const RolesPage = (props) => {
       key: 'updatedAt',
       width: 300,
       render: (value) => {
-<<<<<<< HEAD
-        console.log(value);
         return <Moment format="YYYY/MM/DD hh:mm:ss">{value}</Moment>;
-=======
-        return <Moment format="DD/MM/YYYY hh:mm:ss">{value}</Moment>;
->>>>>>> 8085ea52a5b8e621876e91a0c44d11b0c73c9b06
       },
     },
     {
