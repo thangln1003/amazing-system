@@ -6,9 +6,9 @@ import Button from '@core/components/CustomButton/CustomButton';
 
 import axios from 'axios';
 
-const CarRentalContactPage = () => {
+const Layout001 = () => {
   const [form] = useState({
-    emailError: null,
+    //emailError: null,
   });
 
   const [loading, setLoading] = useState(false);
@@ -20,6 +20,31 @@ const CarRentalContactPage = () => {
 
   const deleteEvent = (dataItem) => {
     alert('Delete event');
+    console.log(dataItem);
+  };
+
+  const doConfirmEvent = (dataItem) => {
+    alert('Confirm event');
+    console.log(dataItem);
+  };
+
+  const doCancelEvent = (dataItem) => {
+    alert('Cancel event');
+    console.log(dataItem);
+  };
+
+  const doExecuteEvent = (dataItem) => {
+    alert('Execute event');
+    console.log(dataItem);
+  };
+
+  const doSettelEvent = (dataItem) => {
+    alert('Settle event');
+    console.log(dataItem);
+  };
+
+  const doRevertEvent = (dataItem) => {
+    alert('Revert Settle event');
     console.log(dataItem);
   };
 
@@ -100,7 +125,7 @@ const CarRentalContactPage = () => {
                     Contact NO. <span className="star">*</span>
                   </Form.Label>
                   <Col lg={2} md={2}>
-                    <FormControl autoComplete="off" size="sm" type="text" name="email" />
+                    <FormControl autoComplete="off" size="sm" type="text" name="email"  />
                     {form.emailError}
                   </Col>
                 </Form.Group>
@@ -114,25 +139,6 @@ const CarRentalContactPage = () => {
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
-                  <Form.Label className="col-lg-0-7" column md={2}>
-                    Basis Date <span className="star">*</span>
-                  </Form.Label>
-                  <Col lg={1} md={2}>
-                    <Datetime
-                      dateFormat="YYYY/MM/DD"
-                      timeFormat={false}
-                      inputProps={{ placeholder: 'From Date' }}
-                      defaultValue={new Date()}
-                    />
-                  </Col>
-                  <Col lg={1} md={2}>
-                    <Datetime
-                      dateFormat="YYYY/MM/DD"
-                      timeFormat={false}
-                      inputProps={{ placeholder: 'To Date' }}
-                      defaultValue={new Date()}
-                    />
-                  </Col>
                   <Col md={1}>
                     <Button fill variant="primary" size="sm" onClick={fectDateHandler}>
                       <i className="fa fa-search"></i>
@@ -144,6 +150,8 @@ const CarRentalContactPage = () => {
           </Card>
         </Col>
       </Row>
+
+
       <Row>
         <Col md={12}>
           <Card>
@@ -166,4 +174,4 @@ const CarRentalContactPage = () => {
   );
 };
 
-export default CarRentalContactPage;
+export default Layout001;

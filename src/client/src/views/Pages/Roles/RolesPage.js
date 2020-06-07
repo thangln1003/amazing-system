@@ -131,7 +131,7 @@ const RolesPage = (props) => {
       key: 'createdAt',
       width: 300,
       render: (value) => {
-        return <Moment format="DD/MM/YYYY hh:mm:ss">{value}</Moment>;
+        return <Moment format="YYYY/MM/DD hh:mm:ss">{value}</Moment>;
       },
     },
     {
@@ -141,7 +141,7 @@ const RolesPage = (props) => {
       width: 300,
       render: (value) => {
         console.log(value);
-        return <Moment format="DD/MM/YYYY hh:mm:ss">{value}</Moment>;
+        return <Moment format="YYYY/MM/DD hh:mm:ss">{value}</Moment>;
       },
     },
     {

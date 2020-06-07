@@ -194,7 +194,7 @@ const AntTablePage = (props) => {
       key: 'effectFrom',
       width: 150,
       render: (value) => {
-        return <Moment format="DD/MM/YYYY hh:mm:ss">{value}</Moment>;
+        return <Moment format="YYYY/MM/DD hh:mm:ss">{value}</Moment>;
       },
     },
     {
@@ -203,7 +203,7 @@ const AntTablePage = (props) => {
       key: 'effectTo',
       width: 150,
       render: (value) => {
-        return <Moment format="DD/MM/YYYY hh:mm:ss">{value}</Moment>;
+        return <Moment format="YYYY/MM/DD hh:mm:ss">{value}</Moment>;
       },
     },
     {
@@ -245,7 +245,7 @@ const AntTablePage = (props) => {
                   </Form.Label>
                   <Col lg={1} md={2}>
                     <Datetime
-                      dateFormat="DD/MM/YYYY"
+                      dateFormat="YYYY/MM/DD"
                       timeFormat={false}
                       inputProps={{ placeholder: 'From Date' }}
                       defaultValue={new Date()}
@@ -253,7 +253,7 @@ const AntTablePage = (props) => {
                   </Col>
                   <Col lg={1} md={2}>
                     <Datetime
-                      dateFormat="DD/MM/YYYY"
+                      dateFormat="YYYY/MM/DD"
                       timeFormat={false}
                       inputProps={{ placeholder: 'To Date' }}
                       defaultValue={new Date()}

@@ -15,6 +15,8 @@ import RolesPage from './views/Pages/Roles/RolesPage';
 import NewRolePage from './views/Pages/Roles/NewRolePage';
 import RoleDetailsPage from './views/Pages/Roles/RoleDetailsPage';
 
+import Layout001 from './views/Pages/DM/Layout001';
+
 const breadcrumbRoutes = {
   '/': 'Home',
   // '/admin': 'Admin',
@@ -114,6 +116,15 @@ const routes = [
     path: '/roles',
     component: RolesPage,
   },
+
+  {
+    layout: '/admin',
+    icon: 'pe-7s-lock',
+    name: 'Role',
+    path: '/layout/layout001',
+    component: Layout001,
+  },
+
 ];
 
 export { routes, breadcrumbRoutes };

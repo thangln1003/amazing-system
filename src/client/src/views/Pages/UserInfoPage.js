@@ -30,7 +30,7 @@ const UserInfoPage = () => {
                   </Form.Label>
                   <Col lg={1} md={2}>
                     <Datetime
-                      dateFormat="DD/MM/YYYY"
+                      dateFormat="YYYY/MM/DD"
                       timeFormat={false}
                       inputProps={{ placeholder: 'From Date' }}
                       defaultValue={new Date()}
@@ -38,7 +38,7 @@ const UserInfoPage = () => {
                   </Col>
                   <Col lg={1} md={2}>
                     <Datetime
-                      dateFormat="DD/MM/YYYY"
+                      dateFormat="YYYY/MM/DD"
                       timeFormat={false}
                       inputProps={{ placeholder: 'To Date' }}
                       defaultValue={new Date()}
