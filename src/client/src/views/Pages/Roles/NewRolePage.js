@@ -32,13 +32,6 @@ const NewRolePage = (props) => {
                     resetForm();
                     setStatus({ success: true });
                     setSubmitting(false);
-
-                    dispatch(
-                      Actions.showNotification({
-                        message: 'Role is created successfully!',
-                        variant: 'success',
-                      })
-                    );
                   } catch (err) {
                     setStatus({ success: false });
                     setSubmitting(false);

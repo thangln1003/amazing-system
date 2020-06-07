@@ -1817,6 +1817,11 @@ legend {
   .btn-group > .btn:disabled, .btn-group > .btn[disabled], .btn-group > .btn.disabled {
     opacity: 0.5; }
 
+.ant-modal-confirm-body > .anticon {
+  float: left;
+  margin-right: 16px;
+  font-size: 22px; }
+
 .form-group {
   margin-bottom: 15px; }
 

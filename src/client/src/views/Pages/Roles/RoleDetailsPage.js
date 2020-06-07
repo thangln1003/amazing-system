@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Container, Row, Col, Card, Form } from 'react-bootstrap';
 import Button from '@core/components/CustomButton';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from 'store/actions/roles';
+import * as Actions from 'store/actions';
 
 const RoleDetailsPage = (props) => {
   const dispatch = useDispatch();
@@ -11,7 +11,11 @@ const RoleDetailsPage = (props) => {
 
   useEffect(() => {
     dispatch(Actions.getRole(name));
-  }, []);
+  }, [dispatch, name]);
+
+  const deleteHandler = () => {
+    dispatch(Actions.openDialog({}));
+  };
 
   if (!role || (role && name !== role.name)) {
     return 'Loading';
@@ -27,7 +31,7 @@ const RoleDetailsPage = (props) => {
                 <Row>
                   <Col>Summary</Col>
                   <Col className="d-flex justify-content-end">
-                    <Button fill variant="danger" size="sm" type="button">
+                    <Button fill variant="danger" size="sm" type="button" onClick={deleteHandler}>
                       Delete Role
                     </Button>
                   </Col>
