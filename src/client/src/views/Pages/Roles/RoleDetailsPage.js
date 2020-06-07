@@ -14,7 +14,7 @@ const RoleDetailsPage = (props) => {
   }, [dispatch, name]);
 
   const deleteHandler = () => {
-    dispatch(Actions.openDialog({}));
+    dispatch(Actions.openDialog({ headerTitle: 'Delete Role' }));
   };
 
   if (!role || (role && name !== role.name)) {

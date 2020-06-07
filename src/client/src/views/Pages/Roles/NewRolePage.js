@@ -10,7 +10,13 @@ import * as Actions from 'store/actions';
 const NewRolePage = (props) => {
   const dispatch = useDispatch();
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required('*Role Name is required'),
+    name: Yup.string()
+      .required('*Role Name is required')
+      .max(64, 'Maximum 64 character')
+      .matches(/^[a-zA-Z0-9+=,.@-_]+$/, {
+        message: "Use alphanumeric and '+=,.@-_' character",
+        excludeEmptyString: true,
+      }),
   });
 
   return (
@@ -26,9 +32,7 @@ const NewRolePage = (props) => {
                 onSubmit={async (values, { setStatus, setSubmitting, resetForm, setErrors }) => {
                   try {
                     setSubmitting(true);
-
                     dispatch(Actions.createRole(values));
-
                     resetForm();
                     setStatus({ success: true });
                     setSubmitting(false);
