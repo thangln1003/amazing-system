@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { Container, Row, Col, Card, Form, FormControl } from 'react-bootstrap';
+import { Container, Row, Col, Card, Form, FormControl} from 'react-bootstrap';
 import Datetime from 'react-datetime';
 import ReactTable from '@core/components/Table/ReactTable';
 import Button from '@core/components/CustomButton/CustomButton';
@@ -120,6 +120,7 @@ const Layout001 = () => {
           <Card>
             <Card.Body>
               <Form id="frmSearching">
+                
                 <Form.Group as={Row}>
                   <Form.Label className="col-lg-0-7" column md={2}>
                     Contact NO. <span className="star">*</span>
@@ -138,10 +139,27 @@ const Layout001 = () => {
                     {form.emailError}
                   </Col>
                 </Form.Group>
-                <Form.Group as={Row}>
-                  <Col md={1}>
+                <Form.Group as={Row} >
+                  <Form.Label className="col-lg-0-7" column md={2}></Form.Label>
+                  <Col lg={2} md={2}>
                     <Button fill variant="primary" size="sm" onClick={fectDateHandler}>
                       <i className="fa fa-search"></i>
+                    </Button>
+                    {' '}
+                    <Button fill variant="primary" size="sm">
+                      Advanced Search
+                    </Button>
+                    {' '}
+                    <Button fill variant="primary" size="sm">
+                      Create
+                    </Button>
+                    {' '}
+                    <Button fill variant="primary" size="sm">
+                      Save
+                    </Button>
+                    {' '}
+                    <Button fill variant="danger" size="sm">
+                      Del
                     </Button>
                   </Col>
                 </Form.Group>
