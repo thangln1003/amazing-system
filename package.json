@@ -34,6 +34,7 @@
 		"pg": "^8.0.2",
 		"pg-hstore": "^2.3.3",
 		"prettier": "^2.0.5",
+		"react-confirm-alert": "^2.6.1",
 		"request": "^2.88.2",
 		"sequelize": "^5.21.6",
 		"sequelize-cli": "^5.5.1",

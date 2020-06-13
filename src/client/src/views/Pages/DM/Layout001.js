@@ -13,6 +13,33 @@ const Layout001 = () => {
 
   const [loading, setLoading] = useState(false);
 
+  const showAlert = (data) => {
+    
+  };
+
+  const alertOption = {
+    title : 'Alert Popup',
+    message : 'Hello Cu',
+    button:[
+      {
+        label: 'Yes',
+        onClick: () => alert('Click Yes')
+      },
+      {
+        label: 'No',
+        onClick: () => alert('Click No')
+      },
+    ],
+    childrenElement: () => <div />,
+    customUI: ({ onClose }) => <div>Custom UI</div>,
+    closeOnEscape: true,
+    closeOnClickOutside: true,
+    willUnmount: () => {},
+    afterClose: () => {}
+  }
+
+  confirmAlert(alertOption);
+
   const editEvent = (dataItem) => {
     alert('Edit event');
     console.log(dataItem);
@@ -139,28 +166,25 @@ const Layout001 = () => {
                     {form.emailError}
                   </Col>
                 </Form.Group>
-                <Form.Group as={Row} >
+                <Form.Group as={Row} className="align-items-center">
                   <Form.Label className="col-lg-0-7" column md={2}></Form.Label>
                   <Col lg={2} md={2}>
-                    <Button fill variant="primary" size="sm" onClick={fectDateHandler}>
-                      <i className="fa fa-search"></i>
-                    </Button>
-                    {' '}
-                    <Button fill variant="primary" size="sm">
-                      Advanced Search
-                    </Button>
-                    {' '}
-                    <Button fill variant="primary" size="sm">
-                      Create
-                    </Button>
-                    {' '}
-                    <Button fill variant="primary" size="sm">
-                      Save
-                    </Button>
-                    {' '}
-                    <Button fill variant="danger" size="sm">
-                      Del
-                    </Button>
+                    <Button fill variant="primary"  size="sm" onClick={fectDateHandler}><i className="fa fa-search"></i></Button>{' '}
+                    <Button fill variant="primary"  size="sm">Advanced Search</Button>{' '}
+                    <Button fill variant="primary"  size="sm">Create</Button>{' '}
+                    <Button fill variant="primary"  size="sm">Save</Button>{' '}
+                    <Button fill variant="danger"   size="sm">Del</Button>{' '}
+                  </Col>
+                </Form.Group>
+
+                <Form.Group as={Row} className="align-items-center">
+                  <Form.Label className="col-lg-0-7" column md={2}></Form.Label>
+                  <Col lg={2} md={2}>
+                    <Button fill variant="primary"  size="sm" onClick={editEvent}>Act 01</Button>{' '}
+                    <Button fill variant="primary"  size="sm" onClick={editEvent}>Act 02</Button>{' '}
+                    <Button fill variant="primary"  size="sm" onClick={editEvent}>Act 03</Button>{' '}
+                    <Button fill variant="primary"  size="sm" onClick={editEvent}>Act 04</Button>{' '}
+                    <Button fill variant="primary"  size="sm" onClick={confirmAlert}>Act 05</Button>{' '}
                   </Col>
                 </Form.Group>
               </Form>
