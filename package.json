@@ -9,14 +9,17 @@
 	},
 	"scripts": {
 		"start": "cd src && node server",
+		"idsrv": "cd src/idsrv && nodemon server",
 		"server": "cd src && nodemon server",
 		"client": "npm start --prefix src/client",
-		"dev": "concurrently \"npm run server\" \"npm run client\"",
+		"dev": "concurrently \"npm run idsrv\" \"npm run server\" \"npm run client\"",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"author": "Brian Ly",
 	"license": "ISC",
 	"dependencies": {
+		"@koa/cors": "^3.1.0",
+		"@types/koa": "^2.11.3",
 		"app-root-path": "^3.0.0",
 		"bcryptjs": "^2.4.3",
 		"config": "^3.3.1",
@@ -26,6 +29,8 @@
 		"helmet": "^3.22.0",
 		"install": "^0.13.0",
 		"jsonwebtoken": "^8.5.1",
+		"koa": "^2.12.1",
+		"koa-compose": "^4.1.0",
 		"mongoose": "^5.9.7",
 		"morgan": "^1.10.0",
 		"npm": "^6.14.5",
@@ -46,6 +51,11 @@
 		"eslint": "^6.8.0",
 		"eslint-config-airbnb-base": "^14.1.0",
 		"eslint-plugin-import": "^2.21.1",
+		"koa-body": "^4.2.0",
+		"koa-ejs": "^4.3.0",
+		"koa-helmet": "^5.2.0",
+		"koa-mount": "^4.0.0",
+		"koa-router": "^9.0.1",
 		"nodemon": "^2.0.3"
 	}
 }

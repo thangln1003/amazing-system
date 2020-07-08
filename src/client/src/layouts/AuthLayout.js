@@ -4,8 +4,8 @@ import { Switch, Route } from 'react-router-dom';
 import AuthHeader from '../@core/components/Header/AuthHeader';
 import Footer from '../@core/components/Footer/Footer';
 
-// dinamically create pages routes
-import { routes } from '../routes';
+// dynamically create pages routes
+import { routes } from '../routes/routeItems';
 
 import bgImage from 'assets/img/full-screen-image-3.jpg';
 

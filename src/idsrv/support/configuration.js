@@ -14,25 +14,19 @@ const selectAccount = new Prompt({
 // add to index 0, order goes select_account > login > consent
 interactions.add(selectAccount, 0);
 
-// http://localhost:3000/auth?client_id=foo&response_type=id_token&scope=openid&nonce=foobar
-// http://localhost:3000/auth?client_id=foo&response_type=id_token&scope=openid+email&nonce=foobar&prompt=login
-// http://localhost:3000/auth?response_type=code&client_id=foo&scope=openid+offline_access&state=xyz&redirect_uri=https%3A%2F%2Fexample%2Ecom%2Fcb
-// http://localhost:3000/auth?response_type=code&client_id=foo&scope=openid&state=xyz&redirect_uri=https%3A%2F%2Fexample%2Ecom%2Fcb
-// * http://localhost:3000/auth?client_id=foo&scope=openid&response_type=code+id_token&redirect_uri=https%3A%2F%2Fexample%2Ecom%2Fcb&nonce=foobar
-// * http://localhost:3000/auth?client_id=foo&scope=openid&response_type=code&redirect_uri=https%3A%2F%2Fexample%2Ecom%2Fcb
-// * http://localhost:3000/auth?client_id=foo&scope=openid%20offline_access&response_type=code&redirect_uri=https%3A%2F%2Fexample%2Ecom%2Fcb
+// * http://localhost:5001/auth?client_id=foo&scope=openid&response_type=code+id_token&redirect_uri=https%3A%2F%2Fexample%2Ecom%2Fcb&nonce=foobar
+// * http://localhost:5001/auth?client_id=foo&scope=openid&response_type=code&redirect_uri=https%3A%2F%2Fexample%2Ecom%2Fcb
+// * http://localhost:5001/auth?client_id=foo&scope=openid%20offline_access&response_type=code&redirect_uri=https%3A%2F%2Fexample%2Ecom%2Fcb
 module.exports = {
 	clients: [
 		{
 			client_id: 'foo',
 			// client_secret: 'bar',
 			grant_types: ['authorization_code', 'implicit', 'refresh_token'],
-			redirect_uris: ['https://example.com/cb'],
+			redirect_uris: ['http://localhost:3000/callback'],
 			response_types: ['code id_token', 'code', 'id_token'],
 			scope: 'openid offline_access',
 			token_endpoint_auth_method: 'none',
-			userinfo_encrypted_response_alg: 'RS256',
-			userinfo_encrypted_response_enc: 'A128CBC-HS256'
 		},
 	],
 	interactions: {
@@ -70,11 +64,18 @@ module.exports = {
 	},
 	features: {
 		claimsParameter: { enabled: true },
+		deviceFlow: { enabled: true },
+		dPoP: { enabled: true },
+		encryption: { enabled: true },
+		frontchannelLogout: { enabled: true },
+		introspection: { enabled: true },
+		registration: { enabled: true },
+		registrationManagement: { enabled: true, rotateRegistrationAccessToken: true },
+		jwtResponseModes: { enabled: true },
+		pushedAuthorizationRequests: { enabled: true },
 		devInteractions: { enabled: true }, // defaults to true
 		userinfo: { enabled: true }, // default
 		jwtUserinfo: { enabled: true }, // defaults to true
-		deviceFlow: { enabled: true }, // defaults to false
-		introspection: { enabled: true }, // defaults to false
 		revocation: { enabled: true }, // defaults to false
 	},
 	formats: {

@@ -5,7 +5,7 @@ import Checkbox from '@core/components/CustomCheckbox/CustomCheckbox';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { Divider } from 'antd';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from 'react-router-dom';
 
 const LoginPage = (props) => {
   // Schema for yup
@@ -21,6 +21,12 @@ const LoginPage = (props) => {
         .min(8, '*Password is too short - should be 8 chars minimum.'),
     }),
   });
+
+  const loginHandler = () => {
+    props.history.push(
+      `http://localhost:5001/auth?client_id=foo&scope=openid%20offline_access&response_type=code&redirect_uri=https%3A%2F%2Fexample%2Ecom%2Fcb`
+    );
+  };
 
   return (
     <Container>
@@ -92,11 +98,27 @@ const LoginPage = (props) => {
                     </Form.Group>
                   </Card.Body>
                   <Card.Footer className="text-center">
-                    <Button variant="info" fill wd type="submit" block disabled={isSubmitting}>
+                    <Button
+                      variant="info"
+                      fill
+                      wd
+                      type="button"
+                      block
+                      disabled={isSubmitting}
+                      href="http://localhost:5001/auth?client_id=foo&scope=openid%20offline_access&response_type=code&redirect_uri=http%3A%2F%2Flocalhost:3000%2Fcallback"
+                    >
                       Login
                     </Button>
                     <Divider>OR</Divider>
-                    <Button variant="primary" fill wd type="button" size="sm" disabled={isSubmitting} href="/auth/google">
+                    <Button
+                      variant="primary"
+                      fill
+                      wd
+                      type="button"
+                      size="sm"
+                      disabled={isSubmitting}
+                      href="/auth/google"
+                    >
                       Login with Google
                     </Button>
                   </Card.Footer>

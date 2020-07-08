@@ -1,27 +1,26 @@
 // Components
-import Typography from './views/Components/Typography';
-import IconsPage from './views/Components/IconsPage';
+import Typography from '../views/Components/Typography';
+import IconsPage from '../views/Components/IconsPage';
 import AntTablePage from 'views/Components/AntTablePage';
 import ReactTablePage from 'views/Components/ReactTablePage';
 
 // Pages
-import LoginPage from './views/Pages/LoginPage';
-import RegisterPage from './views/Pages/RegisterPage';
-import LockScreenPage from './views/Pages/LockScreenPage';
-import DashboardPage from './views/Pages/DashboardPage';
-import CarRentalContactPage from './views/Pages/CarRentalContactPage';
-import ForgotPasswordPage from './views/Pages/ForgotPasswordPage';
-import RolesPage from './views/Pages/Roles/RolesPage';
-import NewRolePage from './views/Pages/Roles/NewRolePage';
-import RoleDetailsPage from './views/Pages/Roles/RoleDetailsPage';
+import LoginPage from '../views/Pages/LoginPage';
+import RegisterPage from '../views/Pages/RegisterPage';
+import LockScreenPage from '../views/Pages/LockScreenPage';
+import DashboardPage from '../views/Pages/DashboardPage';
+import CarRentalContactPage from '../views/Pages/CarRentalContactPage';
+import ForgotPasswordPage from '../views/Pages/ForgotPasswordPage';
+import RolesPage from '../views/Pages/Roles/RolesPage';
+import NewRolePage from '../views/Pages/Roles/NewRolePage';
+import RoleDetailsPage from '../views/Pages/Roles/RoleDetailsPage';
 
-import Layout001 from './views/Pages/DM/Layout001';
+import Layout001 from '../views/Pages/DM/Layout001';
 
 const breadcrumbRoutes = {
   '/': 'Home',
   // '/admin': 'Admin',
   // '/admin/typography': 'Typography',
-  // '/admin/carrental': 'Car Rental Contact Mgnt'
 };
 
 const routes = [
@@ -116,7 +115,6 @@ const routes = [
     path: '/roles',
     component: RolesPage,
   },
-
   {
     layout: '/admin',
     icon: 'pe-7s-lock',
@@ -124,7 +122,6 @@ const routes = [
     path: '/layout/layout001',
     component: Layout001,
   },
-
 ];
 
 export { routes, breadcrumbRoutes };

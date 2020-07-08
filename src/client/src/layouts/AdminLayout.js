@@ -7,7 +7,7 @@ import Breadcrumbs from '@core/components/Breadcrumbs';
 import Notification from '@core/components/Notification/Notification';
 import Dialog from '@core/components/Dialog';
 
-import { routes, breadcrumbRoutes } from '../routes.js';
+import { routes, breadcrumbRoutes } from '../routes/routeItems';
 
 const AdminLayout = () => {
   const mainPanelRef = React.useRef();
